@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Programación didáctica | Programación (0485) — 1.º DAW</title>
+  <script>
+    // Redirecciona si no está en un iframe
+    //if (window.self === window.top) {
+    //    window.location.href = 'https://digitechfp.com'; // O muestra página de error
+    //}
+  </script>
+  <style>
+    :root {
+      --fg: #111;
+      --bg: #ffffff;
+      --muted: #555;
+      --accent: #0b6efd;
+      --table-border: #d9d9d9;
+      --hr: #e5e5e5;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .doc {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 24px 16px 64px;
+    }
+
+    header h1 {
+      font-size: 1.6rem;
+      margin: 0 0 4px;
+      font-weight: 700;
+    }
+
+    header .subtitle {
+      color: var(--muted);
+      font-size: 0.98rem;
+      margin-bottom: 12px;
+    }
+
+    hr {
+      border: 0;
+      border-top: 1px solid var(--hr);
+      margin: 16px 0 24px;
+    }
+
+    h2 {
+      font-size: 1.15rem;
+      margin: 20px 0 8px;
+      border-left: 4px solid var(--accent);
+      padding-left: 8px;
+    }
+
+    h3 {
+      font-size: 1.02rem;
+      margin: 16px 0 6px;
+    }
+
+    p {
+      margin: 8px 0;
+    }
+
+    ul,
+    ol {
+      margin: 8px 0 8px 20px;
+    }
+
+    li {
+      margin: 4px 0;
+    }
+
+    .small {
+      font-size: 0.95rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0;
+      font-size: 0.96rem;
+    }
+
+    th,
+    td {
+      border: 1px solid var(--table-border);
+      padding: 8px;
+      vertical-align: top;
+    }
+
+    th {
+      background: #f7f7f7;
+      text-align: left;
+    }
+
+    .note {
+      background: #f9fbff;
+      border: 1px solid #dceaff;
+      border-left: 4px solid var(--accent);
+      padding: 10px 12px;
+      margin: 12px 0;
+      border-radius: 4px;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+    }
+
+    @media print {
+      .doc {
+        padding: 0;
+      }
+
+      header h1 {
+        font-size: 18pt;
+      }
+
+      h2 {
+        font-size: 14pt;
+      }
+
+      h3 {
+        font-size: 12pt;
+      }
+
+      a {
+        color: #000;
+        text-decoration: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="doc">
+    <header>
+      <h1>Programación (0485) — 1.º DAW</h1>
+
+    </header>
+    <hr />
+
+    <h2>Índice de la programación</h2>
+    <ol class="small">
+      <li>Legislación vigente</li>
+      <li>Identificación del módulo</li>
+      <li>Contextualización</li>
+      <li>Objetivos específicos del módulo</li>
+      <li>Competencias profesionales, personales y sociales</li>
+      <li>Materiales y recursos didácticos</li>
+      <li>Contenido
+        <ol>
+          <li>Unidades temáticas</li>
+          <li>Resultados de aprendizaje y criterios de evaluación (oficiales, texto literal)</li>
+        </ol>
+      </li>
+      <li>Temporización</li>
+      <li>Calendario de evaluaciones</li>
+      <li>Correspondencia entre Contenidos, RA y Actividades</li>
+      <li>Procedimiento de evaluación
+        <ol>
+          <li>Criterios de calificación</li>
+          <li>Proceso de recuperación</li>
+        </ol>
+      </li>
+      <li>Metodología didáctica</li>
+      <li>Atención a la diversidad</li>
+      <li>Consideraciones finales</li>
+      <li>Fuentes oficiales</li>
+    </ol>
+
+    <h2>1. Legislación vigente</h2>
+    <ul>
+      <li>Ley Orgánica 3/2022, de 31 de marzo, de ordenación e integración de la Formación Profesional.</li>
+      <li>Real Decreto 686/2010, de 20 de mayo, por el que se establece el título de Técnico Superior en Desarrollo de
+        Aplicaciones Web (DAW) y se fijan sus enseñanzas mínimas.</li>
+      <li>Andalucía: Orden de 5 de agosto de 2010, por la que se desarrolla el currículo del título de Técnico Superior
+        en Desarrollo de Aplicaciones Web; y Decreto 46/2011, de 22 de febrero (ordenación general de la FP inicial),
+        además de las instrucciones de evaluación vigentes.</li>
+    </ul>
+
+
+    <h2>2. Identificación del módulo</h2>
+    <ul>
+      <li>Familia profesional: Informática y Comunicaciones</li>
+      <li>Título: Técnico Superior en Desarrollo de Aplicaciones Web (DAW)</li>
+      <li>Módulo profesional: Programación</li>
+      <li>Código oficial: 0485</li>
+      <li>Curso: 1.º</li>
+      <li>Carga horaria semanal: 8 horas lectivas semanales en 1.º DAW</li>
+    </ul>
+
+    <h2>3. Contextualización</h2>
+    <p>El módulo Programación en 1.º de DAW proporciona los fundamentos de la programación estructurada y la orientación
+      a objetos, articulando la base necesaria para módulos de 2.º curso.</p>
+
+  <h2>4. Objetivos específicos del módulo</h2>
+  <ul>
+    <li>Comprender los elementos de un programa y los lenguajes de programación (con énfasis en Java y el uso de IDE).</li>
+    <li>Escribir y depurar código con estructuras de control y manejo de excepciones.</li>
+    <li>Utilizar objetos y bibliotecas de clases, aplicando principios de POO.</li>
+    <li>Manipular cadenas, arrays y colecciones para resolver problemas.</li>
+    <li>Realizar operaciones de entrada/salida y trabajar con ficheros y sistema de archivos.</li>
+    <li>Introducir acceso a bases de datos con JDBC y nociones de interfaces gráficas (AWT/Swing).</li>
+  </ul>
+
+    <h2>5. Competencias profesionales, personales y sociales</h2>
+    <p>Contribuye a las competencias del título DAW (RD 686/2010): análisis, diseño e implementación de soluciones software, documentación y calidad, trabajo colaborativo y aprendizaje autónomo.</p>
+
+  <h2>6. Materiales y recursos didácticos</h2>
+  <h3>Infraestructura</h3>
+  <p>Aula con red y acceso a Internet; campus virtual y repositorios Git.</p>
+  <h3>Hardware</h3>
+  <p>Equipos con CPU multinúcleo y 8–16 GB de RAM; soporte para WSL/virtualización.</p>
+  <h3>Software</h3>
+  <ul>
+    <li>IDE: VS Code/NetBeans.</li>
+    <li>JDK 21+, gestor de dependencias si procede.</li>
+    <li>Herramientas de pruebas y depuración; Git.</li>
+  </ul>
+
+    <h2>7. Contenido</h2>
+    <h3>7.1. Unidades temáticas (según contenido.html)</h3>
+
+    <h3>UT01. Introducción a la Programación</h3>
+    <ul>
+      <li>Programas: buscando una solución. Paradigmas de la programación.</li>
+      <li>Fases de la programación: resolución del problema, implementación, explotación.</li>
+      <li>Ciclo de vida del software.</li>
+      <li>Lenguajes de programación. El lenguaje de programación Java.</li>
+      <li>Entornos Integrados de Desarrollo (IDE).</li>
+      <li>Variables e identificadores. Tipos de datos. Literales de los tipos primitivos.</li>
+      <li>Operadores y expresiones. Conversión de tipo. Comentarios.</li>
+    </ul>
+
+    <h3>UT02. Uso de estructuras de control</h3>
+    <ul>
+      <li>Estructura secuencial: sentencias y bloques.</li>
+      <li>Estructuras de selección: if, if-else, anidadas, switch.</li>
+      <li>Estructuras repetitivas: while, do-while, for; contador y acumulador.</li>
+      <li>Estructuras de salto: break, continue, etiquetas.</li>
+      <li>Errores, pruebas y depuración de programas. Depuración de código.</li>
+    </ul>
+
+    <h3>UT03. Utilización de objetos</h3>
+    <ul>
+      <li>Fundamentos de la POO. Clases y objetos. Utilización de objetos. Métodos.</li>
+      <li>Bibliotecas de clases (paquetes).</li>
+      <li>Programación de la consola: entrada y salida de la información.</li>
+      <li>Manipulación de la fecha y la hora en Java. Excepciones.</li>
+    </ul>
+
+    <h3>UT04. Cadenas de caracteres y arrays</h3>
+    <ul>
+      <li>Introducción a las estructuras de almacenamiento.</li>
+      <li>Cadenas de caracteres. Expresiones regulares.</li>
+      <li>Arrays y arrays multidimensionales.</li>
+      <li>Formateado de cadenas en Java.</li>
+    </ul>
+
+    <h3>UT05. Colecciones y tipos abstractos de datos</h3>
+    <ul>
+      <li>Interfaz Collection, Set, List, Queue, Map.</li>
+    </ul>
+
+    <h3>UT06. Entrada/Salida y ficheros</h3>
+    <ul>
+      <li>Concepto de flujo. Clases relativas a flujos. Flujos predefinidos (E/S estándar).</li>
+      <li>Flujos basados en bytes y en caracteres.</li>
+      <li>Trabajando con ficheros y sistemas de ficheros: aplicaciones, operaciones comunes.</li>
+    </ul>
+
+    <h3>UT07. Acceso a Bases de Datos</h3>
+    <ul>
+      <li>JDBC. Conectores/Drivers. Instalación de la base de datos.</li>
+      <li>Lenguaje SQL básico.</li>
+      <li>Conexiones y ejecución de consultas: recuperación, actualización, inserción, borrado.</li>
+      <li>Cierre de conexiones y gestión de excepciones.</li>
+    </ul>
+
+    <h3>UT08. Interfaces (introducción)</h3>
+    <ul>
+      <li>Bibliotecas: AWT y Swing.</li>
+      <li>Contenedores, componentes, eventos y diseño.</li>
+      <li>Menús. Look &amp; Feel. Proyectos de Swing en NetBeans.</li>
+    </ul>
+
+    <h3>7.2. Resultados de aprendizaje y criterios de evaluación (oficiales; texto literal)</h3>
+
+    <p><strong>RA1.</strong> Reconoce la estructura de un programa informático, identificando y relacionando los
+      elementos propios del lenguaje de programación utilizado.</p>
+    <ul>
+      <li>a) Se han identificado los bloques que componen la estructura de un programa informático.</li>
+      <li>b) Se han creado proyectos de desarrollo de aplicaciones.</li>
+      <li>c) Se han utilizado entornos integrados de desarrollo.</li>
+      <li>d) Se han identificado los distintos tipos de variables y la utilidad específica de cada uno.</strong></li>
+      <li>e) Se ha modificado el código de un programa para crear y utilizar variables.</li>
+      <li>f) Se han creado y utilizado constantes y literales. Se han clasificado, reconocido y utilizado en expresiones
+        los operadores del lenguaje.</li>
+      <li>g) Se ha comprobado el funcionamiento de las conversiones de tipo explícitas e implícitas.</li>
+      <li>h) Se han introducido comentarios en el código.</li>
+    </ul>
+
+    <p><strong>RA2.</strong> Escribe y depura código, analizando y utilizando las estructuras de control del lenguaje.
+    </p>
+    <ul>
+      <li>a) Se ha escrito y probado código que haga uso de estructuras de selección.</li>
+      <li>b) Se han utilizado estructuras de repetición.</li>
+      <li>c) Se han reconocido las posibilidades de las sentencias de salto.</li>
+      <li>d) Se ha escrito código utilizando control de excepciones.</li>
+      <li>e) Se han creado programas ejecutables utilizando diferentes estructuras de control.</li>
+      <li>f) Se han probado y depurado los programas. Se ha comentado y documentado el código.</li>
+    </ul>
+
+    <p><strong>RA3.</strong> Escribe código utilizando programación modular. Conoce la diferencia entre el paso de
+      parámetros por valor y por referencia.</p>
+    <ul>
+      <li>a) Se han codificado funciones para resolver problemas de matemática elemental.</li>
+      <li>b) Se ha utilizado el concepto de iteración y recursividad.</li>
+    </ul>
+
+    <p><strong>RA4.</strong> Escribe programas que manipulen información, seleccionando y utilizando tipos avanzados de
+      datos.</p>
+    <ul>
+      <li>a) Se han escrito programas que utilizan cadenas, listas y diccionarios.</li>
+    </ul>
+
+    <p><strong>RA5.</strong> Realiza operaciones de entrada y salida de información, utilizando procedimientos
+      específicos del lenguaje y librerías de clases.</p>
+    <ul>
+      <li>a) Se ha utilizado la consola para realizar operaciones de entrada y salida de información.</li>
+      <li>b) Se han aplicado formatos en la visualización de la información.</li>
+      <li>c) Se han reconocido las posibilidades de entrada / salida del lenguaje y las librerías asociadas.</li>
+      <li>d) Se han utilizado ficheros para almacenar y recuperar información.</li>
+      <li>e) Se han creado programas que utilicen diversos métodos de acceso al contenido de los ficheros.</li>
+    </ul>
+
+    <p><strong>RA6.</strong> Desarrolla programas organizados en clases analizando y aplicando los principios de la
+      programación orientada a objetos.</p>
+    <ul>
+      <li>a) Se ha reconocido la sintaxis, estructura y componentes típicos de una clase.</li>
+      <li>b) Se han definido clases.</li>
+      <li>c) Se han definido propiedades y métodos. Se han creado constructores.</li>
+      <li>d) Se han desarrollado programas que instancien y utilicen objetos de las clases creadas anteriormente. Se han
+        utilizado mecanismos para controlar la visibilidad de las clases y de sus miembros.</li>
+      <li>e) Se han definido y utilizado clases heredadas.</li>
+    </ul>
+
+    <h2>8. Temporización</h2>
+    <p>Carga horaria semanal oficial en Andalucía: 8 horas/semana en 1.º DAW para el módulo Programación (0485). La
+      distribución temporal adapta el nuevo temario por trimestres.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Evaluación</th>
+            <th>Periodo orientativo</th>
+            <th>Unidades</th>
+            <th>Horas estimadas</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1.ª</td>
+            <td>Septiembre – Diciembre</td>
+            <td>UT01, UT02, inicio UT03</td>
+            <td>≈ 8 h/sem × semanas del periodo</td>
+          </tr>
+          <tr>
+            <td>2.ª</td>
+            <td>Enero – Marzo</td>
+            <td>Resto UT03, UT04 y UT05</td>
+            <td>≈ 8 h/sem × semanas del periodo</td>
+          </tr>
+          <tr>
+            <td>3.ª</td>
+            <td>Abril – Junio</td>
+            <td>UT06, UT07 y UT08; refuerzo/repaso</td>
+            <td>≈ 8 h/sem × semanas del periodo</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>El cómputo real dependerá del calendario oficial del centro (festivos, evaluaciones y actividades).</p>
+
+    <h2>9. Calendario de evaluaciones</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Evaluación</th>
+            <th>Semana de pruebas</th>
+            <th>Sesión de evaluación</th>
+            <th>Alcance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1.ª</td>
+            <td>Segunda semana de diciembre (orientativo)</td>
+            <td>Tercera semana de diciembre</td>
+            <td>UT01–UT02 y avances de UT03 (RA1–RA2 y parciales de RA6/RA5 por excepciones/E/S).</td>
+          </tr>
+          <tr>
+            <td>2.ª</td>
+            <td>Segunda quincena de marzo</td>
+            <td>Última semana de marzo</td>
+            <td>UT03–UT05 (POO básica, cadenas/arrays, colecciones) — RA4 y RA6.</td>
+          </tr>
+          <tr>
+            <td>3.ª (Final ordinaria)</td>
+            <td>Primera quincena de junio</td>
+            <td>Segunda quincena de junio</td>
+            <td>UT06–UT08 (E/S, JDBC, interfaces) y recuperaciones — RA5 y síntesis.</td>
+          </tr>
+          <tr>
+            <td>Extraordinaria</td>
+            <td>Según calendario del centro</td>
+            <td>Según calendario del centro</td>
+            <td>Acreditación de RA mínimos no alcanzados.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>10. Correspondencia entre Contenidos, RA y Actividades</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Unidad</th>
+            <th>RA asociado(s)</th>
+            <th>Actividades propuestas</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>UT01. Introducción a la Programación</td>
+            <td>RA1</td>
+            <td>Creación de proyecto en IDE, katas de sintaxis, tipos, operadores y conversiones; comentarios y estilo.
+            </td>
+          </tr>
+          <tr>
+            <td>UT02. Estructuras de control</td>
+            <td>RA2</td>
+            <td>Ejercicios con condicionales, bucles, saltos; depuración paso a paso; manejo básico de excepciones.</td>
+          </tr>
+          <tr>
+            <td>UT03. Utilización de objetos</td>
+            <td>RA6, RA5 (E/S consola), RA2 (excepciones)</td>
+            <td>Programas con clases y objetos; uso de librerías estándar; E/S por consola; gestión de fecha/hora y
+              excepciones.</td>
+          </tr>
+          <tr>
+            <td>UT04. Cadenas y arrays</td>
+            <td>RA4</td>
+            <td>Procesamiento de texto, regex básicas; arrays 1D/2D; formateo de cadenas.</td>
+          </tr>
+          <tr>
+            <td>UT05. Colecciones y TAD</td>
+            <td>RA4</td>
+            <td>Prácticas con List/Set/Map/Queue; comparativas de operaciones; problemas de manipulación de datos.</td>
+          </tr>
+          <tr>
+            <td>UT06. E/S y ficheros</td>
+            <td>RA5</td>
+            <td>Lectura/escritura con flujos de bytes y caracteres; gestión de ficheros y directorios; miniutilidades.
+            </td>
+          </tr>
+          <tr>
+            <td>UT07. Acceso a Bases de Datos</td>
+            <td>RA5</td>
+            <td>Conexión JDBC; CRUD básico; manejo de excepciones; cierre de recursos.</td>
+          </tr>
+          <tr>
+            <td>UT08. Interfaces (AWT/Swing)</td>
+            <td>RA6 (aplicación OO en interfaz)</td>
+            <td>Prototipos con contenedores, componentes y eventos; pequeños proyectos en Swing.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+    <h2>11. Procedimiento de evaluación</h2>
+    <ul>
+      <li>Evaluación continua referida a RA/CE oficiales.</li>
+      <li>Instrumentos: ejercicios y prácticas en aula, pruebas teórico-prácticas, repositorios con evidencias, rúbricas
+        por RA/CE y defensa breve de entregas.</li>
+      <li>Ponderación orientativa: 60% pruebas teórico-prácticas; 30% prácticas y tareas; 10% asistencia, actitud y
+        participación. Ajustable a las instrucciones del centro y a la DGFP.</li>
+    </ul>
+
+    <h3>11.1. Criterios de calificación</h3>
+    <ul>
+      <li>Calificación 0–10. Se valoran funcionalidad, corrección, claridad del código, pruebas y documentación.</li>
+      <li>Las calificaciones se asignan por logro de los CE asociados a cada RA.</li>
+      <li>Entregas fuera de plazo: posible penalización salvo causa justificada, conforme a la normativa del centro.
+      </li>
+    </ul>
+
+    <h3>11.2. Proceso de recuperación</h3>
+    <ul>
+      <li>Actividades específicas por CE no alcanzado y reentrega con defensa.</li>
+      <li>Pruebas de recuperación por RA durante el periodo ordinario.</li>
+      <li>Convocatoria extraordinaria según calendario; se acreditan RA mínimos.</li>
+    </ul>
+
+    <h2>12. Metodología didáctica</h2>
+    <p>Aprendizaje activo basado en problemas y prácticas guiadas, con trabajo incremental por unidades. Uso de
+      repositorios de código, revisión por pares y retroalimentación continua. Integración de ejercicios de depuración y
+      pruebas desde el inicio.</p>
+
+    <h2>13. Atención a la diversidad</h2>
+    <ul>
+      <li>Ritmos más lentos: guías paso a paso, plantillas y tiempos adicionales en prácticas.</li>
+      <li>Altas capacidades: problemas de mayor complejidad, ampliaciones y retos en POO.</li>
+      <li>Dificultades idiomáticas: glosarios y ejemplos autocontenidos; apoyo entre iguales.</li>
+    </ul>
+
+    <h2>14. Consideraciones finales</h2>
+    <p>La programación se alinea con los RA y CE oficiales del módulo y la normativa vigente, priorizando la práctica
+      guiada y la verificación en entornos realistas.</p>
+
+  </div>
+</body>
+
+</html>
