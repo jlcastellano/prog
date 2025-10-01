@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programación</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/vs2015.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">Introducción a la Programación</div>
+        </div>
+    </header>
+
+    <div class="container">
+        <main class="main-content">
+            <div class="content-header">
+                <h1 class="content-title" id="page-title">3. Fases de la programación</h1>
+            </div>
+
+            <div class="lesson-section" id="lesson-content">
+               
+
+                <p class="text-content">Sea cual sea el estilo que escojamos a la hora de automatizar una determinada tarea, debemos realizar el proceso aplicando un método a nuestro trabajo. Es decir, sabemos que vamos a dar solución a un problema, aplicando una filosofía de desarrollo y lo haremos dando una serie de pasos que deben estar bien definidos.</p>
+
+                <p class="text-content">El proceso de creación de software puede dividirse en diferentes fases:</p>
+
+                <div class="info-box note">
+                    <div class="info-box-title">Fases principales</div>
+                    <ul>
+                        <li><strong>Fase de resolución del problema.</strong></li>
+                        <li><strong>Fase de implementación.</strong></li>
+                        <li><strong>Fase de explotación y mantenimiento.</strong></li>
+                    </ul>
+                </div>
+
+                <p class="text-content">A continuación, analizaremos cada una de ellas.</p>
+
+                <h3 class="section-title" id="resolucion">3.1. Resolución del problema</h3>
+
+                <p class="text-content">Para el comienzo de esta fase, es necesario que el problema sea definido y comprendido claramente para que pueda ser analizado con todo detalle. A su vez, la fase de resolución del problema puede dividirse en dos etapas:</p>
+
+                <h4>1. Análisis</h4>
+                <p class="text-content">Por regla general, el análisis del problema nos va a indicar la especificación de requisitos que la aplicación debe cubrir. ¿Y cómo se llega a esa especificación? Pues lo más probable es que haya numerosos contactos, a modo de entrevistas, entre el analista/programador y el cliente/usuario de la futura aplicación. De esta forma, se irán averiguando todas las necesidades que precisa la aplicación. Se especificarán los procesos y estructuras de datos que se van a emplear. La creación de prototipos será muy útil para saber con mayor exactitud los puntos a tratar.</p>
+
+                <p class="text-content">El análisis inicial ofrecerá una idea general de lo que se solicita, realizando posteriormente sucesivos refinamientos que servirán para dar respuesta a las siguientes cuestiones:</p>
+
+                <div class="info-box tip">
+                    <div class="info-box-title">Preguntas clave del análisis</div>
+                    <ul>
+                        <li><strong>¿Cuál es la información que ofrecerá la resolución del problema?</strong> La respuesta a esta primera pregunta se identifica con los resultados deseados o las salidas del problema.</li>
+                        <li><strong>¿Qué datos son necesarios para resolver el problema?</strong> La respuesta a esta segunda pregunta indicará qué datos se proporcionan o las entradas del problema.</li>
+                    </ul>
+                </div>
+
+                <p class="text-content">En esta fase debemos aprender a analizar la documentación de la empresa, investigar, observar todo lo que rodea al problema y recopilar cualquier información útil.</p>
+
+                <h4>2. Diseño</h4>
+                <p class="text-content">En esta etapa se convierte la especificación realizada en la fase de análisis en un diseño más detallado, indicando el comportamiento o la secuencia lógica de instrucciones capaz de resolver el problema planteado. Estos pasos sucesivos, que indican las instrucciones a ejecutar por la máquina, constituyen lo que conocemos como <strong>algoritmo</strong>.</p>
+
+                <p class="text-content">Consiste en plantear la aplicación como una única operación global, e ir descomponiéndola en operaciones más sencillas, detalladas y específicas. En cada nivel de refinamiento, las operaciones identificadas se asignan a módulos separados.</p>
+
+                <div class="info-box warning">
+                    <div class="info-box-title">Verificación del diseño</div>
+                    <p>Hay que tener en cuenta que antes de pasar a la implementación del algoritmo, hemos de asegurarnos de que tenemos una solución adecuada. Para ello, todo diseño requerirá de la realización de la <strong>prueba o traza del programa</strong>. Este proceso consistirá en un seguimiento paso a paso de las instrucciones del algoritmo utilizando datos concretos. Si la solución aportada tiene errores, tendremos que volver a la fase de análisis para realizar las modificaciones necesarias o tomar un nuevo camino para la solución. Sólo cuando el algoritmo cumpla los requisitos y objetivos especificados en la fase de análisis se pasará a la fase de implementación.</p>
+                </div>
+
+                <h3 class="section-title" id="implementacion">3.2. Implementación</h3>
+
+                <p class="text-content">Si la fase de resolución del problema requiere un especial cuidado en la realización del análisis y el posterior diseño de la solución, la fase de implementación cobra también una especial relevancia. Llevar a la realidad nuestro algoritmo implicará cubrir algunas etapas más que se detallan a continuación.</p>
+
+                <h4>1. Codificación o construcción</h4>
+                <p class="text-content">Esta etapa consiste en transformar o traducir los resultados obtenidos a un determinado lenguaje de programación. Para comprobar la calidad y estabilidad de la aplicación se han de realizar una serie de pruebas que comprueben las funciones de cada módulo (pruebas unitarias), que los módulos funcionan bien entre ellos (pruebas de interconexión) y que todos funcionan en conjunto correctamente (pruebas de integración).</p>
+
+                <p class="text-content">Cuando realizamos la traducción del algoritmo al lenguaje de programación debemos tener en cuenta las reglas gramaticales y la sintaxis de dicho lenguaje. Obtendremos entonces el <strong>código fuente</strong>, lo que normalmente conocemos por programa.</p>
+
+                <p class="text-content">Pero para que nuestro programa comience a funcionar, antes debe ser traducido a un lenguaje que la máquina entienda. Este proceso de traducción puede hacerse de dos formas, compilando o interpretando el código fuente del programa.</p>
+
+                <div class="info-box note">
+                    <div class="info-box-title">Compilación</div>
+                    <p>Es el proceso por el cual se traducen las instrucciones escritas en un determinado lenguaje de programación a lenguaje que la máquina es capaz de interpretar.</p>
+                </div>
+
+                <div class="info-box note">
+                    <div class="info-box-title">Compilador</div>
+                    <p>Programa informático que realiza la traducción. Recibe el código fuente, realiza un análisis lexicográfico, semántico y sintáctico, genera un código intermedio no optimizado, optimiza dicho código y finalmente, genera el código objeto para una plataforma específica.</p>
+                </div>
+
+                <div class="info-box note">
+                    <div class="info-box-title">Intérprete</div>
+                    <p>Programa informático capaz de analizar y ejecutar otros programas, escritos en un lenguaje de alto nivel. Los intérpretes se diferencian de los compiladores en que mientras estos traducen un programa desde su descripción en un lenguaje de programación al código de máquina del sistema, los intérpretes sólo realizan la traducción a medida que sea necesaria, típicamente, instrucción por instrucción, y normalmente no guardan el resultado de dicha traducción.</p>
+                </div>
+
+                <p class="text-content">Una vez traducido, sea a través de un proceso de compilación o de interpretación, el programa podrá ser ejecutado.</p>
+
+                <h4>2. Prueba de ejecución y validación</h4>
+                <p class="text-content">Para esta etapa es necesario implantar la aplicación en el sistema donde va a funcionar, debe ponerse en marcha y comprobar si su funcionamiento es correcto. Utilizando diferentes datos de prueba se verá si el programa responde a los requerimientos especificados, si se detectan nuevos errores, si éstos son bien gestionados y si la interfaz es amigable. Se trata de poner a prueba nuestro programa para ver su respuesta en situaciones difíciles.</p>
+
+                <p class="text-content">Mientras se detecten errores y éstos no se subsanen no podremos avanzar a la siguiente fase. Una vez corregido el programa y testeado se documentará mediante:</p>
+
+                <div class="info-box tip">
+                    <div class="info-box-title">Tipos de documentación</div>
+                    <ul>
+                        <li><strong>Documentación interna:</strong> encabezados, descripciones, declaraciones del problema y comentarios que se incluyen dentro del código fuente.</li>
+                        <li><strong>Documentación externa:</strong> son los manuales que se crean para una mejor ejecución y utilización del programa, así como algunos tipos de diagramas que ayudan a comprender mejor la "arquitectura" de nuestra solución, como pueden ser los diagramas de flujo, diagramas de clases, etc.</li>
+                    </ul>
+                </div>
+
+                <h3 class="section-title" id="explotacion">3.3. Explotación</h3>
+
+                <p class="text-content">Cuando el programa ya está instalado en el sistema y está siendo de utilidad para los usuarios, decimos que se encuentra en fase de explotación.</p>
+
+                <p class="text-content">Periódicamente será necesario realizar evaluaciones y, si es necesario, llevar a cabo modificaciones para que el programa se adapte o actualice a nuevas necesidades, pudiendo también corregirse errores no detectados anteriormente. Este proceso recibe el nombre de mantenimiento del software.</p>
+
+                <div class="info-box note">
+                    <div class="info-box-title">Mantenimiento del software</div>
+                    <p>Es el proceso de mejora y optimización del software después de su entrega al usuario final. Involucra cambios al software en orden de corregir defectos y dependencias encontradas durante su uso, así como la adición de nuevas funcionalidades para mejorar su usabilidad y su aplicabilidad.</p>
+                </div>
+
+                <p class="text-content">Será imprescindible añadir una documentación adecuada que facilite al programador o a la programadora la comprensión, uso y modificación de dichos programas.</p>
+
+            </div>
+        </main>
+    </div>
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

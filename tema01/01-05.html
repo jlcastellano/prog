@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programación</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/vs2015.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">Introducción a la Programación</div>
+        </div>
+    </header>
+
+    <div class="container">
+        <main class="main-content">
+            <div class="content-header">
+                <h1 class="content-title" id="page-title">5. Lenguajes de programación</h1>
+            </div>
+
+            <div class="lesson-section" id="lesson-content">
+
+                <p class="text-content">Como hemos visto, en todo el proceso de resolución de un problema mediante la creación de software, después del análisis del problema y del diseño del algoritmo que pueda resolverlo, es necesario traducir éste a un lenguaje que exprese claramente cada uno de los pasos a seguir para su correcta ejecución. Este lenguaje recibe el nombre de lenguaje de programación.</p>
+
+                <div class="info-box note">
+                    <div class="info-box-title">Lenguaje de programación</div>
+                    <p>Conjunto de reglas sintácticas y semánticas, símbolos y palabras especiales establecidas para la construcción de programas. Es un lenguaje artificial, una construcción mental del ser humano para expresar programas.</p>
+                </div>
+
+                <div class="table-container">
+                    <h4 class="table-title">Componentes de un lenguaje de programación</h4>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Componente</th>
+                                <th>Definición</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Gramática del lenguaje</strong></td>
+                                <td>Reglas aplicables al conjunto de símbolos y palabras especiales del lenguaje de programación para la construcción de sentencias correctas.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Léxico</strong></td>
+                                <td>Es el conjunto finito de símbolos y palabras especiales, es el vocabulario del lenguaje.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Sintaxis</strong></td>
+                                <td>Son las posibles combinaciones de los símbolos y palabras especiales. Está relacionada con la forma de los programas.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Semántica</strong></td>
+                                <td>Es el significado de cada construcción del lenguaje, la acción que se llevará a cabo.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="info-box warning">
+                    <div class="info-box-title">Importante</div>
+                    <p>Hay que tener en cuenta que pueden existir sentencias sintácticamente correctas, pero semánticamente incorrectas. Por ejemplo, "Un avestruz dio una tremenda dentellada a su cuidador" está bien construida sintácticamente, pero es evidente que semánticamente no.</p>
+                </div>
+
+                <p class="text-content">Una característica relevante de los lenguajes de programación es, precisamente, que más de un programador pueda usar un conjunto común de instrucciones que sean comprendidas entre ellos. A través de este conjunto se puede lograr la construcción de un programa de forma colaborativa.</p>
+
+                <p class="text-content">Los lenguajes de programación pueden ser clasificados en función de lo cerca que estén del lenguaje humano o del lenguaje de los computadores. El lenguaje de los computadores son códigos binarios, es decir, secuencias de unos y ceros. Detallaremos seguidamente las características principales de los lenguajes de programación.</p>
+
+                <h3 class="section-title" id="maquina">5.1. Lenguaje máquina</h3>
+
+                <p class="text-content">Éste es el lenguaje utilizado directamente por el procesador, consta de un conjunto de instrucciones codificadas en binario. Es el sistema de códigos directamente interpretable por un circuito microprogramable.</p>
+
+                <p class="text-content">Se trata del primer lenguaje utilizado para la programación de computadores. De hecho, cada máquina tenía su propio conjunto de instrucciones codificadas en ceros y unos. Cuando un algoritmo está escrito en este tipo de lenguaje, decimos que está en código máquina.</p>
+
+                <p class="text-content">Programar en este tipo de lenguaje presentaba los siguientes inconvenientes:</p>
+
+                <ul class="text-content">
+                    <li>Cada programa era válido sólo para un tipo de procesador u ordenador.</li>
+                    <li>La lectura o interpretación de los programas era extremadamente difícil y, por tanto, insertar modificaciones resultaba muy costoso.</li>
+                    <li>Los programadores de la época debían memorizar largas combinaciones de ceros y unos, que equivalían a las instrucciones disponibles para los diferentes tipos de procesadores.</li>
+                    <li>Los programadores se encargaban de introducir los códigos binarios en el computador, lo que provocaba largos tiempos de preparación y posibles errores.</li>
+                </ul>
+
+                <div class="table-container">
+                    <h4 class="table-title">Algunas operaciones en lenguaje máquina</h4>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Operación</th>
+                                <th>Lenguaje máquina</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>SUMAR</td>
+                                <td>00101101</td>
+                            </tr>
+                            <tr>
+                                <td>RESTAR</td>
+                                <td>00010011</td>
+                            </tr>
+                            <tr>
+                                <td>MOVER</td>
+                                <td>00111010</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="info-box note">
+                    <div class="info-box-title">Importante</div>
+                    <p>Dada la complejidad y dificultades que ofrecía este lenguaje, fue sustituido por otros más sencillos y fáciles utilizar. No obstante, hay que tener en cuenta que todos los programas para poder ser ejecutados, han de traducirse siempre al lenguaje máquina que es el único que entiende la computadora.</p>
+                </div>
+
+                <h3 class="section-title" id="ensamblador">5.2. Lenguaje ensamblador</h3>
+
+                <p class="text-content">La evolución del lenguaje máquina fue el lenguaje ensamblador.</p>
+
+                <p class="text-content">Las instrucciones ya no son secuencias binarias, se sustituyen por códigos de operación que describen una operación elemental del procesador. Es un lenguaje de bajo nivel, al igual que el lenguaje máquina, ya que dependen directamente del hardware donde son ejecutados.</p>
+
+                <div class="info-box note">
+                    <div class="info-box-title">Mnemotécnico</div>
+                    <p>Son palabras especiales, que sustituyen largas secuencias de ceros y unos, utilizadas para referirse a diferentes operaciones disponibles en el juego de instrucciones que soporta cada máquina en particular.</p>
+                </div>
+
+                <p class="text-content">En ensamblador, cada instrucción (mnemotécnico) se corresponde a una instrucción del procesador. En la siguiente tabla se muestran algunos ejemplos.</p>
+
+                <div class="table-container">
+                    <h4 class="table-title">Algunas operaciones y su mnemotécnico en lenguaje Ensamblador</h4>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Operación</th>
+                                <th>Lenguaje Ensamblador</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>MULTIPLICAR</td>
+                                <td>MUL</td>
+                            </tr>
+                            <tr>
+                                <td>DIVIDIR</td>
+                                <td>DIV</td>
+                            </tr>
+                            <tr>
+                                <td>MOVER</td>
+                                <td>MOV</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p class="text-content">Pero aunque ensamblador fue un intento por aproximar el lenguaje de los procesadores al lenguaje humano, presentaba múltiples dificultades:</p>
+
+                <ul class="text-content">
+                    <li>Los programas seguían dependiendo directamente del hardware que los soportaba.</li>
+                    <li>Los programadores tenían que conocer detalladamente la máquina sobre la que programaban, ya que debían hacer un uso adecuado de los recursos de dichos sistemas.</li>
+                    <li>La lectura, interpretación o modificación de los programas seguía presentando dificultades.</li>
+                </ul>
+
+                <p class="text-content">Todo programa escrito en lenguaje ensamblador necesita de un intermediario, que realice la traducción de cada una de las instrucciones que componen su código al lenguaje máquina correspondiente. Este intermediario es el programa <strong>ensamblador</strong>. El programa original escrito en lenguaje ensamblador constituye el <strong>código fuente</strong> y el programa traducido al lenguaje máquina se conoce como <strong>programa objeto</strong> que será directamente ejecutado por la computadora.</p>
+
+                <h3 class="section-title" id="compilados">5.3. Lenguajes compilados</h3>
+
+                <p class="text-content">Para paliar los problemas derivados del uso del lenguaje ensamblador y con el objetivo de acercar la programación hacia el uso de un lenguaje más cercano al humano que al del computador, nacieron los lenguajes compilados.</p>
+
+                <p class="text-content">Algunos ejemplos de este tipo de lenguajes son: Pascal, Fortran, Algol, C, C++, etc.</p>
+
+                <p class="text-content">Al ser lenguajes más cercanos al humano, también se les denomina <strong>lenguajes de alto nivel</strong>. Son más fáciles de utilizar y comprender, las instrucciones que forman parte de estos lenguajes utilizan palabras y signos reconocibles por el programador.</p>
+
+                <h4>¿Cuáles son sus ventajas?</h4>
+                <ul class="text-content">
+                    <li>Son mucho más fáciles de aprender y de utilizar que sus predecesores.</li>
+                    <li>Se reduce el tiempo para desarrollar programas, así como los costes.</li>
+                    <li>Son independientes del hardware, los programas pueden ejecutarse en diferentes tipos de máquina.</li>
+                    <li>La lectura, interpretación y modificación de los programas es mucho más sencilla.</li>
+                </ul>
+
+                <p class="text-content">Pero un programa que está escrito en un lenguaje de alto nivel también tiene que traducirse a un código que pueda utilizar la máquina. Los programas traductores que pueden realizar esta operación se llaman compiladores.</p>
+
+                <div class="info-box note">
+                    <div class="info-box-title">Compilador</div>
+                    <p>Es un programa cuya función consiste en traducir el código fuente de un programa escrito en un lenguaje de alto nivel a lenguaje máquina. Al proceso de traducción se le conoce con el nombre de compilación.</p>
+                </div>
+
+                <p class="text-content">El compilador realizará la traducción y además informará de los posibles errores. Una vez subsanados, se generará el programa traducido a código máquina, conocido como código objeto. Este programa aún no podrá ser ejecutado hasta que no se le añadan los módulos de enlace o bibliotecas, durante el proceso de enlazado. Una vez finalizado el enlazado, se obtiene el código ejecutable.</p>
+
+                <h3 class="section-title" id="interpretados">5.4. Lenguajes interpretados</h3>
+
+                <p class="text-content">Se caracterizan por estar diseñados para que su ejecución se realice a través de un intérprete. Cada instrucción escrita en un lenguaje interpretado se analiza, traduce y ejecuta tras haber sido verificada. Una vez realizado el proceso por el intérprete, la instrucción se ejecuta, pero no se guarda en memoria.</p>
+
+                <div class="info-box note">
+                    <div class="info-box-title">Intérprete</div>
+                    <p>Es un programa traductor de un lenguaje de alto nivel en el que el proceso de traducción y de ejecución se llevan a cabo simultáneamente, es decir, la instrucción se pasa a lenguaje máquina y se ejecuta directamente. No se genera programa objeto, ni programa ejecutable.</p>
+                </div>
+
+                <p class="text-content">Los programas en lenguajes interpretados presentan el inconveniente de ser algo más lentos que los compilados, ya que han de ser traducidos durante su ejecución. Por otra parte, necesitan disponer en la máquina del programa intérprete ejecutándose, algo que no es necesario en el caso de un programa compilado, para los que sólo es necesario tener el programa ejecutable para poder utilizarlo.</p>
+
+                <p class="text-content">Ejemplos de lenguajes interpretados son: Perl, PHP, Python, JavaScript, etc.</p>
+
+                <div class="info-box tip">
+                    <div class="info-box-title">Lenguajes híbridos</div>
+                    <p>A medio camino entre los lenguajes compilados y los interpretados, existen los lenguajes que podemos denominar pseudo-compilados o pseudo-interpretados, es el caso del <strong>Lenguaje Java</strong>. Java puede verse como compilado e interpretado a la vez, ya que su código fuente se compila para obtener el código binario en forma de bytecodes, que son estructuras parecidas a las instrucciones máquina, con la importante propiedad de no ser dependientes de ningún tipo de máquina. La Máquina Virtual Java se encargará de interpretar este código y, para su ejecución, lo traducirá a código máquina del procesador en particular sobre el que se esté trabajando.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
