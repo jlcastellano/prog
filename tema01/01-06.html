@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instalación de PSeInt y Primeros Pasos - Introducción a la Programación</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/vs2015.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">Introducción a la Programación con PSeInt</div>
+
+        </div>
+    </header>
+
+
+    <!-- Contenedor principal -->
+    <div class="container">
+ 
+
+        <!-- Contenido principal -->
+        <main class="main-content">
+            <div class="content-header">
+                <h1 class="content-title" id="page-title">Instalación de PSeInt y Primeros Pasos</h1>
+                <p class="content-subtitle" id="page-subtitle">Tu primer paso hacia la programación: instalación y configuración de PSeInt en Windows</p>
+            </div>
+
+            <div id="lesson-content">
+                <!-- Sección 1: Introducción -->
+                <section class="lesson-section">
+                    <h2 class="section-title">1. ¿Qué es PSeInt?</h2>
+                    
+                    <div class="text-content">
+                        <strong>PSeInt</strong> (Pseudo Intérprete) es una herramienta educativa gratuita diseñada específicamente para ayudarte a aprender los fundamentos de la programación mediante <strong>pseudocódigo</strong>. Es ideal para estudiantes que están dando sus primeros pasos en el mundo de la programación.
+                    </div>
+
+                    <div class="info-box note">
+                        <div class="info-box-title">💡 ¿Por qué PSeInt?</div>
+                        <p>PSeInt te permite concentrarte en la <strong>lógica de programación</strong> sin preocuparte por la sintaxis compleja de lenguajes profesionales. Es como aprender a conducir primero en un simulador antes de salir a la carretera.</p>
+                    </div>
+
+                    <div class="text-content">
+                        <strong>Características principales:</strong>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Característica</th>
+                                    <th>Descripción</th>
+                                    <th>Beneficio</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Interfaz en Español</td>
+                                    <td>Toda la herramienta está en español, incluyendo mensajes de error</td>
+                                    <td>Facilita el aprendizaje sin barreras de idioma</td>
+                                </tr>
+                                <tr>
+                                    <td>Editor Inteligente</td>
+                                    <td>Autocompletado y sugerencias mientras escribes</td>
+                                    <td>Reduce errores de sintaxis</td>
+                                </tr>
+                                <tr>
+                                    <td>Diagramas de Flujo</td>
+                                    <td>Genera automáticamente diagramas visuales de tu código</td>
+                                    <td>Visualiza la lógica de tu algoritmo</td>
+                                </tr>
+                                <tr>
+                                    <td>Depurador Integrado</td>
+                                    <td>Ejecuta tu código paso a paso</td>
+                                    <td>Comprende cómo funciona cada instrucción</td>
+                                </tr>
+                                <tr>
+                                    <td>100% Gratuito</td>
+                                    <td>Software libre y de código abierto</td>
+                                    <td>Sin costos ni limitaciones</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Sección 2: Descarga -->
+                <section class="lesson-section">
+                    <h2 class="section-title">2. Descarga de PSeInt</h2>
+                    
+              
+
+                    <div class="info-box tip">
+                        <div class="info-box-title">🌐 Sitio Web Oficial</div>
+                        <p>Siempre descarga PSeInt desde su sitio web oficial: <strong><a href="http://pseint.sourceforge.net" target="_blank" >http://pseint.sourceforge.net/</a></strong></p>
+                    </div>
+
+             
+                </section>
+
+                <!-- Sección 3: Tu Primer Algoritmo -->
+                <section class="lesson-section">
+                    <h2 class="section-title">3. Tu Primer Algoritmo: ¡Hola Mundo!</h2>
+                    
+                    <div class="text-content">
+                        Es tradición en programación que el primer programa que escribas sea un "Hola Mundo". Este programa simplemente muestra un mensaje en la pantalla.
+                    </div>
+
+                    <div class="info-box tip">
+                        <div class="info-box-title">🎯 Objetivo del Ejercicio</div>
+                        <p>Familiarizarte con la estructura básica de un algoritmo en PSeInt y aprender a mostrar mensajes en pantalla.</p>
+                    </div>
+
+                    <div class="text-content">
+                        <strong>Paso 1: Crear un nuevo algoritmo</strong><br>
+                        En PSeInt, ve al menú <strong>Archivo → Nuevo</strong> o presiona <strong>Ctrl+N</strong>. Verás que el editor ya tiene una estructura básica:
+                    </div>
+
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>📝 Estructura básica generada automáticamente</span>
+                            <span class="language-badge">PSeInt</span>
+                        </div>
+                        <div class="code-content">
+                            <button class="copy-button">Copiar</button>
+                            <pre><code>Algoritmo SinTitulo
+	
+FinAlgoritmo</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="text-content">
+                        <strong>Paso 2: Darle un nombre a tu algoritmo</strong><br>
+                        Cambia "SinTitulo" por un nombre descriptivo. Los nombres de algoritmos deben:
+                    </div>
+
+                    <div class="text-content">
+                        ✓ Comenzar con una letra<br>
+                        ✓ No contener espacios (usa mayúsculas para separar palabras: MiPrimerAlgoritmo)<br>
+                        ✓ No usar caracteres especiales (como ñ, tildes, !, @, #, etc.)<br>
+                        ✓ Ser descriptivos de lo que hace el algoritmo
+                    </div>
+
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>📝 Algoritmo con nombre descriptivo</span>
+                            <span class="language-badge">PSeInt</span>
+                        </div>
+                        <div class="code-content">
+                            <button class="copy-button">Copiar</button>
+                            <pre><code>Algoritmo HolaMundo
+	
+FinAlgoritmo</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="text-content">
+                        <strong>Paso 3: Escribir la instrucción para mostrar un mensaje</strong><br>
+                        Entre <code>Algoritmo</code> y <code>FinAlgoritmo</code>, escribe la siguiente línea:
+                    </div>
+
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>✨ Tu primer algoritmo completo</span>
+                            <span class="language-badge">PSeInt</span>
+                        </div>
+                        <div class="code-content">
+                            <button class="copy-button">Copiar</button>
+                            <pre><code>Algoritmo HolaMundo
+    Escribir "¡Hola Mundo! Este es mi primer algoritmo"
+FinAlgoritmo</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="info-box note">
+                        <div class="info-box-title">📚 Explicación del Código</div>
+                        <p><strong>Algoritmo HolaMundo:</strong> Define el nombre del algoritmo<br>
+                        <strong>Escribir:</strong> Instrucción que muestra un mensaje en pantalla<br>
+                        <strong>"¡Hola Mundo! ...":</strong> El texto entre comillas es lo que se mostrará<br>
+                        <strong>FinAlgoritmo:</strong> Marca el final del algoritmo</p>
+                    </div>
+
+                    <div class="text-content">
+                        <strong>Paso 4: Guardar tu algoritmo</strong><br>
+                        Ve a <strong>Archivo → Guardar</strong> o presiona <strong>Ctrl+S</strong>. Elige una carpeta (te recomiendo crear una carpeta llamada "Ejercicios PSeInt" en Documentos) y dale un nombre al archivo. PSeInt agregará automáticamente la extensión <code>.psc</code>.
+                    </div>
+
+                    <div class="text-content">
+                        <strong>Paso 5: Ejecutar tu algoritmo</strong><br>
+                        Ahora viene la parte emocionante. Para ejecutar tu algoritmo, puedes:
+                    </div>
+
+                    <div class="text-content">
+                        • Presionar <strong>F9</strong><br>
+                        • Hacer clic en el botón de "Play" (▶) en la barra de herramientas<br>
+                        • Ir al menú <strong>Ejecutar → Ejecutar</strong>
+                    </div>
+
+                    <div class="text-content">
+                        Si todo está correcto, verás una ventana emergente con el mensaje "¡Hola Mundo! Este es mi primer algoritmo".
+                    </div>
+
+
+                </section>
+
+                <!-- Sección 4: Entendiendo la Lógica Computacional -->
+                <section class="lesson-section">
+                    <h2 class="section-title">4. Introducción a la Lógica Computacional</h2>
+                    
+                    <div class="text-content">
+                        Antes de continuar escribiendo más algoritmos, es importante entender qué significa "lógica computacional" y cómo las computadoras "piensan".
+                    </div>
+
+                    <div class="text-content">
+                        <strong>¿Qué es la lógica computacional?</strong><br>
+                        La lógica computacional es la forma en que descomponemos problemas complejos en pasos pequeños y precisos que una computadora puede seguir. Piensa en ello como una receta de cocina muy detallada.
+                    </div>
+
+                    <div class="info-box note">
+                        <div class="info-box-title">🍳 Analogía: Preparar un Sándwich</div>
+                        <p>Para un humano: "Prepara un sándwich de jamón y queso"<br>
+                        Para una computadora necesitarías: "<br>1. Tomar dos rebanadas de pan, <br>2. Colocar una rebanada sobre el plato, <br>3. Colocar una loncha de jamón sobre el pan, <br>4. Colocar una loncha de queso sobre el jamón, <br>5. Colocar la segunda rebanada de pan encima"</p>
+                    </div>
+
+                    <div class="text-content">
+                        <strong>Las tres reglas de oro de la lógica computacional:</strong>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Regla</th>
+                                    <th>Explicación</th>
+                                    <th>Ejemplo</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Secuencialidad</td>
+                                    <td>Las instrucciones se ejecutan una después de otra, en orden</td>
+                                    <td>Primero lees los datos, luego los procesas, finalmente muestras el resultado</td>
+                                </tr>
+                                <tr>
+                                    <td>Precisión</td>
+                                    <td>Cada instrucción debe ser clara y sin ambigüedades</td>
+                                    <td>"Suma 5" es ambiguo. "Suma 5 al número ingresado" es preciso</td>
+                                </tr>
+                                <tr>
+                                    <td>Finitud</td>
+                                    <td>El algoritmo debe terminar eventualmente</td>
+                                    <td>Un bucle debe tener una condición de salida</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="text-content">
+                        <strong>Pensamiento algorítmico: De problema a solución</strong><br>
+                        Para desarrollar tu lógica computacional, necesitas practicar el "pensamiento algorítmico". Esto significa:
+                    </div>
+
+                    <div class="text-content">
+                        <strong>1. Entender el problema:</strong> ¿Qué necesito lograr?<br>
+                        <strong>2. Identificar datos:</strong> ¿Qué información necesito?<br>
+                        <strong>3. Planear la solución:</strong> ¿Qué pasos debo seguir?<br>
+                        <strong>4. Escribir el algoritmo:</strong> Traducir los pasos a pseudocódigo<br>
+                        <strong>5. Probar y corregir:</strong> Ejecutar y verificar que funcione correctamente
+                    </div>
+                </section>
+
+                <!-- Sección 5: Tu Segundo Algoritmo -->
+                <section class="lesson-section">
+                    <h2 class="section-title">5. Tu Segundo Algoritmo: Interacción con el Usuario</h2>
+                    
+                    <div class="text-content">
+                        Ahora que entiendes los conceptos básicos, vamos a crear un algoritmo más interactivo que le pida información al usuario.
+                    </div>
+
+                    <div class="text-content">
+                        <strong>Concepto: Variables</strong><br>
+                        Una variable es como una caja donde guardas información. Cada caja tiene un nombre y puede contener un valor que puede cambiar durante la ejecución del programa.
+                    </div>
+
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>👤 Algoritmo que saluda personalmente</span>
+                            <span class="language-badge">PSeInt</span>
+                        </div>
+                        <div class="code-content">
+                            <button class="copy-button">Copiar</button>
+                            <pre><code>Algoritmo SaludoPersonalizado
+    // Declaramos una variable para guardar el nombre
+    Definir nombre Como Caracter
+    
+    // Pedimos al usuario que ingrese su nombre
+    Escribir "¿Cómo te llamas?"
+    Leer nombre
+    
+    // Mostramos un saludo personalizado
+    Escribir "¡Hola ", nombre, "! Bienvenido a la programación"
+FinAlgoritmo</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="info-box note">
+                        <div class="info-box-title">📚 Conceptos Nuevos</div>
+                        <p><strong>//</strong> son comentarios (notas para ti que la computadora ignora)<br>
+                        <strong>Definir:</strong> Crea una variable<br>
+                        <strong>nombre:</strong> El nombre de nuestra variable<br>
+                        <strong>Como Caracter:</strong> Indica que guardará texto<br>
+                        <strong>Leer:</strong> Captura lo que el usuario escribe<br>
+                        <strong>Las comas:</strong> Permiten combinar texto y variables en el mismo mensaje</p>
+                    </div>
+
+                    <div class="text-content">
+                        <strong>¿Cómo funciona este algoritmo?</strong>
+                    </div>
+
+                    <div class="text-content">
+                        1. Primero declaramos una variable llamada <code>nombre</code> que guardará texto (Caracter)<br>
+                        2. Mostramos un mensaje preguntando el nombre<br>
+                        3. Esperamos a que el usuario escriba algo y presione Enter<br>
+                        4. Lo que el usuario escribió se guarda en la variable <code>nombre</code><br>
+                        5. Mostramos un mensaje personalizado usando el nombre guardado
+                    </div>
+
+                    <div class="info-box tip">
+                        <div class="info-box-title">💡 Experimenta</div>
+                        <p>Escribe este algoritmo, ejecútalo varias veces con diferentes nombres. Observa cómo el mismo código produce resultados diferentes según lo que ingreses. ¡Esa es la magia de las variables!</p>
+                    </div>
+                </section>
+
+                <!-- Sección 6: Algoritmo con Cálculos -->
+                <section class="lesson-section">
+                    <h2 class="section-title">6. Tu Tercer Algoritmo: Realizando Cálculos</h2>
+                    
+                    <div class="text-content">
+                        Las computadoras son excelentes para hacer cálculos. Vamos a crear un algoritmo que sume dos números.
+                    </div>
+
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>🔢 Calculadora Simple de Suma</span>
+                            <span class="language-badge">PSeInt</span>
+                        </div>
+                        <div class="code-content">
+                            <button class="copy-button">Copiar</button>
+                            <pre><code>Algoritmo SumaDosNumeros
+    // Definimos las variables
+    Definir numero1, numero2, resultado Como Real
+    
+    // Solicitamos el primer número
+    Escribir "Ingresa el primer número:"
+    Leer numero1
+    
+    // Solicitamos el segundo número
+    Escribir "Ingresa el segundo número:"
+    Leer numero2
+    
+    // Realizamos la suma
+    resultado <- numero1 + numero2
+    
+    // Mostramos el resultado
+    Escribir "La suma de ", numero1, " + ", numero2, " es: ", resultado
+FinAlgoritmo</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="info-box note">
+                        <div class="info-box-title">📚 Nuevos Conceptos</div>
+                        <p><strong>Como Real:</strong> Indica que la variable guardará números (con o sin decimales)<br>
+                        <strong><-</strong> (Asignación): Guarda un valor en una variable<br>
+                        <strong>+</strong> (Operador): Realiza la suma de dos números</p>
+                    </div>
+
+                    <div class="text-content">
+                        <strong>Operadores matemáticos básicos en PSeInt:</strong>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Operador</th>
+                                    <th>Operación</th>
+                                    <th>Ejemplo</th>
+                                    <th>Resultado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>+</td>
+                                    <td>Suma</td>
+                                    <td>5 + 3</td>
+                                    <td>8</td>
+                                </tr>
+                                <tr>
+                                    <td>-</td>
+                                    <td>Resta</td>
+                                    <td>5 - 3</td>
+                                    <td>2</td>
+                                </tr>
+                                <tr>
+                                    <td>*</td>
+                                    <td>Multiplicación</td>
+                                    <td>5 * 3</td>
+                                    <td>15</td>
+                                </tr>
+                                <tr>
+                                    <td>/</td>
+                                    <td>División</td>
+                                    <td>15 / 3</td>
+                                    <td>5</td>
+                                </tr>
+                                <tr>
+                                    <td>MOD</td>
+                                    <td>Módulo (residuo)</td>
+                                    <td>7 MOD 3</td>
+                                    <td>1</td>
+                                </tr>
+                                <tr>
+                                    <td>^</td>
+                                    <td>Potencia</td>
+                                    <td>2 ^ 3</td>
+                                    <td>8</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="info-box warning">
+                        <div class="info-box-title">⚠️ Importante: Tipos de Datos</div>
+                        <p>Cuando trabajas con números, usa <strong>Como Real</strong> o <strong>Como Entero</strong>. Para texto, usa <strong>Como Caracter</strong>. Si intentas hacer cálculos matemáticos con variables de texto, obtendrás un error.</p>
+                    </div>
+                </section>
+
+                <!-- Sección 7: Ejercicios Prácticos -->
+                <section class="lesson-section">
+                    <h2 class="section-title">7. Ejercicios Prácticos para Desarrollar tu Lógica</h2>
+                    
+                    <div class="text-content">
+                        La mejor forma de desarrollar tu lógica computacional es practicando. Aquí tienes cinco ejercicios progresivos. Intenta resolverlos por tu cuenta antes de ver la solución.
+                    </div>
+
+                    <div class="text-content">
+                        <strong>Ejercicio 1: Calculadora de Edad</strong><br>
+                        Crea un algoritmo que pida al usuario su año de nacimiento y calcule su edad actual (usa 2025 como año actual).
+                    </div>
+
+                    <div class="info-box tip">
+                        <div class="info-box-title">💡 Pista</div>
+                        <p>Necesitarás: una variable para el año de nacimiento, otra para la edad, y la operación de resta.</p>
+                    </div>
+
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>✅ Solución Ejercicio 1</span>
+                            <span class="language-badge">PSeInt</span>
+                        </div>
+                        <div class="code-content">
+                            <button class="copy-button">Copiar</button>
+                            <pre><code>Algoritmo CalculadoraEdad
+    Definir anioNacimiento, edad Como Entero
+    
+    Escribir "¿En qué año naciste?"
+    Leer anioNacimiento
+    
+    edad <- 2025 - anioNacimiento
+    
+    Escribir "Tienes aproximadamente ", edad, " años"
+FinAlgoritmo</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="text-content">
+                        <strong>Ejercicio 2: Convertidor de Temperatura</strong><br>
+                        Crea un algoritmo que convierta grados Celsius a Fahrenheit. Fórmula: F = (C × 9/5) + 32
+                    </div>
+
+                    <div class="info-box tip">
+                        <div class="info-box-title">💡 Pista</div>
+                        <p>Pide los grados Celsius, aplica la fórmula y muestra el resultado en Fahrenheit.</p>
+                    </div>
+
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>✅ Solución Ejercicio 2</span>
+                            <span class="language-badge">PSeInt</span>
+                        </div>
+                        <div class="code-content">
+                            <button class="copy-button">Copiar</button>
+                            <pre><code>Algoritmo ConvertidorTemperatura
+    Definir celsius, fahrenheit Como Real
+    
+    Escribir "Ingresa los grados Celsius:"
+    Leer celsius
+    
+    fahrenheit <- (celsius * 9/5) + 32
+    
+    Escribir celsius, "°C equivalen a ", fahrenheit, "°F"
+FinAlgoritmo</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="text-content">
+                        <strong>Ejercicio 3: Calculadora de Área de Rectángulo</strong><br>
+                        Pide al usuario la base y la altura de un rectángulo, y calcula su área (base × altura).
+                    </div>
+
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>✅ Solución Ejercicio 3</span>
+                            <span class="language-badge">PSeInt</span>
+                        </div>
+                        <div class="code-content">
+                            <button class="copy-button">Copiar</button>
+                            <pre><code>Algoritmo AreaRectangulo
+    Definir base, altura, area Como Real
+    
+    Escribir "Ingresa la base del rectángulo:"
+    Leer base
+    
+    Escribir "Ingresa la altura del rectángulo:"
+    Leer altura
+    
+    area <- base * altura
+    
+    Escribir "El área del rectángulo es: ", area
+FinAlgoritmo</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="text-content">
+                        <strong>Ejercicio 4: Calculadora de Promedio</strong><br>
+                        Pide tres calificaciones al usuario y calcula su promedio.
+                    </div>
+
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>✅ Solución Ejercicio 4</span>
+                            <span class="language-badge">PSeInt</span>
+                        </div>
+                        <div class="code-content">
+                            <button class="copy-button">Copiar</button>
+                            <pre><code>Algoritmo CalculadoraPromedio
+    Definir nota1, nota2, nota3, promedio Como Real
+    
+    Escribir "Ingresa la primera calificación:"
+    Leer nota1
+    
+    Escribir "Ingresa la segunda calificación:"
+    Leer nota2
+    
+    Escribir "Ingresa la tercera calificación:"
+    Leer nota3
+    
+    promedio <- (nota1 + nota2 + nota3) / 3
+    
+    Escribir "El promedio es: ", promedio
+FinAlgoritmo</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="text-content">
+                        <strong>Ejercicio 5: Calculadora de Compra</strong><br>
+                        Pide el precio de un producto y la cantidad a comprar. Calcula el total a pagar.
+                    </div>
+
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>✅ Solución Ejercicio 5</span>
+                            <span class="language-badge">PSeInt</span>
+                        </div>
+                        <div class="code-content">
+                            <button class="copy-button">Copiar</button>
+                            <pre><code>Algoritmo CalculadoraCompra
+    Definir precio, cantidad, total Como Real
+    
+    Escribir "Ingresa el precio del producto:"
+    Leer precio
+    
+    Escribir "¿Cuántas unidades deseas comprar?"
+    Leer cantidad
+    
+    total <- precio * cantidad
+    
+    Escribir "El total a pagar es: $", total
+FinAlgoritmo</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+</html>
