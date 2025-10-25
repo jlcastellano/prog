@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Operadores y expresiones - Introducción a la programación</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/vs2015.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">Introducción a la Programación</div>
+
+    </header>
+
+    <div class="container">
+
+
+        <main class="main-content">
+            <div class="lesson-header">
+                <h1 id="page-title"> Operadores y expresiones</h1>
+            </div>
+
+            <div id="lesson-content">
+                <p>Los operadores llevan a cabo operaciones sobre un conjunto de datos u operandos, representados por literales y/o identificadores. Los operadores pueden ser unarios, binarios o terciarios, según el número de operandos que utilicen sean uno, dos o tres, respectivamente. Los operadores actúan sobre los tipos de datos primitivos y devuelven también un tipo de dato primitivo.</p>
+
+                <p>Los operadores se combinan con los literales y/o identificadores para formar expresiones.</p>
+
+                <p>Una expresión es una combinación de operadores y operandos que se evalúa produciendo un único resultado de un tipo determinado.</p>
+
+                <p>El resultado de una expresión puede ser usado como parte de otra expresión o en una sentencia o instrucción. Las expresiones, combinadas con algunas palabras reservadas o por sí mismas, forman las llamadas sentencias o instrucciones.</p>
+
+                <p>Por ejemplo, pensemos en la siguiente expresión Java:</p>
+
+                <div class="code-container">
+                    <div class="code-header">
+                      <span>Ejemplo de expresión simple</span>
+                      <span class="language-badge">Java</span>
+                   </div>
+                   <div class="code-content">
+                      <button class="copy-button">Copiar</button>
+                      <pre><code>i + 1</code></pre>
+                   </div>
+                </div>
+
+                <p>Con esta expresión estamos utilizando un operador aritmético para sumarle una cantidad a la variable i, pero es necesario indicar al programa qué hacer con el resultado de dicha expresión:</p>
+
+                <div class="code-container">
+                    <div class="code-header">
+                      <span>Ejemplo de sentencia con expresión</span>
+                      <span class="language-badge">Java</span>
+                   </div>
+                   <div class="code-content">
+                      <button class="copy-button">Copiar</button>
+                      <pre><code>suma = i + 1;</code></pre>
+                   </div>
+                </div>
+
+                <p>Que lo almacene en una variable llamada suma, por ejemplo. En este caso ya tendríamos una acción completa, es decir, una sentencia o instrucción.</p>
+
+                <p>Más ejemplos de sentencias o instrucciones los tenemos en las declaraciones de variables, vistas en apartados anteriores, o en las estructuras básicas del lenguaje como sentencias condicionales o bucles, que veremos en unidades posteriores.</p>
+
+                <p>Como curiosidad comentar que las expresiones de asignación, al poder ser usadas como parte de otras asignaciones u operaciones, son consideradas tanto expresiones en sí mismas como sentencias.</p>
+
+                <h3>1. Operadores aritméticos</h3>
+
+                <p>Los operadores aritméticos son aquellos operadores que combinados con los operandos forman expresiones matemáticas o aritméticas.</p>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Operador</th>
+                            <th>Operación</th>
+                            <th>Expresión Java</th>
+                            <th>Resultado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>-</td>
+                            <td>Operador unario de cambio de signo</td>
+                            <td>-10</td>
+                            <td>-10</td>
+                        </tr>
+                        <tr>
+                            <td>+</td>
+                            <td>Adición</td>
+                            <td>1.2 + 9.3</td>
+                            <td>10.5</td>
+                        </tr>
+                        <tr>
+                            <td>-</td>
+                            <td>Sustracción</td>
+                            <td>312.5 - 12.3</td>
+                            <td>300.2</td>
+                        </tr>
+                        <tr>
+                            <td>*</td>
+                            <td>Multiplicación</td>
+                            <td>1.7 * 1.2</td>
+                            <td>2.04</td>
+                        </tr>
+                        <tr>
+                            <td>/</td>
+                            <td>División (entera o real)</td>
+                            <td>0.5 / 0.2</td>
+                            <td>2.5</td>
+                        </tr>
+                        <tr>
+                            <td>%</td>
+                            <td>Resto de la división entera</td>
+                            <td>25 % 3</td>
+                            <td>1</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>El resultado de este tipo de expresiones depende de los operandos que utilicen:</p>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Tipo de los operandos</th>
+                            <th>Resultado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Un operando de tipo long y ninguno real (ni float ni double)</td>
+                            <td>long</td>
+                        </tr>
+                        <tr>
+                            <td>Ningún operando de tipo long ni real (float o double)</td>
+                            <td>int</td>
+                        </tr>
+                        <tr>
+                            <td>Al menos un operando de tipo double</td>
+                            <td>double</td>
+                        </tr>
+                        <tr>
+                            <td>Al menos un operando de tipo float y ninguno double</td>
+                            <td>float</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>Otro tipo de operadores aritméticos son los operadores unarios de incremento y decremento. Producen un resultado del mismo tipo que el operando, y podemos utilizarlos con notación prefija, si el operador aparece antes que el operando, o notación postfija, si el operador aparece después del operando. En la tabla puedes ver un ejemplo de utilización de cada uno de estos operadores.</p>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Tipo operador</th>
+                            <th>Expresión Java</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>++ (incremental)</td>
+                            <td>Prefija:<br>x=3;<br>y=++x;<br>// x vale 4 e y vale 4<br>Postfija:<br>x=3;<br>y=x++;<br>// x vale 4 e y vale 3</td>
+                        </tr>
+                        <tr>
+                            <td>--(decremental)</td>
+                            <td>5-- // el resultado es 4</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>En el siguiente ejemplo vemos un programa básico que utiliza algunos operadores aritméticos.</p>
+
+                <div class="code-container">
+                    <div class="code-header">
+                      <span>Ejemplo de uso de operadores aritméticos en Java</span>
+                      <span class="language-badge">Java</span>
+                   </div>
+                   <div class="code-content">
+                      <button class="copy-button">Copiar</button>
+                      <pre><code>public class OperadoresAritmeticos {
+ public static void main(String[] args) {
+ // Declaración de variables
+ short x = 7;
+ int y = 5;
+ float f1 = 5f;
+ float f2 = 8f;
+ // Ejemplos de operaciones
+ System.out.println("EJEMPLOS DE USO DE OPERADORES ARITMÉTICOS");
+ System.out.println("-----------------------------------------");
+ System.out.println("El valor de x es " + x + ", y es " + y);
+ System.out.println("El resultado de x + y es " + (x + y));
+ System.out.println("El resultado de x - y es " + (x - y));
+ System.out.println("División entera: x / y = " + (x/y));
+ System.out.println("Resto de la división entera: x % y = " + (x % y));
+ System.out.println("El valor de f1 es " + f1 + ", f2 es " + f2);
+ System.out.println("El resultado de f1 / f2 es " + (f1 / f2));
+ }
+}</code></pre>
+                   </div>
+                </div>
+
+                <p>Salida por pantalla:</p>
+
+                <pre>EJEMPLOS DE USO DE OPERADORES ARITMÉTICOS
+-----------------------------------------
+El valor de x es 7, y es 5
+El resultado de x + y es 12
+El resultado de x - y es 2
+División entera: x / y = 1
+Resto de la división entera: x % y = 2
+El valor de f1 es 5, f2 es 8.0
+El resultado de f1 / f2 es 1.6875</pre>
+
+                <h3>2. Operadores de asignación</h3>
+
+                <p>El principal operador de esta categoría es el operador asignación "=" que permite al programa darle un valor a una variable, que ya hemos utilizado en varias ocasiones en esta unidad. Además de este operador, Java proporciona otros operadores de asignación combinados con los operadores aritméticos, que permiten abreviar o reducir ciertas expresiones.</p>
+
+                <p>Por ejemplo, el operador "+=" suma el valor de la expresión a la derecha del operador con el valor de la variable que hay a la izquierda del operador, y almacena el resultado en dicha variable. En la siguiente tabla se muestran todos los operadores de asignación compuestos que podemos utilizar en Java.</p>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Operador</th>
+                            <th>Ejemplo en Java</th>
+                            <th>Expresión equivalente</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>+=</td>
+                            <td>op1 += op2</td>
+                            <td>op1 = op1 + op2</td>
+                        </tr>
+                        <tr>
+                            <td>-=</td>
+                            <td>op1 -= op2</td>
+                            <td>op1 = op1 - op2</td>
+                        </tr>
+                        <tr>
+                            <td>*=</td>
+                            <td>op1 *= op2</td>
+                            <td>op1 = op1 * op2</td>
+                        </tr>
+                        <tr>
+                            <td>/=</td>
+                            <td>op1 /= op2</td>
+                            <td>op1 = op1 / op2</td>
+                        </tr>
+                        <tr>
+                            <td>%=</td>
+                            <td>op1 %= op2</td>
+                            <td>op1 = op1 % op2</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>A continuación tienes un ejemplo de uso de algunos de estos operadores de asignación.</p>
+
+                <div class="code-container">
+                    <div class="code-header">
+                      <span>Ejemplo de uso de operadores de asignación combinados en Java</span>
+                      <span class="language-badge">Java</span>
+                   </div>
+                   <div class="code-content">
+                      <button class="copy-button">Copiar</button>
+                      <pre><code>public class OperadoresAsignacion {
+
+ public static void main(String[] args) {
+ int x;
+ int y;
+ x = 5; // operador asignación
+ y = 3; // operador asignación
+ System.out.println ("EJEMPLOS DE USO DE OPERADORES DE ASIGNACIÓN");
+ System.out.println ("-------------------------------------------");
+ System.out.println (" El valor de x es: " + x);
+ System.out.println (" El valor de y es: " + y);
+ System.out.println ();
+
+ // Ejemplos de uso de operadores de asignación combinados
+ x += y;
+ System.out.println(" Suma combinada: x += y " + " ............ x vale " + x);
+ x = 5;
+ x -= y;
+ System.out.println(" Resta combinada: x -= y " + " ............ x vale " + x);
+ x = 5;
+ x *= y;
+ System.out.println(" Producto combinado: x *= y " + " ............ x vale " + x);
+ x = 5;
+ x /= y;
+ System.out.println(" Division combinada: x /= y " + " ............ x vale " + x);
+ x = 5;
+ x %= y;
+ System.out.println(" Resto combinado: x %= y " + " ............ x vale " + x);
+ }
+}</code></pre>
+                   </div>
+                </div>
+
+                <p>Salida por pantalla:</p>
+
+                <pre>EJEMPLOS DE USO DE OPERADORES DE ASIGNACIÓN
+-------------------------------------------
+ El valor de x es: 5
+ El valor de y es: 3
+
+ Suma combinada: x += y ............ x vale 8
+ Resta combinada: x -= y ............ x vale 2
+ Producto combinada: x *= y ............ x vale 15
+ Division combinada: x /= y ............ x vale 1
+ Resto combinado: x %= y ............ x vale 2</pre>
+
+                <h3>3. Operadores de relación</h3>
+
+                <p>Los operadores relacionales se utilizan para comparar datos de tipo primitivo (numérico, carácter y booleano). El resultado de la comparación se utilizará en otras expresiones o sentencias, que permitirán comprobar en una condición dicho resultado, y ejecutar una acción u otra en función de si se cumple o no la condición comprobada al comparar.</p>
+
+                <p>Estas expresiones en Java dan siempre como resultado un valor booleano true o false. En la tabla siguiente aparecen los operadores relacionales en Java.</p>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Operador</th>
+                            <th>Ejemplo en Java</th>
+                            <th>Significado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>==</td>
+                            <td>op1 == op2</td>
+                            <td>op1 igual a op2</td>
+                        </tr>
+                        <tr>
+                            <td>!=</td>
+                            <td>op1 != op2</td>
+                            <td>op1 distinto de op2</td>
+                        </tr>
+                        <tr>
+                            <td>&gt;</td>
+                            <td>op1 &gt; op2</td>
+                            <td>op1 mayor que op2</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;</td>
+                            <td>op1 &lt; op2</td>
+                            <td>op1 menor que op2</td>
+                        </tr>
+                        <tr>
+                            <td>&gt;=</td>
+                            <td>op1 &gt;= op2</td>
+                            <td>op1 mayor o igual que op2</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;=</td>
+                            <td>op1 &lt;= op2</td>
+                            <td>op1 menor o igual que op2</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>Hasta ahora hemos visto ejemplos que creaban variables y se inicializaban con algún valor. Pero ¿y si lo que queremos es que el usuario introduzca un valor al programa?</p>
+
+                <p>Entonces debemos agregarle interactividad a nuestro programa, por ejemplo utilizando la clase Scanner. Aunque no hemos visto todavía qué son las clases y los objetos, de momento vamos a pensar que la clase Scanner nos va a permitir leer los datos que se escriben por teclado, y que para usarla es necesario importar el paquete de clases que la contiene. El código del ejemplo lo tienes a continuación. El programa se quedará esperando a que el usuario escriba algo en el teclado y pulse la tecla intro. En ese momento se convierte lo leído a un valor del tipo int y lo guarda en la variable indicada. Además de los operadores relacionales, en este ejemplo utilizamos también el operador condicional, que compara si los números son iguales. Si lo son, devuelve la cadena iguales y si no, la cadena distintos.</p>
+
+                <div class="code-container">
+                    <div class="code-header">
+                      <span>Ejemplo de operadores relacionales</span>
+                      <span class="language-badge">Java</span>
+                   </div>
+                   <div class="code-content">
+                      <button class="copy-button">Copiar</button>
+                      <pre><code>import java.util.Scanner; //importamos el paquete necesario para poder usar la clase Scanner
+public class EjemploRelacionales {
+ public static void main( String args[] ){
+ Scanner teclado = new Scanner( System.in );
+ int x, y;
+ String cadena;
+ boolean resultado;
+ System.out.print( "Introducir primer número: " );
+ x = teclado.nextInt(); // pedimos el primer número al usuario
+ System.out.print( "Introducir segundo número: " );
+ y = teclado.nextInt(); // pedimos el segundo número al usuario
+ // realizamos las comparaciones y las mostramos por pantalla
+ cadena=(x==y)?"iguales":"distintos";
+ System.out.printf("Los números %d y %d son %s\n",x,y,cadena);
+ resultado=(x!=y);
+ System.out.println("x != y // es " + resultado);
+ resultado=(x &lt; y );
+ System.out.println("x &lt; y // es " + resultado);
+ resultado=(x &gt; y );
+ System.out.println("x &gt; y // es " + resultado);
+ resultado=(x &lt;= y );
+ System.out.println("x &lt;= y // es " + resultado);
+ resultado=(x &gt;= y );
+ System.out.println("x &gt;= y // es " + resultado);
+ }
+}</code></pre>
+                   </div>
+                </div>
+
+                <h3>4. Operadores lógicos</h3>
+
+                <p>Los operadores lógicos realizan operaciones sobre valores booleanos, o resultados de expresiones relacionales, dando como resultado un valor booleano.</p>
+
+                <p>Los operadores lógicos los podemos ver en la tabla que se muestra a continuación.</p>
+
+                <p>Existen ciertos casos en los que el segundo operando de una expresión lógica no se evalúa para ahorrar tiempo de ejecución, porque con el primero ya es suficiente para saber cuál va a ser el resultado de la expresión.</p>
+
+                <p>Por ejemplo, en la expresión a && b si a es falso, no se sigue comprobando la expresión, puesto que ya se sabe que la condición de que ambos sean verdadero no se va a cumplir. En estos casos es más conveniente colocar el operando más propenso a ser falso en el lado de la izquierda. Igual ocurre con el operador ||, en cuyo caso es más favorable colocar el operando más propenso a ser verdadero en el lado izquierdo.</p>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Operador</th>
+                            <th>Ejemplo en Java</th>
+                            <th>Significado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>!</td>
+                            <td>!op</td>
+                            <td>Devuelve true si el operando es false y viceversa.</td>
+                        </tr>
+                        <tr>
+                            <td>&amp;</td>
+                            <td>op1 &amp; op2</td>
+                            <td>Devuelve true si op1 y op2 son true</td>
+                        </tr>
+                        <tr>
+                            <td>|</td>
+                            <td>op1 | op2</td>
+                            <td>Devuelve true si op1 u op2 son true</td>
+                        </tr>
+                        <tr>
+                            <td>^</td>
+                            <td>op1 ^ op2</td>
+                            <td>Devuelve true si sólo uno de los operandos es true</td>
+                        </tr>
+                        <tr>
+                            <td>&amp;&amp;</td>
+                            <td>op1 &amp;&amp; op2</td>
+                            <td>Igual que &amp;, pero si op1 es false ya no se evalúa op2</td>
+                        </tr>
+                        <tr>
+                            <td>||</td>
+                            <td>op1 || op2</td>
+                            <td>Igual que |, pero si op1 es true ya no se evalúa op2</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>En el siguiente código puedes ver un ejemplo de utilización de operadores lógicos. Observa la salida que se debería obtener:</p>
+
+                <div class="code-container">
+                    <div class="code-header">
+                      <span>Ejemplo de uso de operadores lógicos en Java</span>
+                      <span class="language-badge">Java</span>
+                   </div>
+                   <div class="code-content">
+                      <button class="copy-button">Copiar</button>
+                      <pre><code>public class OperadoresLogicos {
+
+ public static void main(String[] args) {
+ System.out.println("EJEMPLOS DE USO DE OPERADORES LÓGICOS");
+ System.out.println("-------------------------------------");
+ System.out.println("Negacion:\n !false es : " + (! false));
+ System.out.println(" !true es : " + (! true));
+ System.out.println("Operador AND (&amp;):");
+ System.out.println(" false &amp; false es : " + (false &amp; false));
+ System.out.println(" false &amp; true es : " + (false &amp; true));
+ System.out.println(" true &amp; false es : " + (true &amp; false));
+ System.out.println(" true &amp; true es : " + (true &amp; true));
+ System.out.println("Operador OR (|):");
+ System.out.println(" false | false es : " + (false | false));
+ System.out.println(" false | true es : " + (false | true));
+ System.out.println(" true | false es : " + (true | false));
+ System.out.println(" true | true es : " + (true | true));
+ System.out.println("Operador OR Exclusivo o XOR (^):");
+ System.out.println(" false ^ false es : " + (false ^ false));
+ System.out.println(" false ^ true es : " + (false ^ true));
+ System.out.println(" true ^ false es : " + (true ^ false));
+ System.out.println(" true ^ true es : " + (true ^ true));
+ System.out.println("Operador AND (&amp;&amp;):");
+ System.out.println(" false &amp;&amp; false es : " + (false &amp;&amp; false));
+ System.out.println(" false &amp;&amp; true es : " + (false &amp;&amp; true));
+ System.out.println(" true &amp;&amp; false es : " + (true &amp;&amp; false));
+ System.out.println(" true &amp;&amp; true es : " + (true &amp;&amp; true));
+ System.out.println("Operador OR (||):");
+ System.out.println(" false || false es : " + (false || false));
+ System.out.println(" false || true es : " + (false || true));
+ System.out.println(" true || false es : " + (true || false));
+ System.out.println(" true || true es : " + (true || true));
+ }
+}</code></pre>
+                   </div>
+                </div>
+
+                <p>Salida por pantalla:</p>
+
+                <pre>EJEMPLOS DE USO DE OPERADORES LÓGICOS
+-------------------------------------
+Negacion:
+ !false es : true
+ !true es : false
+Operador AND (&amp;):
+ false &amp; false es : false
+ false &amp; true es : false
+ true &amp; false es : false
+ true &amp; true es : true
+Operador OR (|):
+ false | false es : false
+ false | true es : true
+ true | false es : true
+ true | true es : true
+Operador OR Exclusivo o XOR (^):
+ false ^ false es : false
+ false ^ true es : true
+ true ^ false es : true
+ true ^ true es : false
+Operador AND (&amp;&amp;):
+ false &amp;&amp; false es : false
+ false &amp;&amp; true es : false
+ true &amp;&amp; false es : false
+ true &amp;&amp; true es : true
+Operador OR (||):
+ false || false es : false
+ false || true es : true
+ true || false es : true
+ true || true es : true</pre>
+
+                <h3>5. Operador condicional</h3>
+
+                <p>El operador condicional “? :” sirve para evaluar una condición y devolver un resultado u otro en función de si es verdadera o falsa dicha condición. Es el único operador ternario de Java, y como tal, necesita tres operandos para formar una expresión.</p>
+
+                <ul>
+                    <li>El primer operando se sitúa a la izquierda del símbolo de interrogación ( ? ), y siempre será una expresión booleana, también llamada condición.</li>
+                    <li>El siguiente operando se sitúa a la derecha del símbolo de interrogación ( ? ) y antes de los dos puntos ( : ), y es el valor que devolverá el operador condicional si la condición es verdadera.</li>
+                    <li>El tercer y último operando, que aparece después de los dos puntos ( : ), es la expresión cuyo resultado se devolverá si la condición evaluada es falsa.</li>
+                </ul>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Operador</th>
+                            <th>Expresión en Java</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>? :</td>
+                            <td>condición ? exp1 : exp2</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>Por ejemplo, en la expresión:</p>
+
+                <div class="code-container">
+                    <div class="code-header">
+                      <span>Ejemplo operador condicional</span>
+                      <span class="language-badge">Java</span>
+                   </div>
+                   <div class="code-content">
+                      <button class="copy-button">Copiar</button>
+                      <pre><code>(x&gt;y) ? x : y ;</code></pre>
+                   </div>
+                </div>
+
+                <p>Se evalúa la condición de si x es mayor que y. En caso afirmativo se devuelve el valor de la variable x, y en caso contrario se devuelve el valor de y. Se trata de una manera muy elegante de calcular el máximo de esos dos valores.</p>
+
+                <h3>6. Operadores de bits</h3>
+
+                <p>Los operadores a nivel de bits se caracterizan porque realizan operaciones sobre números enteros (o char) en su representación binaria, es decir, sobre cada dígito binario.</p>
+
+                <p>Aunque estos operadores no son de uso frecuente, sino más bien para aplicaciones muy específicas, no está de más que al menos sepas cuáles son. En la tabla tienes los operadores a nivel de bits que utiliza Java.</p>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Operador</th>
+                            <th>Ejemplo en Java</th>
+                            <th>Significado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>~</td>
+                            <td>~op</td>
+                            <td>Realiza el complemento binario de op (invierte el valor de cada bit)</td>
+                        </tr>
+                        <tr>
+                            <td>&</td>
+                            <td>op1 & op2</td>
+                            <td>Realiza la operación AND binaria sobre op1 y op2</td>
+                        </tr>
+                        <tr>
+                            <td>|</td>
+                            <td>op1 | op2</td>
+                            <td>Realiza la operación OR binaria sobre op1 y op2</td>
+                        </tr>
+                        <tr>
+                            <td>^</td>
+                            <td>op1 ^ op2</td>
+                            <td>Realiza la operación OR-exclusivo (XOR) binaria sobre op1 y op2</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;&lt;</td>
+                            <td>op1 &lt;&lt; op2</td>
+                            <td>Desplaza op2 veces hacia la izquierda los bits de op1</td>
+                        </tr>
+                        <tr>
+                            <td>&gt;&gt;</td>
+                            <td>op1 &gt;&gt; op2</td>
+                            <td>Desplaza op2 veces hacia la derecha los bits de op1</td>
+                        </tr>
+                        <tr>
+                            <td>&gt;&gt;&gt;</td>
+                            <td>op1 &gt;&gt;&gt; op2</td>
+                            <td>Desplaza op2 (en positivo) veces hacia la derecha los bits de op1</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>7. Trabajo con cadenas</h3>
+
+                <p>Ya hemos visto en el apartado de literales que el objeto String se corresponde con una secuencia de caracteres entrecomillados, como por ejemplo "hola". Este literal se puede utilizar en Java como si de un tipo de datos primitivo se tratase, y como caso especial, no necesita del operador new para ser creado.</p>
+
+                <p>No se trata aquí de que nos adentremos en lo que es una clase u objeto, puesto que lo veremos en unidades posteriores, y trabajaremos mucho sobre ello. Aquí sólo vamos a utilizar determinadas operaciones que podemos realizar con el objeto String, y lo verás mucho más claro con ejemplos descriptivos.</p>
+
+                <p>Para aplicar una operación a una variable de tipo String, escribiremos su nombre seguido de la operación, separados por un punto. Entre las principales operaciones que podemos utilizar para trabajar con cadenas de caracteres están las siguientes:</p>
+
+                <ul>
+                    <li><strong>Creación</strong>. Como hemos visto en el apartado de literales, podemos crear una variable de tipo String simplemente asignándole una cadena de caracteres encerrada entre comillas dobles.</li>
+                    <li><strong>Obtención del carácter que se encuentra en una posición determinada de la cadena</strong>. Para ello se utiliza el método charAt.</li>
+                    <li><strong>Obtención de longitud</strong>. Si necesitamos saber la longitud de un String, utilizaremos el método length.</li>
+                    <li><strong>Concatenación</strong>. Se utiliza el operador + o el método concat() para concatenar cadenas de caracteres.</li>
+                    <li><strong>Comparación</strong>. El método equals nos devuelve un valor booleano que indica si las cadenas comparadas son o no iguales. El método equalsIgnoreCase hace lo propio, ignorando las mayúsculas de las cadenas a considerar. Las comparaciones entre objetos String nunca deben hacerse con el operador ==.</li>
+                    <li><strong>Obtención de subcadenas</strong>. Podemos obtener cadenas derivadas de una cadena original con el método substring(), al cual le debemos indicar el inicio y el fin de la subcadena a obtener.</li>
+                    <li><strong>Cambio a mayúsculas/minúsculas</strong>. Los métodos toUpperCase y toLowerCase devuelven una nueva variable que transforma en mayúsculas o minúsculas, respectivamente, la variable inicial.</li>
+                    <li><strong>Conversiones</strong>. Utilizaremos el método valueOf para convertir un tipo de dato primitivo (int, long, float, etc.) a una variable de tipo String.</li>
+                </ul>
+
+                <p>A continuación tienes varios ejemplos de las distintas operaciones que podemos realizar con cadenas de caracteres o String en Java:</p>
+
+                <div class="code-container">
+                    <div class="code-header">
+                        <span>EjemploCadenas.java</span>
+                        <span class="language-badge">Java</span>
+                    </div>
+                    <div class="code-content">
+                        <button class="copy-button">Copiar</button>
+                        <pre><code>public class EjemploCadenas {
+ public static void main(String[] args) {
+ // Cadenas de ejemplo con las que trabajar
+ String cadena1 = "CICLO DAM-DAW";
+ String cadena2 = "ciclo dam-daw";
+ System.out.println ("EJEMPLOS DE OPERACIONES CON CADENAS");
+ System.out.println ("-----------------------------------");
+
+ // Mostramos las cadenas originales
+ System.out.println ("La cadena cadena1 es " + cadena1);
+ System.out.println ("La cadena cadena2 es " + cadena2);
+ System.out.println ();
+ System.out.println ("Longitud de cadena1: " + cadena1.length());
+ System.out.println ("Longitud de cadena2: " + cadena2.length());
+ // Concatenación de cadenas (concat o bien operador +)
+ System.out.println ("Concatenación cadena1 y cadena2: " + cadena1.concat(cadena2));
+ System.out.println ("Concatenación cadena2 y cadena1: " + cadena2 + cadena1);
+ // Comparación de cadenas
+ System.out.println ("cadena1.equals(cadena2) es: " + cadena1.equals(cadena2));
+ System.out.println ("cadena1.equalsIgnoreCase(cadena2) es: " + cadena1.equalsIgnoreCase(cadena2));
+ // Obtención de subcadenas
+ System.out.println ("cadena1.substring(0,5) es: " + cadena1.substring(0, 5));
+ // Pasar a minúsculas
+ System.out.println ("cadena1.toLowerCase() es: " + cadena1.toLowerCase());
+ System.out.println();
+ }
+}</code></pre>
+                    </div>
+                </div>
+
+                <p>El resultado que se debería obtener es el siguiente:</p>
+
+                <pre class="output">EJEMPLOS DE OPERACIONES CON CADENAS
+-----------------------------------
+La cadena cadena1 es CICLO DAM-DAW
+La cadena cadena2 es ciclo dam-daw
+
+Longitud de cadena1: 13
+Longitud de cadena2: 13
+Concatenación cadena1 y cadena2: CICLO DAM-DAWciclo dam-daw
+Concatenación cadena2 y cadena1: ciclo dam-dawCICLO DAM-DAW
+cadena1.equals(cadena2) es: false
+cadena1.equalsIgnoreCase(cadena2) es: true
+cadena1.substring(0,5) es: CICLO
+cadena1.toLowerCase() es: ciclo dam-daw</pre>
+
+                <h3>8. Precedencia de operadores</h3>
+
+                <p>El orden de precedencia de los operadores determina la secuencia en que deben realizarse las operaciones cuando en una expresión intervienen operadores de distinto tipo.</p>
+
+                <p>Las reglas de precedencia de operadores que utiliza Java coinciden con las reglas de las expresiones del álgebra convencional. Por ejemplo:</p>
+
+                <ul>
+                    <li>La multiplicación, división y resto de una operación se evalúan primero. Si dentro de la misma expresión tengo varias operaciones de este tipo, empezaré evaluándolas de izquierda a derecha.</li>
+                    <li>La suma y la resta se aplican después que las anteriores. De la misma forma, si dentro de la misma expresión tengo varias sumas y restas empezaré evaluándolas de izquierda a derecha.</li>
+                </ul>
+
+                <p>A la hora de evaluar una expresión es necesario tener en cuenta la asociatividad de los operadores. La asociatividad indica qué operador se evalúa antes, en condiciones de igualdad de precedencia. Los operadores de asignación, el operador condicional ( ?: ), los operadores incrementales (++, --) y el casting son asociativos por la derecha. El resto de operadores son asociativos por la izquierda, es decir, que se empiezan a calcular en el mismo orden en el que están escritos: de izquierda a derecha. Por ejemplo, en la expresión siguiente:</p>
+
+                <div class="code-container">
+                    <div class="code-header">
+                        <span>Ejemplo de precedencia</span>
+                        <span class="language-badge">Java</span>
+                    </div>
+                    <div class="code-content">
+                        <button class="copy-button">Copiar</button>
+                        <pre><code>10 / 2 * 5</code></pre>
+                    </div>
+                </div>
+
+                <p>Realmente la operación que se realiza es (10 / 2 ) * 5, porque ambos operadores, división y multiplicación, tienen igual precedencia y por tanto se evalúa primero el que antes nos encontramos por la izquierda, que es la división. El resultado de la expresión es 25. Si fueran asociativos por la derecha, puedes comprobar que el resultado sería diferente, primero multiplicaríamos 2 * 5 y luego dividiríamos entre 10, por lo que el resultado sería 1. En esta otra expresión:</p>
+
+                <div class="code-container">
+                    <div class="code-header">
+                        <span>Ejemplo de asociatividad</span>
+                        <span class="language-badge">Java</span>
+                    </div>
+                    <div class="code-content">
+                        <button class="copy-button">Copiar</button>
+                        <pre><code>x = y = z = 1</code></pre>
+                    </div>
+                </div>
+
+                <p>Realmente la operación que se realiza es x = (y = (z = 1)). Primero asignamos el valor de 1 a la variable z, luego a la variable y, para terminar asignando el resultado de esta última asignación a x. Si el operador asignación fuera asociativo por la izquierda esta operación no se podría realizar, ya que intentaríamos asignar a x el valor de y, pero y aún no habría sido inicializada.</p>
+
+                <p>En la tabla se detalla el orden de precedencia y la asociatividad de los operadores que hemos comentado en este apartado. Los operadores se muestran de mayor a menor precedencia.</p>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Operador</th>
+                            <th>Tipo</th>
+                            <th>Asociatividad</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>++ --</td>
+                            <td>Unario, notación postfija</td>
+                            <td>Derecha</td>
+                        </tr>
+                        <tr>
+                            <td>++ -- + - (cast) ! ~</td>
+                            <td>Unario, notación prefija</td>
+                            <td>Derecha</td>
+                        </tr>
+                        <tr>
+                            <td>* / %</td>
+                            <td>Aritméticos</td>
+                            <td>Izquierda</td>
+                        </tr>
+                        <tr>
+                            <td>+ -</td>
+                            <td>Aritméticos</td>
+                            <td>Izquierda</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;&lt; &gt;&gt; &gt;&gt;&gt;</td>
+                            <td>Bits</td>
+                            <td>Izquierda</td>
+                        </tr>
+                        <tr>
+                            <td>&lt; &lt;= &gt; &gt;=</td>
+                            <td>Relacionales</td>
+                            <td>Izquierda</td>
+                        </tr>
+                        <tr>
+                            <td>== !=</td>
+                            <td>Relacionales</td>
+                            <td>Izquierda</td>
+                        </tr>
+                        <tr>
+                            <td>&amp;</td>
+                            <td>Lógico, Bits</td>
+                            <td>Izquierda</td>
+                        </tr>
+                        <tr>
+                            <td>^</td>
+                            <td>Lógico, Bits</td>
+                            <td>Izquierda</td>
+                        </tr>
+                        <tr>
+                            <td>|</td>
+                            <td>Lógico, Bits</td>
+                            <td>Izquierda</td>
+                        </tr>
+                        <tr>
+                            <td>&amp;&amp;</td>
+                            <td>Lógico</td>
+                            <td>Izquierda</td>
+                        </tr>
+                        <tr>
+                            <td>||</td>
+                            <td>Lógico</td>
+                            <td>Izquierda</td>
+                        </tr>
+                        <tr>
+                            <td>?:</td>
+                            <td>Operador condicional</td>
+                            <td>Derecha</td>
+                        </tr>
+                        <tr>
+                            <td>= += -= *= /= %= </td>
+                            <td>Asignación</td>
+                            <td>Derecha</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+</html>                                

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Conversión de tipo - Introducción a la programación</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/vs2015.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">Introducción a la Programación</div>
+  
+        </div>
+    </header>
+
+    <div class="container">
+
+
+        <main class="main-content">
+            <div class="lesson-header">
+                <h1 id="page-title"> Conversión de tipo</h1>
+            </div>
+
+            <div id="lesson-content">
+                <p>Imagina que queremos dividir un número entre otro: ¿tendrá decimales el resultado de esa división?</p>
+
+                <p>Podemos pensar que siempre que el denominador no sea divisible entre el divisor, tendremos un resultado con decimales, pero no es así.</p>
+
+                <p>Si el denominador y el divisor son variables de tipo entero, el resultado será entero y no tendrá decimales. Para que el resultado tenga decimales necesitaremos hacer una conversión de tipo.</p>
+
+                <p>Las conversiones de tipo se realizan para hacer que el resultado de una expresión sea del tipo que nosotros deseamos. En el ejemplo anterior, para hacer que el resultado de la división sea de tipo real, con decimales, debemos hacer una conversión de tipo. Existen dos tipos de conversiones:</p>
+
+                <ul>
+                    <li><strong>Conversiones automáticas</strong>. Cuando a una variable de un tipo se le asigna un valor de otro tipo numérico con menos bits para su representación, se realiza una conversión automática. En ese caso, el valor se dice que es promocionado al tipo más grande (el de la variable), para poder hacer la asignación. También se realizan conversiones automáticas en las operaciones aritméticas, cuando estamos utilizando valores de distinto tipo, el valor más pequeño se promociona al valor más grande, ya que el tipo mayor siempre podrá representar cualquier valor del tipo menor (por ejemplo, de int a long o de float a double).</li>
+                    <li><strong>Conversiones explícitas</strong>. Cuando hacemos una conversión de un tipo con más bits a un tipo con menos bits. En estos casos debemos indicar que queremos hacer la conversión de manera expresa, ya que se puede producir una pérdida de datos y hemos de ser conscientes de ello. Este tipo de conversiones se realiza con el operador cast. El operador cast es un operador unario que se forma colocando delante del valor a convertir el tipo de dato entre paréntesis. Tiene la misma precedencia que el resto de operadores unarios y se asocia de derecha a izquierda. Las conversiones explícitas también suelen ser conocidas como casting.</li>
+                </ul>
+
+                <p>Debemos tener en cuenta que un valor numérico nunca puede ser asignado a una variable de un tipo menor en rango, si no es con una conversión explícita. Por ejemplo:</p>
+
+                <div class="code-container">
+                    <div class="code-header">
+                        <span>Ejemplo de conversión explícita</span>
+                        <span class="language-badge">Java</span>
+                    </div>
+                    <div class="code-content">
+                        <button class="copy-button">Copiar</button>
+                        <pre><code>int a;
+byte b;
+a = 12; // no se realiza conversión alguna
+b = 12; // se permite porque 12 está dentro
+        // del rango permitido de valores para b
+b = a; // error, no permitido (incluso aunque
+       // 12 podría almacenarse en un byte)
+byte b = (byte) a; // Correcto, forzamos conversión explícita</code></pre>
+                    </div>
+                </div>
+
+                <p>En el ejemplo anterior vemos un caso típico de error de tipos, ya que estamos intentando asignarle a b el valor de a, siendo b de un tipo más pequeño. El compilador detecta que a es "un recipiente más grande", y que por tanto si intentamos volcar su contenido en b que es un recipiente más pequeño, puede no caber, así que mejor avisar del error, y no dejar ni intentarlo, no sea que se pierda el contenido "por desbordamiento del recipiente".</p>
+
+                <p>Lo correcto es forzar la conversión de a al tipo de datos byte, (puesto que su contenido, 12, realmente puede ser visto como un literal byte también) y entonces asignarle su valor a la variable b.</p>
+            </div>
+
+     
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+</html>

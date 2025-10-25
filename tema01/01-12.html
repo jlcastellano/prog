@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Literales de los tipos primitivos - Introducción a la programación</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/vs2015.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">Introducción a la Programación</div>
+         </div>
+    </header>
+
+    <div class="container">
+
+        <main class="main-content">
+            <div class="lesson-header">
+                <h1 id="page-title"> Literales de los tipos primitivos</h1>
+            </div>
+
+            <div id="lesson-content">
+                <p>Un literal, valor literal o constante literal es un valor concreto para los tipos de datos primitivos del lenguaje, el tipo String o el valor null.</p>
+
+                <p>Los literales booleanos son dos únicos valores, los que puede aceptar el tipo: true y false. Por ejemplo, con la instrucción boolean encontrado = true; estamos declarando una variable de tipo booleana a la cual le asignamos el valor literal true.</p>
+
+                <p>Los literales enteros se pueden representar en tres notaciones:</p>
+
+                <ul>
+                    <li><strong>Decimal</strong>: por ejemplo 20. Es la forma más común.</li>
+                    <li><strong>Octal</strong>: por ejemplo 024. Un número en octal siempre empieza por cero, seguido de dígitos octales (del 0 al 7).</li>
+                    <li><strong>Hexadecimal</strong>: por ejemplo 0x14. Un número en hexadecimal siempre empieza por 0x seguido de dígitos hexadecimales (del 0 al 9, de la 'a' a la 'f' o de la 'A' a la 'F').</li>
+                </ul>
+
+                <p>A los literales de tipo long se les debe añadir detrás una ele mayúscula o minúscula (l ó L), por ejemplo 873L, de lo contrario se considera por defecto un literal de tipo int. Se suele utilizar L para evitar la confusión de la ele minúscula con 1.</p>
+
+                <p>Los literales reales o en coma flotante se expresan con coma decimal o en notación científica, o sea, seguidos de un exponente e ó E. El valor puede finalizarse con una f o una F para indicar que se trata de un literal de tipo float o con una d o una D para indicar el formato double (por defecto, si no se pone nada, es double). Por ejemplo, podemos representar un mismo literal real de las siguientes formas: 13.2, 13.2D, 1.32e1, 0.132E2. Otras constantes literales reales son por ejemplo: .54, 31.21E-5, 2.f, 6.022137e+23f, 3.141e-9d.</p>
+
+                <p>Desde Java SE 7 y posteriores, pueden aparecer caracteres _ entre dígitos en un literal numérico. La idea subyacente es mejorar la legibilidad del código. Así, por ejemplo, sería válido escribir:</p>
+
+                <div class="code-container">
+                    <div class="code-header">
+                        <span>Ejemplo literal long con guiones bajos</span>
+                        <span class="language-badge">Java</span>
+                    </div>
+                    <div class="code-content">
+                        <button class="copy-button">Copiar</button>
+                        <pre><code>long numeroDeTarjeta = 1234_5678_9012_3456L;</code></pre>
+                    </div>
+                </div>
+
+                <p>Un literal carácter puede escribirse como un carácter entre comillas simples como 'a', 'ñ', 'Z', 'p', etc., o por su código de la tabla Unicode, anteponiendo la secuencia de escape '\ ' si el valor lo ponemos en octal o '\u' si ponemos el valor en hexadecimal. Por ejemplo, si sabemos que tanto en ASCII como en Unicode, la letra A (mayúscula) es el símbolo número 65, y que 65 en octal es 101 y 41 en hexadecimal, podemos representar esta letra como '\101' en octal y '\u0041' en hexadecimal. Existen unos caracteres especiales que se representan utilizando secuencias de escape:</p>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Secuencia de escape</th>
+                            <th>Significado</th>
+                            <th>Secuencia de escape</th>
+                            <th>Significado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>\b</td>
+                            <td>Retroceso</td>
+                            <td>\r</td>
+                            <td>Retorno de carro</td>
+                        </tr>
+                        <tr>
+                            <td>\t</td>
+                            <td>Tabulador</td>
+                            <td>\"</td>
+                            <td>Carácter comillas dobles</td>
+                        </tr>
+                        <tr>
+                            <td>\n</td>
+                            <td>Salto de línea</td>
+                            <td>\'</td>
+                            <td>Carácter comillas simples</td>
+                        </tr>
+                        <tr>
+                            <td>\f</td>
+                            <td>Salto de página</td>
+                            <td>\\</td>
+                            <td>Barra diagonal</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>Normalmente, los objetos en Java deben ser creados con el operador new. Sin embargo, los literales String no lo necesitan ya que son objetos que se crean implícitamente por Java, pudiendo prescindir del uso del operador new.</p>
+
+                <p>Los literales de cadenas de caracteres se indican entre comillas dobles. En el ejemplo anterior "El primer mensaje" es un literal de tipo cadena de caracteres. Al construir una cadena de caracteres se puede incluir cualquier carácter Unicode excepto un carácter de retorno de carro. Por ejemplo, en la siguiente instrucción utilizamos la secuencia de escape \" para escribir dobles comillas dentro del mensaje:</p>
+
+                <div class="code-container">
+                    <div class="code-header">
+                        <span>Ejemplo literal String con escape</span>
+                        <span class="language-badge">Java</span>
+                    </div>
+                    <div class="code-content">
+                        <button class="copy-button">Copiar</button>
+                        <pre><code>String texto = "Juan dijo: \"Hoy hace un día fantástico…\"";</code></pre>
+                    </div>
+                </div>
+
+                <p>En realidad, dentro de la variable texto se está incluyendo la cadena literal Juan dijo: "Hoy hace un día fantástico...", que incluye una parte entre comillas dobles.</p>
+
+                <p>En el ejemplo del apartado anterior para tipos enumerados ya estábamos utilizando secuencias de escape, para introducir un salto de línea en una cadena de caracteres, utilizando el carácter especial \n.</p>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+</html>

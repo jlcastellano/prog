@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variables e identificadores - Introducción a la programación</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/vs2015.min.css">
+    <!-- CSS adicional para mejorar visualización de tablas, listas y código -->
+    <style>
+        .section-subheading {
+            font-size: 1.2rem;
+            color: var(--primary-purple);
+            margin-top: 1.5rem;
+            border-bottom: 2px solid var(--border-gray);
+            padding-bottom: 0.5rem;
+        }
+
+        .feature-list {
+            list-style-type: disc;
+            margin-left: 2rem;
+            line-height: 1.8;
+        }
+
+        .numbered-list {
+            list-style-type: decimal;
+            margin-left: 2rem;
+            line-height: 1.8;
+        }
+
+        .code-example {
+            background-color: rgba(124, 58, 237, 0.05);
+            padding: 1rem;
+            border-left: 4px solid var(--primary-purple);
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+        }
+
+        .command-line {
+            background-color: #f8f9fa;
+            padding: 0.5rem;
+            border-radius: 4px;
+            font-family: monospace;
+            margin: 0.5rem 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid var(--border-gray);
+        }
+
+        th,
+        td {
+            padding: 0.8rem;
+            text-align: left;
+        }
+
+        th {
+            background-color: rgba(124, 58, 237, 0.1);
+        }
+
+        .variable-description {
+            background-color: rgba(0, 123, 255, 0.1);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-left: 4px solid #007bff;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-content">
+            <h1>Introducción a la Programación</h1>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <section class="lesson-section">
+                <h2 class="lesson-title"> Variables e identificadores</h2>
+
+                <div class="content-text">
+                    <p>Un programa maneja datos para hacer cálculos, presentarlos en informes por pantalla o impresora,
+                        solicitarlos al usuario, guardarlos en disco, etc (etcétera.). Para poder manejar esos datos, el
+                        programa los guarda en variables.</p>
+
+                    <p>Una variable es una zona en la memoria del computador que puede almacenar un valor de un
+                        determinado tipo para ser usado más tarde en el programa. Las variables vienen determinadas por:
+                    </p>
+
+                    <ul class="feature-list">
+                        <li>Un nombre, que permite al programa acceder al valor que contiene en memoria. Debe ser un
+                            identificador válido. Por ejemplo, podría llamarse precioVentaPublico.</li>
+                        <li>Un tipo de dato, que especifica qué clase de información puede ser guardada por la variable
+                            en esa zona de memoria. Por ejemplo, puede ser de tipo entero, o de tipo cadena de
+                            caracteres, o de tipo real, etc (etcétera.). La variable anterior, si pretendemos que
+                            almacene precios, podría definirse como de tipo real, para que admita decimales para los
+                            céntimos. Cualquier lenguaje permitirá definir distintos tipos de reales. En Java, por
+                            ejemplo, float y double serían dos tipos de dato real.</li>
+                        <li>Un rango de valores que puede admitir dicha variable. Establece el valor máximo y mínimo que
+                            puede almacenarse en esa variable, así como la precisión. Normalmente va asociado al tipo de
+                            dato que puede almacenar. Siguiendo con el ejemplo, en Java, la diferencia entre definir una
+                            variable float o double supone que se podrán almacenar números reales más pequeños o más
+                            grandes y en la precisión (número de decimales máximo) que se pueden usar. Así, para un
+                            precio, con float tendremos suficiente rango, y suficiente precisión, ya que sólo
+                            necesitamos dos decimales, y ese tipo nos permite usar incluso más.</li>
+                    </ul>
+
+                    <p>Al nombre que le damos a la variable se le llama identificador. Los identificadores permiten
+                        nombrar los elementos que se están manejando en un programa.</p>
+
+                    <p>Vamos a ver con más detalle ciertos aspectos sobre los identificadores que debemos tener en
+                        cuenta.</p>
+
+                    <h3 class="section-subheading">1. Identificadores</h3>
+
+                    <p>Un identificador en Java es una secuencia ilimitada sin espacios de letras y dígitos Unicode, de
+                        forma que el primer símbolo de la secuencia debe ser una letra, un símbolo de subrayado (_) o el
+                        símbolo dólar ($). Por ejemplo, son válidos los siguientes identificadores:</p>
+
+                    <div class="code-example">x5 ατη NUM_MAX numCuenta</div>
+
+                    <p>En la definición anterior decimos que un identificador es una secuencia ilimitada de caracteres
+                        Unicode. Pero… ¿qué es Unicode? Unicode es un código de caracteres o sistema de codificación, un
+                        alfabeto que recoge los caracteres de prácticamente todos los idiomas importantes del mundo. Las
+                        líneas de código en los programas se escriben usando ese conjunto de caracteres Unicode.</p>
+
+                    <p>Esto quiere decir que en Java se pueden utilizar diversos sistemas de escritura como los
+                        alfabetos griego o árabe, los caracteres chinos o los kanjis japoneses. De esta forma, los
+                        programas están más adaptados a los lenguajes e idiomas locales, por lo que son más
+                        significativos y fáciles de entender tanto para los programadores que escriben el código, como
+                        para los que posteriormente lo tienen que interpretar, para introducir alguna nueva
+                        funcionalidad o modificación en la aplicación.</p>
+
+                    <p>El estándar Unicode originalmente utilizaba 16 bits, pudiendo representar hasta 65.536 caracteres
+                        distintos, que es el resultado de elevar dos a la potencia dieciséis. Actualmente Unicode puede
+                        utilizar más o menos bits, dependiendo del formato que se utilice: UTF-8 (siglas en inglés para
+                        Formato de Transformación Unicode 8), UTF-16 ó UTF-32. A cada carácter le corresponde
+                        unívocamente un número entero perteneciente al intervalo de 0 a 2 elevado a n, siendo n el
+                        número de bits utilizados para representar los caracteres. Por ejemplo, la letra ñ es el entero
+                        164. Además, el código Unicode es “compatible” con el código ASCII, ya que para los caracteres
+                        del código ASCII, Unicode asigna como código los mismos 8 bits, a los que les añade a la
+                        izquierda otros 8 bits todos a cero. La conversión de un carácter ASCII a Unicode es inmediata.
+                    </p>
+
+                    <h3 class="section-subheading">2. Convenios y reglas para nombrar variables</h3>
+
+                    <p>A la hora de nombrar un identificador existen una serie de normas de estilo de uso generalizado,
+                        que se aceptan por convenio, aunque no son obligatorias, y que de hecho se usan en la mayor
+                        parte del código Java, lo que ayuda a entender más rápidamente la semántica de cada
+                        identificador. Estas reglas para la nomenclatura de variables son las siguientes:</p>
+
+                    <ul class="feature-list">
+                        <li>Java distingue las mayúsculas de las minúsculas. Por ejemplo, Alumno y alumno son variables
+                            diferentes.</li>
+                        <li>No se suelen utilizar identificadores que comiencen con «$» o «_», además el símbolo del
+                            dólar, por convenio, no se utiliza nunca para identificadores que define el usuario (aunque
+                            lo usa internamente el lenguaje para crear ciertas clases que genera automáticamente, pero
+                            de eso no nos tenemos que ocupar ni preocupar al programar).</li>
+                        <li>No se puede utilizar el valor booleano (true o false) ni el valor nulo (null).</li>
+                        <li>Los identificadores deben ser lo más descriptivos posibles. Es mejor usar palabras completas
+                            en vez de abreviaturas crípticas. Así nuestro código será más fácil de leer y comprender. En
+                            muchos casos también hará que nuestro código se autodocumente. Por ejemplo, si tenemos que
+                            darle el nombre a una variable que almacena los datos de un cliente sería recomendable que
+                            la misma se llamara algo así como FicheroClientes o ManejadorCliente, y no algo poco
+                            descriptivo como Cl33., por más que Java lo considere correcto.</li>
+                    </ul>
+
+                    <p>Además de estas restricciones, en la siguiente tabla puedes ver otras convenciones, que no siendo
+                        obligatorias, sí son recomendables a la hora de crear identificadores en Java.</p>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Identificador</th>
+                                <th>Convención</th>
+                                <th>Ejemplo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Nombre de variable</td>
+                                <td>Comienza por letra minúscula, y si está formado por varias palabras, se colocan
+                                    juntas y todas las siguientes a partir de la segunda comenzarán por mayúsculas para
+                                    ayudar a identificar visualmente dónde comienza cada nueva palabra a pesar de que no
+                                    haya espacios.</td>
+                                <td>numAlumnosMatriculados, suma</td>
+                            </tr>
+                            <tr>
+                                <td>Nombre de constante</td>
+                                <td>Con todas sus letras en mayúsculas, separando las palabras con el guión bajo, y
+                                    además por convenio el guión bajo no se utiliza en ningún otro sitio.</td>
+                                <td>TAM_MAX, PI</td>
+                            </tr>
+                            <tr>
+                                <td>Nombre de una clase</td>
+                                <td>Comienza por letra mayúscula.</td>
+                                <td>String, MiTipo</td>
+                            </tr>
+                            <tr>
+                                <td>Nombre de función o método</td>
+                                <td>Un nombre de una función o de un método comienza con letra minúscula. Sigue en
+                                    realidad la misma nomenclatura que cualquier variable y se distingue que se trata de
+                                    un método o función porque obligatoriamente debe ir seguido de paréntesis, que
+                                    enmarcan la lista de parámetros que se le dan al método para trabajar. El paréntesis
+                                    es obligado aunque no se le pase ningún parámetro.</td>
+                                <td>modificaValor(), obtieneValor()</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3 class="section-subheading">3. Palabras reservadas</h3>
+
+                    <p>Las palabras reservadas, a veces también llamadas palabras clave o keywords, son secuencias de
+                        caracteres formadas con letras ASCII cuyo uso se reserva al lenguaje y, por tanto, no pueden
+                        utilizarse para crear identificadores.</p>
+
+                    <p>Las palabras reservadas en Java son:</p>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Palabras clave en Java</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>abstract continue for new switch</td>
+                            </tr>
+                            <tr>
+                                <td>assert default goto package synchronized</td>
+                            </tr>
+                            <tr>
+                                <td>boolean if private this</td>
+                            </tr>
+                            <tr>
+                                <td>break double implements protected throw</td>
+                            </tr>
+                            <tr>
+                                <td>byte else import public throws</td>
+                            </tr>
+                            <tr>
+                                <td>case enum instanceof return transient</td>
+                            </tr>
+                            <tr>
+                                <td>catch extends int short try</td>
+                            </tr>
+                            <tr>
+                                <td>char final interface static void</td>
+                            </tr>
+                            <tr>
+                                <td>class finally long strictfp volatile</td>
+                            </tr>
+                            <tr>
+                                <td>const float native super while</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p>Hay palabras reservadas que no se utilizan en la actualidad, como es el caso de const y goto, que
+                        apenas se utilizan en la actual implementación del lenguaje Java. Por otro lado, puede haber
+                        otro tipo de palabras o texto en el lenguaje que aunque no sean palabras reservadas tampoco se
+                        pueden utilizar para crear identificadores. Es el caso de true y false que, aunque puedan
+                        parecer palabras reservadas, porque no se pueden utilizar para ningún otro uso en un programa,
+                        técnicamente son literales booleanos. Igualmente, null es considerado un literal, no una palabra
+                        reservada.</p>
+
+                    <p>Cuando tras haber consultado la documentación de Java aún no tengas seguridad de cómo funciona
+                        alguna de sus características, pruébala en tu ordenador, y analiza cada mensaje de error que te
+                        dé el compilador para corregirlo. Busca en foros de Internet errores similares para ayudarte de
+                        la experiencia de otros usuarios y usuarias.</p>
+
+                    <p>Normalmente, los editores y entornos integrados de desarrollo utilizan colores para diferenciar
+                        las palabras reservadas del resto del código, los comentarios, las constantes y literales, etc
+                        (etcétera.). De esta forma se facilita muchísimo la lectura del programa y la detección de
+                        errores de sintaxis. Dependiendo de la configuración del entorno se utilizarán unos colores u
+                        otros.</p>
+
+                    <h3 class="section-subheading">4. Tipos de variables</h3>
+
+                    <p>Dentro de un programa podemos encontrar distintos tipos de variables. Las diferencias entre unas
+                        variables y otras dependerán de diversos factores como, por ejemplo, el tipo de datos que
+                        representan, si su valor puede cambiar o no, o cuál es el papel que tienen en el programa.
+                        Además, dependiendo del lenguaje de programación que se utilice, es posible que encontremos
+                        ciertas variaciones en los tipos de variables que se ofrecen. En el caso concreto del lenguaje
+                        de programación Java podemos distinguir los distintos tipos de variables según los siguientes
+                        criterios:</p>
+
+                    <ol class="numbered-list">
+                        <li>Según el tipo de información que contengan, podemos hablar de variables de tipos primitivos
+                            y variables referencia. En función de a qué grupo pertenezca la variable, tipos primitivos o
+                            tipos referenciados, podrá tomar unos valores u otros, y se podrán definir sobre ella unas
+                            operaciones u otras.</li>
+                        <li>Dependiendo de su mutabilidad, podemos hablar de variables mutables (o variables) e
+                            inmutables (o constantes), es decir, según su valor pueda ser modificado o no durante la
+                            ejecución del programa.</li>
+                    </ol>
+
+                    <p>En conclusión, podemos decir sobre una variable que:</p>
+
+                    <ol class="numbered-list">
+                        <li>es un almacén temporal de información que usan los programas para registrar datos y operar
+                            con ellos;</li>
+                        <li>puede contener un valor de un tipo primitivo (entero, real, caracter, etc.) o bien una
+                            referencia (una dirección de memoria o "puntero") a una zona de memoria que contendrá
+                            información mucho más compleja que un simple valor en un tipo primitivo;</li>
+                        <li>se crea y usa dentro de un bloque de código (en el caso de Java, dentro de un método);</li>
+                        <li>deja de existir (se "destruye") cuando la ejecución de ese bloque de código finaliza.</li>
+                    </ol>
+
+                    <p>El siguiente ejemplo puedes observar cómo se declaran algunas variables. En algunos casos se ha
+                        indicado un valor inicial y en otros no.</p>
+
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span class="language-badge">java</span>
+                        </div>
+                        <div class="code-content">
+                            <button class="copy-button">Copiar</button>
+                            <pre><code>int cantidadLargos = 10;
+double longitudPiscina;
+char letraDni;
+String nombre;
+final int MAXIMO_NUMERO_PLANTAS= 12;
+final double PI= 3.1415926536;</code></pre>
+                        </div>
+                    </div>
+
+                    <p>Analicemos cada una de las variables o elementos de memoria que se han declarado:</p>
+
+                    <table class="variable-description">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Tipo</th>
+                                <th>Mutabilidad</th>
+                                <th>Primitivo/Referencia</th>
+                                <th>Contenido</th>
+                                <th>Descripción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>cantidadLargos</td>
+                                <td>entero (int)</td>
+                                <td>variable</td>
+                                <td>primitivo (un número entero)</td>
+                                <td>valor entero 10</td>
+                                <td>Se trata de una variable que puede cambiar de valor, que almacenará la cantidad de
+                                    largos realizados por un nadador y cuyo valor inicial es </td>
+                            </tr>
+                            <tr>
+                                <td>longitudPiscina</td>
+                                <td>real (double)</td>
+                                <td>variable</td>
+                                <td>primitivo (un número real)</td>
+                                <td>todavía nada</td>
+                                <td>Se trata de una variable que puede cambiar de valor, que almacenará la longitud de
+                                    una piscina y que aún no tiene ningún valor asignado.</td>
+                            </tr>
+                            <tr>
+                                <td>letraDni</td>
+                                <td>carácter (char)</td>
+                                <td>variable</td>
+                                <td>primitivo (un carácter)</td>
+                                <td>aún nada</td>
+                                <td>Se trata de una variable que puede cambiar de valor, que almacenará la letra de un
+                                    DNI.</td>
+                            </tr>
+                            <tr>
+                                <td>nombre</td>
+                                <td>cadena (String)</td>
+                                <td>variable</td>
+                                <td>referencia (puntero a una cadena)</td>
+                                <td>aún nada (referencia vacía o nula)</td>
+                                <td>Se trata de una variable que puede cambiar de valor, que almacena la dirección de
+                                    memoria (referencia o "puntero") donde se encontrará una cadena de caracteres que
+                                    representa el nombre de una persona.</td>
+                            </tr>
+                            <tr>
+                                <td>MAXIMO_NUMERO_PLANTAS</td>
+                                <td>entero (int)</td>
+                                <td>constante</td>
+                                <td>primitivo (un número entero)</td>
+                                <td>valor entero 12</td>
+                                <td>Se trata de una variable que una vez que se le asigne un primer valor ya no podrá
+                                    cambiar y que almacena el máximo número de plantas que puede tener un edificio. Se
+                                    le ha asignado el valor 12. Ese valor ya no se podrá cambiar.</td>
+                            </tr>
+                            <tr>
+                                <td>PI</td>
+                                <td>real (double)</td>
+                                <td>constante</td>
+                                <td>primitivo (un número real)</td>
+                                <td>valor real 3.1415926536</td>
+                                <td>Se trata de una variable que una vez que se le asigne un primer valor, ya no podrá
+                                    cambiarse y que almacena el valor la constante geométrica π (pi) (3.1415926536).
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p>Como puedes observar se trata de pequeños casilleros donde se almacena cierta información básica
+                        (tipos primitivos) o bien una referencia (dirección de memoria) a información más compleja
+                        (tipos referenciados). En unos casos puede tratarse de información cambiante (mutable) y en
+                        otros constante (inmutable).</p>
+
+                    <p>En Java para indicar que una variable es inmutable o constante hay que utilizar el modificador
+                        final en su declaración.</p>
+
+                    <p>El siguiente ejemplo muestra el código para la creación de un par de variables:</p>
+
+                    <ul class="feature-list">
+                        <li>variable inmutable (final) llamada MAXIMO, con valor 4.245. Al haber sido declarada como
+                            constante (final) no podrá cambiar su valor a lo largo de la vida del programa;</li>
+                        <li>variable mutable llamada y. Sólo se podrá acceder a ella dentro del bloque de código donde
+                            ha sido declarada (método main), ya que fuera de él no existe. Podrá modificarse el valor
+                            que contiene tantas veces como se considere oportuno a lo largo de la vida del programa.
+                        </li>
+                    </ul>
+
+                    <p>En apartados posteriores veremos cómo darle más funcionalidad a nuestros programas, mostrar algún
+                        resultado por pantalla, hacer operaciones, etc. Por el momento, si ejecutas el siguiente ejemplo
+                        simplemente mostrará tres líneas indicando que este es el primer programa y el valor de la
+                        variable y de la constante declarada:</p>
+
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span class="language-badge">java</span>
+                        </div>
+                        <div class="code-content">
+                            <button class="copy-button">Copiar</button>
+                            <pre><code>public class EjemploVariables {
+
+ /**
+ * @param args the command line arguments
+ */
+ public static void main(String[] args) {
+ int y ; // y es una variable local
+ final double MAXIMO = 4.245 ;
+
+ // Asignamos un valor a la variable y
+ y = 2 ;
+
+ // aquí iría el código de nuestra aplicación
+ System.out.println ("Hola, este es un primer programa") ;
+
+ // Podemos escribir el valor de la variable y así:
+ System.out.println ("El valor de y es: " + y) ;
+
+ System.out.println ("El valor máximo es: " + MAXIMO) ;
+
+ }
+
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <p>La salida por pantalla del resultado de la ejecución de este programa sería algo similar a lo
+                        siguiente:</p>
+
+                    <div class="command-line">Hola, este es un primer programa
+                        El valor de y es: 2
+                        El valor máximo es: 4.245</div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+
+    <script src="js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+
+</html>

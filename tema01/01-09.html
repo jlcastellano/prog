@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Entornos Integrados de Desarrollo (IDE) - Introducción a la programación</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/vs2015.min.css">
+    <!-- CSS adicional para mejorar visualización de listas y tablas en secciones largas -->
+    <style>
+        .section-subheading {
+            font-size: 1.2rem;
+            color: var(--primary-purple);
+            margin-top: 1.5rem;
+            border-bottom: 2px solid var(--border-gray);
+            padding-bottom: 0.5rem;
+        }
+        .feature-list {
+            list-style-type: disc;
+            margin-left: 2rem;
+            line-height: 1.8;
+        }
+        .numbered-list {
+            list-style-type: decimal;
+            margin-left: 2rem;
+            line-height: 1.8;
+        }
+        .code-example {
+            background-color: rgba(124, 58, 237, 0.05);
+            padding: 1rem;
+            border-left: 4px solid var(--primary-purple);
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+        }
+        .ide-advantages {
+            background-color: rgba(0, 123, 255, 0.1);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-left: 4px solid #007bff;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <h1>Introducción a la Programación</h1>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <section class="lesson-section">
+                <h2 class="lesson-title"> Entornos Integrados de Desarrollo (IDE)</h2>
+                
+                <div class="content-text">
+                    <p>En los comienzos de Java, la utilización de la línea de comandos era algo habitual. El programador escribía el código fuente empleando un editor de texto básico, seguidamente, pasaba a utilizar un compilador y con él obtenía el código compilado. En un paso posterior, necesitaba emplear una tercera herramienta para el ensamblado del programa. Por último, podía probar a través de la línea de comandos el archivo ejecutable. El problema surgía cuando se producía algún error, lo que provocaba tener que volver a iniciar el proceso completo.</p>
+                    
+                    <p>Estas circunstancias hacían que el desarrollo de software no estuviera optimizado. Con el paso del tiempo, se fueron desarrollando aplicaciones que incluían las herramientas necesarias para realizar todo el proceso de programación de forma más sencilla, fiable y rápida. Para cada lenguaje de programación existen múltiples entornos de desarrollo, cada uno con sus ventajas e inconvenientes. Dependiendo de las necesidades de la persona que va a programar, la facilidad de uso o lo agradable que le resulte trabajar con él, se elegirá entre unos u otros entornos.</p>
+                    
+                    <p>Para el lenguaje de programación Java existen múltiples alternativas, siendo los principales entornos de desarrollo NetBeans (que cuenta con el apoyo de la empresa Sun), Eclipse y JCreator. Los dos primeros son gratuitos, con soporte de idiomas y multiplataforma (Windows, Linux, MacOS).</p>
+                    
+                    <p>¿Y cuál será con el que vamos a trabajar? El entorno que hemos seleccionado para llevar a cabo nuestros desarrollos de software en este módulo profesional será Visual Studio Code.</p>
+                    
+                    <h3 class="section-subheading">Visual Studio Code</h3>
+                    
+                    <p>Visual Studio Code (VS Code) es un editor de código fuente desarrollado por Microsoft para Windows, Linux y macOS. Es gratuito y de código abierto. Incluye soporte para depuración, control integrado de Git, resaltado de sintaxis, completado inteligente de código (IntelliSense), fragmentos de código y refactorización de código.</p>
+                    
+                    <p>Para configurar Visual Studio Code para el desarrollo en Java, es necesario instalar algunas extensiones que faciliten la codificación, compilación y ejecución de aplicaciones en Java.</p>
+                    
+                    <h4>Extensiones recomendadas para Java en VS Code</h4>
+                    
+                    <ul class="feature-list">
+                        <li>Java Extension Pack: Un paquete de extensiones que incluye las herramientas necesarias para el desarrollo en Java, como el lenguaje Java, el depurador, el gestor de proyectos Maven y más.</li>
+                        <li>Debugger for Java: Permite depurar aplicaciones Java directamente desde VS Code.</li>
+                        <li>Java Test Runner: Facilita la ejecución de pruebas unitarias en Java.</li>
+                        <li>Maven for Java: Ayuda a gestionar proyectos Maven.</li>
+                    </ul>
+                    
+                    <h4>Configuración básica de VS Code para Java</h4>
+                    
+                    <ol class="numbered-list">
+                        <li>Descarga e instala <a href="https://code.visualstudio.com/">Visual Studio Code</a>.</li>
+                        <li>Abre VS Code y dirígete a la sección de extensiones (icono de cuadrado en la barra lateral izquierda) y busca "Java Extension Pack". Instálalo.</li>
+                        <li>Una vez instaladas las extensiones, reinicia VS Code si es necesario.</li>
+                        <li>Configura la variable de entorno JAVA_HOME apuntando a la carpeta donde tienes instalado el JDK.</li>
+                        <li>Abre un proyecto Java o crea uno nuevo y comienza a programar.</li>
+                    </ol>
+                    
+                    <div class="ide-advantages">
+                        <h4>Ventajas de utilizar Visual Studio Code</h4>
+                        <ul class="feature-list">
+                            <li>Ligero y rápido.</li>
+                            <li>Alta personalización mediante extensiones.</li>
+                            <li>Soporte multiplataforma.</li>
+                            <li>Integración con herramientas de control de versiones como Git.</li>
+                        </ul>
+                    </div>
+                    
+                    <h4>Ventajas e inconvenientes de otros IDEs</h4>
+                    
+                    <div class="ide-advantages">
+                        <h5>NetBeans</h5>
+                        <ul class="feature-list">
+                            <li>Ventajas: Integrado perfectamente con Java, fácil de usar para principiantes, buen soporte para proyectos Maven y Gradle.</li>
+                            <li>Inconvenientes: Puede ser más pesado comparado con otros IDEs, menos extensible.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="ide-advantages">
+                        <h5>Eclipse</h5>
+                        <ul class="feature-list">
+                            <li>Ventajas: Altamente personalizable, amplia comunidad y soporte, excelente para proyectos grandes.</li>
+                            <li>Inconvenientes: Curva de aprendizaje más pronunciada, puede ser lento en ciertas configuraciones.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="ide-advantages">
+                        <h5>JCreator</h5>
+                        <ul class="feature-list">
+                            <li>Ventajas: Muy ligero, rápido, fácil de instalar.</li>
+                            <li>Inconvenientes: Menos funcionalidades avanzadas, principalmente enfocado en Java básico.</li>
+                        </ul>
+                    </div>
+                    
+                    <p>En resumen, elegir el entorno de desarrollo adecuado puede mejorar significativamente tu productividad y la calidad de tus programas. Visual Studio Code es una excelente opción por su ligereza y amplia gama de extensiones que facilitan el desarrollo en Java.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+</html>

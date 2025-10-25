@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Programas en Java - Introducción a la programación</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/vs2015.min.css">
+    <!-- CSS adicional para mejorar visualización de secciones largas y listas -->
+    <style>
+        .section-subheading {
+            font-size: 1.2rem;
+            color: var(--primary-purple);
+            margin-top: 1.5rem;
+            border-bottom: 2px solid var(--border-gray);
+            padding-bottom: 0.5rem;
+        }
+        .feature-list {
+            list-style-type: disc;
+            margin-left: 2rem;
+            line-height: 1.8;
+        }
+        .numbered-list {
+            list-style-type: decimal;
+            margin-left: 2rem;
+            line-height: 1.8;
+        }
+
+        .code-example {
+            background-color: rgba(124, 58, 237, 0.05);
+            padding: 1rem;
+            border-left: 4px solid var(--primary-purple);
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+        }
+
+        .command-line {
+            background-color: #f8f9fa;
+            padding: 0.5rem;
+            border-radius: 4px;
+            font-family: monospace;
+            margin: 0.5rem 0;
+        }
+        .app-type {
+            background-color: rgba(0, 123, 255, 0.1);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-left: 4px solid #007bff;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <h1>Introducción a la Programación</h1>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <section class="lesson-section">
+                <h2 class="lesson-title"> Programas en Java</h2>
+                
+                <div class="content-text">
+                    <p>Hasta ahora, hemos descrito el lenguaje de programación Java, hemos hecho un recorrido por su historia y nos hemos instruido sobre su filosofía de trabajo, pero te preguntarás:</p>
+                    
+                    <ul class="feature-list">
+                        <li>¿Cuándo empezamos a desarrollar programas?</li>
+                        <li>¿Qué elementos forman parte de un programa en Java?</li>
+                        <li>¿Qué se necesita para programar en este lenguaje?</li>
+                        <li>¿Podemos crear programas de diferente tipo?</li>
+                    </ul>
+                    
+                    <p>No te impacientes, cada vez estamos más cerca de comenzar la experiencia con el lenguaje de programación Java. Iniciaremos nuestro camino conociendo cuáles son los elementos básicos de un programa Java, la forma en que debemos escribir el código y los tipos de aplicaciones que pueden crearse en este lenguaje.</p>
+                    
+                    <h3 class="section-subheading">1. Estructura de un programa</h3>
+                    
+                    <p>En el gráfico al que puedes acceder a continuación, se presenta la estructura general de un programa realizado en un lenguaje orientado a objetos como es Java.</p>
+                    
+                    <img src="image01-02.jpg" alt="Estructura básica de un programa en Java" class="responsive-image">
+                    
+                    <p>Vamos a analizar los elementos que aparecen en esa estructura:</p>
+                    
+                    <ul class="feature-list">
+                        <li><strong>public class ClasePrincipal:</strong> todos los programas han de incluir elemento como éste. Podrá llamarse ClasePrincipal, ProgramaPrincipal, ClaseDePruebas, ProgramaDePruebas, Programa01 o como queramos. Pero debe tener un nombre. Se trata de una clase general en la que se incluyen todos los demás elementos del programa. En unidades posteriores veremos qué es una clase y cuáles son sus componentes principales. Por ahora es suficiente con que sepamos que nuestro programa va a comenzar con las líneas <code>public class NombrePrograma</code>, donde NombrePrograma será el nombre de nuestro programa.</li>
+                        <li><strong>Dentro de este elemento principal observamos el método o función main():</strong> que contiene las líneas de código de nuestro programa. También veremos más adelante qué es un método. Baste por ahora saber que, al igual que en el caso anterior, nuestro programa debe contener también esas líneas <code>public static void main (String args[])</code>. Aquí dentro se podrán incluir las instrucciones que estimemos oportunas para la ejecución del programa.</li>
+                    </ul>
+                    
+                    <p>Ten en cuenta que Java distingue entre mayúsculas y minúsculas. Si le das a la clase principal el nombre PrimerPrograma, el archivo .java tendrá como identificador PrimerPrograma.java, que es totalmente diferente a primerprograma.java. Además, para Java los elementos PrimerPrograma y primerprograma serían considerados dos clases diferentes dentro del código fuente.</p>
+                    
+                    <p>Más adelante hablaremos de las convenciones que suelen seguirse para formar los nombres de las clases en Java, así como de cualquier otro identificador usado por el lenguaje.</p>
+                    
+                    <ul class="feature-list">
+                        <li><strong>Comentarios:</strong> los comentarios se suelen incluir en el código fuente para realizar aclaraciones, anotaciones o cualquier otra indicación que el programador estime oportuna. Estos comentarios pueden introducirse de dos formas:
+                            <ul class="feature-list">
+                                <li>Con <code>//</code> estaríamos estableciendo una única línea completa de comentario, es decir, todo lo que hay detrás, hasta que haya un salto de línea, es comentario.</li>
+                                <li>Con <code>/* */</code>. De esta forma con <code>/*</code> comenzaríamos el comentario y éste no terminaría hasta que no insertáramos <code>*/</code>.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Bloques de código:</strong> son conjuntos de instrucciones que se marcan mediante la apertura y cierre de llaves <code>{ }</code>. El código así marcado es considerado interno al bloque.</li>
+                        <li><strong>Punto y coma (;</strong>): aunque en el ejemplo de la imagen no hemos terminado ninguna línea de código con punto y coma, para no distraer de momento con los detalles, hay que hacer hincapié en que cada línea de código ha de terminar con punto y coma (<code>;</code>). En caso de no hacerlo, tendremos errores sintácticos.</li>
+                    </ul>
+                    
+                    <h3 class="section-subheading">2. El entorno básico de desarrollo Java</h3>
+                    
+                    <p>Ya conoces cómo es la estructura de un programa en Java, pero, ¿qué necesitamos para llevarlo a la práctica?</p>
+                    
+                    <p>La herramienta básica para empezar a desarrollar aplicaciones en Java es el JDK (Java Development Kit o Kit de Desarrollo Java), que incluye un compilador y un intérprete para línea de comandos. Estos dos programas son los empleados en la precompilación e interpretación del código.</p>
+                    
+                    <p>Como veremos, existen diferentes entornos para la creación de programas en Java que incluyen multitud de herramientas, pero por ahora nos centraremos en el entorno más básico, extendido y gratuito, el Java Development Kit (JDK). JDK es un entorno de desarrollo para construir aplicaciones, applets y componentes utilizando el lenguaje de programación Java. Incluye herramientas útiles para el desarrollo y prueba de programas escritos en Java y ejecutados en la Plataforma Java.</p>
+                    
+                    <p>Así mismo, junto a JDK se incluye una implementación del entorno de ejecución Java, el JRE (Java Runtime Environment) para ser utilizado por el JDK. El JRE incluye la Máquina Virtual de Java (MVJ ó JVM – Java Virtual Machine), bibliotecas de clases y otros ficheros que soportan la ejecución de programas escritos en el lenguaje de programación Java.</p>
+                    
+                    <p>Java fue creado por Sun Microsystems, posteriormente absorbida por Oracle, que ha ido lanzando las sucesivas versiones del JDK. Con el lanzamiento de Java 11 Oracle hizo un cambio de licencia de modo que se convirtió en una tecnología de pago en caso de usarlo en ciertas circunstancias. Podemos usar el JDK de Oracle o bien otras implementaciones abiertas, en nuestro caso trabajaremos con la implementación que vemos a continuación.</p>
+                        <p>
+        Para descargar e instalar el JDK iremos a 
+        <a href="https://www.oracle.com/es/java/technologies/downloads/" 
+           target="_blank" >
+            www.oracle.com/es/java/technologies/downloads/
+        </a>
+                    <p>Para poder desarrollar nuestros primeros programas en Java sólo necesitaremos un editor de texto plano y los elementos que acabamos de instalar a través de Java SE.</p>
+                    
+                    <h3 class="section-subheading">3. La API de Java</h3>
+                    
+                    <p>Junto con el kit de desarrollo que hemos descargado e instalado anteriormente, vienen incluidas gratuitamente todas las bibliotecas de la API (Application Programming Interface – Interfaz de programación de aplicaciones) de Java, es lo que se conoce como Bibliotecas de Clases Java. Este conjunto de bibliotecas proporciona al programador paquetes de clases útiles para la realización de múltiples tareas dentro de un programa. Está organizada en paquetes lógicos, donde cada paquete contiene un conjunto de clases relacionadas semánticamente.</p>
+                    
+                    <p>En décadas pasadas una biblioteca era un conjunto de programas que contenían cientos de rutinas (una rutina es un procedimiento o función bien verificados, en determinado lenguaje de programación). Las rutinas de biblioteca manejaban las tareas que todos o casi todos los programas necesitaban. El programador podía recurrir a esta biblioteca para desarrollar programas con rapidez.</p>
+                    
+                    <p>Una biblioteca de clases es un conjunto de clases de programación orientada a objetos. Esas clases contienen métodos que son útiles para los programadores. En el caso de Java cuando descargamos el JDK obtenemos la biblioteca de clases API. Utilizar las clases y métodos de las API de Java reduce el tiempo de desarrollo de los programas. También, existen diversas bibliotecas de clases desarrolladas por terceros que contienen componentes reutilizables de software, y están disponibles a través de la Web.</p>
+                    
+                    <div class="table-container">
+                        <table class="concept-table">
+                            <thead>
+                                <tr>
+                                    <th>Componente</th>
+                                    <th>Descripción</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>JDK</td>
+                                    <td>Kit de Desarrollo Java, incluye compilador e intérprete.</td>
+                                </tr>
+                                <tr>
+                                    <td>JRE</td>
+                                    <td>Entorno de Ejecución Java, soporta la ejecución de programas.</td>
+                                </tr>
+                                <tr>
+                                    <td>API de Java</td>
+                                    <td>Bibliotecas de clases para tareas comunes.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                               <div class="content-text">
+                    <!-- Contenido de 4 Afinando la configuración -->
+                    <h3 class="section-subheading">4. Afinando la configuración</h3>
+                    
+                    <p>¿Y es necesario configurar la instalación del JDK que acabamos de hacer?</p>
+                    
+                    <p>Para que podamos compilar y ejecutar ficheros Java es necesario que realicemos unos pequeños ajustes en la configuración del sistema. Vamos a indicarle dónde encontrar los ficheros necesarios para realizar las labores de compilación y ejecución, en este caso javac.exe y java.exe, así como las librerías contenidas en la API de Java y las clases del usuario.</p>
+                    
+                    <p><strong>La variable PATH:</strong> como aún no disponemos de un IDE (Integrated Development Environment - Entorno Integrado de Desarrollo) la única forma de ejecutar programas es a través de línea de comandos. Pero sólo podremos ejecutar programas directamente si la ruta hacia ellos está indicada en la variable PATH del ordenador. Es necesario que incluyamos la ruta hacia estos programas en nuestra variable PATH. Esta ruta será el lugar donde se instaló el JDK hasta su directorio bin.</p>
+                    
+                    <p>Si has instalado AdoptJDK, no tienes que hacer nada. Si no fuera así, tendrías que indicar dónde está instalado Java. Por ejemplo, así se haría si se tuviera instalado jdk 8 de Oracle.</p>
+                    
+                    <p><strong>La variable CLASSPATH:</strong> esta variable de entorno establece dónde buscar las clases o bibliotecas de la API de Java, así como las clases creadas por el usuario. Es decir, los ficheros .class que se obtienen una vez compilado el código fuente de un programa escrito en Java. Es posible que en dicha ruta existan directorios y ficheros comprimidos en los formatos zip o jar que pueden ser utilizados directamente por el JDK, conteniendo en su interior archivos con extensión class.</p>
+                    
+                    <p>(Por ejemplo: C:\Program Files\AdoptOpenJDK\jdk-11.0.7.10-hotspot\bin)</p>
+                    
+                    <p>Si no existe la variable CLASSPATH debes crearla, para modificar su contenido sigue el mismo método que hemos empleado para la modificación del valor de la variable PATH, anteriormente descrito. Ten en cuenta que la ruta que debes incluir será el lugar donde se instaló el JDK hasta su directorio lib.</p>
+                    
+                    <p>(Por ejemplo: C:\Program Files\AdoptOpenJDK\jdk-11.0.7.10-hotspot\lib)</p>
+                    
+                    <!-- Contenido de 5 Codificación, compilación y ejecución de aplicaciones -->
+                    <h3 class="section-subheading">5. Codificación, compilación y ejecución de aplicaciones</h3>
+                    
+                    <p>Una vez que la configuración del entorno Java está completada y tenemos el código fuente de nuestro programa escrito en un archivo con extensión .java, la compilación de aplicaciones se realiza mediante el programa javac incluido en el software de desarrollo de Java.</p>
+                    
+                    <p>Para llevar a cabo la compilación desde la línea de comandos, escribiremos:</p>
+                    
+                    <div class="command-line">javac archivo.java</div>
+                    
+                    <p>Donde javac es el compilador de Java y archivo.java es nuestro código fuente.</p>
+                    
+                    <p>El resultado de la compilación será un archivo con el mismo nombre que el archivo Java pero con la extensión .class. Esto ya es el archivo con el código en forma de bytecode, es decir, con el código precompilado. Si en el código fuente de nuestro programa figuraran más de una clase, veremos cómo al realizar la compilación se generarán tantos archivos con extensión .class como clases tengamos. Además, si estas clases tenían método main() podremos ejecutar dichos archivos por separado para ver el funcionamiento de dichas clases.</p>
+                    
+                    <p>Para que el programa pueda ser ejecutado, siempre y cuando esté incluido en su interior el método main(), podremos utilizar el intérprete incluido en el kit de desarrollo.</p>
+                    
+                    <p>La ejecución de nuestro programa desde la línea de comandos podremos hacerla escribiendo:</p>
+                    
+                    <div class="command-line">java archivo</div>
+                    
+                    <p>Donde java es el intérprete y archivo es el archivo con el código precompilado. Es IMPORTANTE aclarar que donde ponemos archivo, nos referimos al archivo ya precompilado en bytecodes, que tiene la extensión .class, pero NO hay que poner dicha extensión para ejecutar el archivo, sólo el nombre.</p>
+                    
+                    <!-- Contenido de 6 Tipos de aplicaciones en Java -->
+                    <h3 class="section-subheading">6. Tipos de aplicaciones en Java</h3>
+                    
+                    <p>La versatilidad del lenguaje de programación Java permite al programador crear distintos tipos de aplicaciones. A continuación, describiremos las características más relevantes de cada uno de ellos:</p>
+                    
+                    <div class="app-type">
+                        <h4>Aplicaciones de consola:</h4>
+                        <ul class="feature-list">
+                            <li>Son programas independientes al igual que los creados con los lenguajes tradicionales.</li>
+                            <li>Se componen como mínimo de un archivo .class que debe contar necesariamente con el método main().</li>
+                            <li>No necesitan un navegador web y se ejecutan cuando invocamos el comando java para iniciar la Máquina Virtual de Java (JVM). De no encontrarse el método main() la aplicación no podrá ejecutarse.</li>
+                            <li>Las aplicaciones de consola leen y escriben hacia y desde la entrada y salida estándar, sin ninguna interfaz gráfica de usuario.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="app-type">
+                        <h4>Aplicaciones gráficas:</h4>
+                        <ul class="feature-list">
+                            <li>Aquellas que utilizan las clases con capacidades gráficas, como Swing, que es la biblioteca para la interfaz gráfica de usuario avanzada de la plataforma Java SE.</li>
+                            <li>Incluyen las instrucciones import, que indican al compilador de Java que las clases del paquete javax.swing se incluyan en la compilación.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="app-type">
+                        <h4>Applets:</h4>
+                        <ul class="feature-list">
+                            <li>Son programas incrustados en otras aplicaciones, normalmente una página web que se muestra en un navegador. Cuando el navegador carga una web que contiene un applet, éste se descarga en el navegador web y comienza a ejecutarse. Esto nos permite crear programas que cualquier usuario puede ejecutar con tan solo cargar la página web en su navegador.</li>
+                            <li>Se pueden descargar de Internet y se observan en un navegador. Los applets se descargan junto con una página HTML desde un servidor web y se ejecutan en la máquina cliente.</li>
+                            <li>No tienen acceso a partes sensibles (por ejemplo: no pueden escribir archivos), a menos que uno mismo le dé los permisos necesarios en el sistema.</li>
+                            <li>No tienen un método principal.</li>
+                            <li>Son multiplataforma y pueden ejecutarse en cualquier navegador que soporte Java.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="app-type">
+                        <h4>Servlets:</h4>
+                        <ul class="feature-list">
+                            <li>Son componentes de la parte del servidor de Java EE, encargados de generar respuestas a las peticiones recibidas de los clientes.</li>
+                            <li>Los servlets, al contrario de los applets, son programas que están pensados para trabajar en el lado del servidor y desarrollar aplicaciones Web que interactúen con los clientes.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="app-type">
+                        <h4>Midlets:</h4>
+                        <ul class="feature-list">
+                            <li>Son aplicaciones creadas en Java para su ejecución en sistemas de propósito simple o dispositivos móviles. Algunos juegos Java creados para teléfonos móviles son midlets.</li>
+                            <li>Son programas creados para dispositivos embebidos (se dedican a una sola actividad), más específicamente para la máquina virtual Java Micro Edition (Java ME).</li>
+                            <li>Generalmente son juegos y aplicaciones que se ejecutan en teléfonos móviles.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+</html>
+

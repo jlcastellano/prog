@@ -8,7 +8,6 @@ class EducationalPlatform {
         document.addEventListener('DOMContentLoaded', () => {
             this.initializeCodeHighlighting();
             this.setupCopyButtons();
-            this.setupPageNavigation();
         });
     }
 
@@ -79,43 +78,9 @@ class EducationalPlatform {
         }, 2000);
     }
 
-    setupPageNavigation() {
-        // Configurar navegación entre páginas si existe
-        const pageNav = document.querySelector('.page-navigation');
-        if (pageNav && typeof navigationManager !== 'undefined') {
-            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-            const navInfo = navigationManager.getPageNavigation(currentPage);
-            
-            this.updatePageNavigation(navInfo);
-        }
-    }
 
-    updatePageNavigation(navInfo) {
-        const prevButton = document.querySelector('.nav-button:first-child');
-        const nextButton = document.querySelector('.nav-button:last-child');
 
-        if (prevButton) {
-            if (navInfo.previous) {
-                prevButton.href = navInfo.previous.url;
-                prevButton.textContent = `← ${navInfo.previous.title}`;
-                prevButton.classList.remove('disabled');
-            } else {
-                prevButton.classList.add('disabled');
-                prevButton.href = '#';
-            }
-        }
 
-        if (nextButton) {
-            if (navInfo.next) {
-                nextButton.href = navInfo.next.url;
-                nextButton.textContent = `${navInfo.next.title} →`;
-                nextButton.classList.remove('disabled');
-            } else {
-                nextButton.classList.add('disabled');
-                nextButton.href = '#';
-            }
-        }
-    }
 
     // Función para actualizar el contenido de la página
     updatePageContent(title, subtitle, content) {

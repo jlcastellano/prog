@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Los tipos de datos - Introducción a la programación</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/vs2015.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">Introducción a la Programación</div>
+
+        </div>
+    </header>
+
+    <div class="container">
+
+        <main class="main-content">
+            <div class="lesson-header">
+                <h1 id="page-title"> Los tipos de datos</h1>
+             </div>
+
+            <div id="lesson-content">
+                <p>En los lenguajes fuertemente tipados, a todo dato (constante, variable o expresión) le corresponde un tipo que es conocido antes de que se ejecute el programa. El tipo limita el valor de la variable o expresión, las operaciones que se pueden hacer sobre esos valores, y el significado de esas operaciones. Esto es así porque un tipo de dato no es más que una especificación de los valores que son válidos para esa variable, y de las operaciones que se pueden realizar con ellos.</p>
+
+                <p>Debido a que el tipo de dato de una variable se comprueba durante la revisión que hace el compilador para detectar errores, o sea, en tiempo de compilación, esta labor es mucho más fácil, ya que no hay que esperar a que se ejecute el programa para saber qué valores va a contener esa variable. Esto se consigue con un control muy exhaustivo de los tipos de datos que se utilizan, lo cual tiene sus ventajas e inconvenientes. Por ejemplo, cuando se intenta asignar un valor de un tipo a una variable de otro tipo el compilador "se quejará" mostrando un mensaje de error. Sin embargo, en Java, puede haber conversión entre ciertos tipos de datos, como veremos posteriormente.</p>
+
+                <p>Ahora no es el momento de entrar en detalle sobre la conversión de tipos, pero sí debemos conocer con exactitud de qué tipos de datos dispone el lenguaje Java. Ya hemos visto que las variables, según la información que contienen, se pueden dividir en variables de tipos primitivos y variables referencia. Pero ¿qué es un tipo de dato primitivo? ¿Y un tipo referencia? Aunque lo hemos indicado brevemente antes, la primera vez que aparecían estos conceptos para que no te sonara totalmente a chino, esto es lo que vamos a ver a continuación con más detalle. Los tipos de datos en Java se dividen principalmente en dos categorías:</p>
+
+                <ul>
+                    <li><strong>Tipos de datos sencillos o primitivos</strong>. Representan valores simples que vienen predefinidos en el lenguaje; contienen valores únicos, como por ejemplo un carácter o un número.</li>
+                    <li><strong>Tipos de datos referencia</strong>. Se definen con un nombre o referencia (puntero) que contiene la dirección en memoria de un valor o grupo de valores. Dentro de este tipo tenemos por ejemplo los vectores (también conocidos en informática como arrays), que son una serie de elementos del mismo tipo, o las clases, que son los modelos o plantillas a partir de los cuales se crean los objetos.</li>
+                </ul>
+
+                <p>En el siguiente apartado vamos a ver con detalle los diferentes tipos de datos que se engloban dentro de estas dos categorías.</p>
+
+                <h3>1. Tipos de datos primitivos I</h3>
+
+                <p>Los tipos primitivos son aquellos datos sencillos que constituyen los tipos de información más habituales: números, caracteres y valores lógicos o booleanos. Al contrario que en otros lenguajes de programación orientados a objetos, en Java no son objetos.</p>
+
+                <p>Una de las mayores ventajas de tratar con tipos primitivos en lugar de con objetos, es que el compilador de Java puede optimizar mejor su uso. Otra importante característica, es que cada uno de los tipos primitivos tiene idéntico tamaño y comportamiento en todas las versiones de Java y para cualquier tipo de ordenador. Esto quiere decir que no debemos preocuparnos de cómo se representarán los datos en distintas plataformas, y asegura la portabilidad de los programas, a diferencia de lo que ocurre con otros lenguajes. Por ejemplo, el tipo int siempre se representará con 32 bits, con signo, y en el formato de representación complemento a 2, en cualquier plataforma que soporte Java.</p>
+
+                <p>Hay una peculiaridad en los tipos de datos primitivos, y es que el tipo de dato char es considerado por el compilador como un tipo numérico, ya que los valores que guarda son el código Unicode correspondiente al carácter que representa, no el carácter en sí, por lo que puede operarse con caracteres como si se tratara de números enteros.</p>
+
+                <p>Una cuestión importante: a la hora de elegir el tipo de dato que vamos a utilizar ¿qué criterio seguiremos para elegir un tipo de dato u otro? Pues deberemos tener en cuenta cómo es la información que hay que guardar, si es de tipo texto, numérico, etc., y además qué rango de valores puede alcanzar. En este sentido, hay veces que aunque queramos representar un número sin decimales, tendremos que utilizar datos de tipo real.</p>
+
+                <p>Por ejemplo, el tipo de dato int no podría representar la población mundial del planeta, ya que el valor máximo que alcanza es de 2.147.483.647, siendo éste el número máximo de combinaciones posibles con 32 bits, teniendo en cuenta que la representación de los números enteros en Java utiliza complemento a 2. Si queremos representar el valor correspondiente a la población mundial del planeta, cerca de 7.000.000.000 habitantes, tendríamos que utilizar al menos un tipo de dato long, o si tenemos problemas de espacio un tipo float. Sin embargo, los tipos reales tienen otro problema: la precisión. Vamos a ver más sobre ellos en el siguiente apartado.</p>
+
+                <h3>2. Tipos de datos primitivos II</h3>
+
+                <p>¿Cómo representaremos los datos de tipo real en Java? El tipo de dato real permite representar números con decimales. Al igual que ocurre con los enteros, la mayoría de los lenguajes definen más de un tipo de dato real, en función del número de bits usado para representarlos. Cuanto mayor sea ese número:</p>
+
+                <ul>
+                    <li>Más grande podrá ser el número real representado en valor absoluto.</li>
+                    <li>Mayor será la precisión de la parte decimal.</li>
+                </ul>
+
+                <p>Entre cada dos números reales cualesquiera, siempre tendremos matemáticamente hablando infinitos números reales, pero un ordenador no puede representar infinitos números, porque no dispone de capacidad ilimitada, por lo que la mayoría de ellos los representaremos de forma aproximada.</p>
+
+                <p>¡¡No fastidies!! ¿Tanta informática, tanto ordenador cada vez más potente, y ni siquiera puedo representar de forma exacta la mayoría de los números reales? Justamente, sentimos decirte que así es, pero no se hunde el mundo por ello, y de una forma u otra, tenemos precisión suficiente para casi todo lo que nos propongamos, ya que como humanos, la "precisión infinita" tampoco la manejamos muy bien.</p>
+
+                <p>Por ejemplo, en la aritmética convencional, cuando dividimos 10 entre 3, el resultado es 3.3333333…, con la secuencia de 3 repitiéndose infinitamente. En el ordenador sólo podemos almacenar un número finito de bits, por lo que el almacenamiento de un número real será siempre una aproximación.</p>
+
+                <p>Los números reales se representan en coma flotante o notación científica, que consiste en trasladar la coma decimal a la primera cifra significativa del valor, con objeto de poder representar el máximo de números posible.</p>
+
+                <p>Un número en el interior de un computador se expresa como: Valor = mantisa * 2<sup>exponente</sup></p>
+
+                <p>Donde la mantisa son las cifras significativas del número (pues hemos trasladado la coma decimal hasta el principio). De este modo, para almacenar el número, sólo se guardan la mantisa y el exponente al que va elevada la base. Los bits empleados por la mantisa representan la precisión del número real, es decir, el número de cifras decimales significativas que puede tener el número real, mientras que los bits del exponente expresan la diferencia entre el mayor y el menor número representable, lo que viene a ser el intervalo de representación.</p>
+
+                <p>En Java las variables de tipo float se emplean para representar los números en coma flotante de simple precisión de 32 bits, de los cuales 24 son para la mantisa y 8 para el exponente. La mantisa es un valor entre -1.0 y 1.0 y el exponente representa la potencia de 2 necesaria para obtener el valor que se quiere representar. Por su parte, las variables tipo double representan los números en coma flotante de doble precisión de 64 bits, de los cuales 53 son para la mantisa y 11 para el exponente.</p>
+
+                <p>La mayoría de los programadores en Java emplean el tipo double cuando trabajan con datos de tipo real. Es una forma de asegurarse de que los errores cometidos por las sucesivas aproximaciones sean menores. De hecho, Java considera los valores en coma flotante como de tipo double por defecto. Así, el literal 3.65 será considerado por defecto como un literal de tipo double. Si quiero que sea considerado como float, (que es de menor precisión, y ocupa menos espacio) tendré que indicarlo explícitamente añadiéndole una f detrás: 3.65f o 3.65F.</p>
+
+                <p>Con el objetivo de conseguir la máxima portabilidad de los programas, Java utiliza el estándar internacional IEEE 754 para la representación interna de los números en coma flotante, que es una forma de asegurarse de que el resultado de los cálculos sea el mismo para diferentes plataformas.</p>
+
+                <h3>3. Tipos de datos primitivos III</h3>
+
+                <p><strong>Tipos de datos primitivos:</strong> Son los tipos básicos de datos que Java maneja directamente en el lenguaje y no son objetos.</p>
+
+                <ol>
+                    <li><strong>Enteros:</strong> Son números sin decimales y se dividen en cuatro tipos según su tamaño:
+                        <ul>
+                            <li>byte: Ocupa 8 bits y su rango va de -128 a 127.</li>
+                            <li>short: Utiliza 16 bits y su rango es de -32,768 a 32,767.</li>
+                            <li>int: Es el tipo entero más utilizado, ocupa 32 bits y su rango va de -2<sup>31</sup> a 2<sup>31</sup>-1.</li>
+                            <li>long: Con 64 bits, su rango es de -2<sup>63</sup> a 2<sup>63</sup>-1.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Punto flotante:</strong> Son números con decimales. Java maneja dos tipos:
+                        <ul>
+                            <li>float: Ocupa 32 bits y tiene una precisión de 6-7 dígitos decimales significativos.</li>
+                            <li>double: Usa 64 bits y tiene una precisión de aproximadamente 15 dígitos decimales.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Carácter:</strong> Representa un carácter Unicode y utiliza el tipo:
+                        <ul>
+                            <li>char: Ocupa 16 bits y puede representar un único carácter.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Booleano:</strong> Representa valores de verdad (true o false) y utiliza el tipo:
+                        <ul>
+                            <li>boolean: No se define oficialmente su tamaño, pero representa uno de dos posibles valores: true o false.</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <p><strong>Tipo String:</strong> Aunque no es un tipo primitivo, es uno de los tipos más utilizados en Java. String representa una secuencia de caracteres y es, en realidad, un objeto, no un tipo de dato primitivo. Se define de la siguiente manera:</p>
+
+                <div class="code-container">
+                    <div class="code-header">
+                        <span>Ejemplo String</span>
+                        <span class="language-badge">Java</span>
+                    </div>
+                    <div class="code-content">
+                        <button class="copy-button">Copiar</button>
+                        <pre><code>String mensaje = "Hola, mundo!";</code></pre>
+                    </div>
+                </div>
+
+                <p>Los objetos String son inmutables, lo que significa que una vez creados, su valor no puede cambiar; en su lugar, cualquier modificación produce un nuevo objeto String.</p>
+
+                <p><strong>Clases envoltorio (Wrapper classes):</strong> Cada tipo de dato primitivo tiene una clase envoltorio correspondiente en Java. Estas clases "envuelven" el tipo primitivo en un objeto, lo cual es útil cuando necesitas trabajar con un tipo primitivo como si fuera un objeto, por ejemplo, para utilizarlos en colecciones genéricas que requieren objetos, como ArrayList. Aquí tienes los tipos primitivos y sus clases envoltorio correspondientes:</p>
+
+                <ul>
+                    <li>byte -> Byte</li>
+                    <li>short -> Short</li>
+                    <li>int -> Integer</li>
+                    <li>long -> Long</li>
+                    <li>float -> Float</li>
+                    <li>double -> Double</li>
+                    <li>char -> Character</li>
+                    <li>boolean -> Boolean</li>
+                </ul>
+
+                <p>Las clases envoltorio ofrecen una variedad de métodos útiles, como la conversión de cadenas a tipos primitivos y viceversa, y constantes como MIN_VALUE y MAX_VALUE que representan los valores mínimo y máximo que pueden tener.</p>
+
+                <h3>4. Declaración e inicialización</h3>
+
+                <p>Llegados a este punto cabe preguntarnos ¿cómo se crean las variables en un programa? ¿Qué debo hacer antes de usar una variable en mi programa?</p>
+
+                <p>Pues bien, como podrás imaginar, debemos crear las variables antes de poder utilizarlas en nuestros programas, indicando qué nombre va a tener y qué tipo de información va a almacenar, en definitiva, debemos declarar la variable.</p>
+
+                <p>Las variables se pueden declarar en cualquier bloque de código, dentro de llaves. Y lo hacemos indicando su identificador y el tipo de dato, separadas por comas si vamos a declarar varias a la vez, por ejemplo:</p>
+
+                <div class="code-container">
+                    <div class="code-header">
+                        <span>Declaración de variables</span>
+                        <span class="language-badge">Java</span>
+                    </div>
+                    <div class="code-content">
+                        <button class="copy-button">Copiar</button>
+                        <pre><code>int numeroAlumnos = 15;
+double radio = 3.14, importe = 102.95;</code></pre>
+                    </div>
+                </div>
+
+                <p>De esta forma, estamos declarando numeroAlumnos como una variable de tipo int, (y al mismo tiempo asignándole el valor 15, pero de momento nos fijamos solo en la declaración: int numeroAlumnos;) y otras dos variables radio e importe de tipo double. No es obligatorio asignar valor a la vez que se declara, pero puede hacerse y en el ejemplo anterior hemos aprovechado la declaración de las variables para inicializarlas, asignándoles como primer valor 15, 3.14 y 102.95 respectivamente.</p>
+
+                <p>Si la variable va a permanecer inalterable a lo largo del programa, la declararemos como constante, utilizando la palabra reservada final de la siguiente forma:</p>
+
+                <div class="code-container">
+                    <div class="code-header">
+                        <span>Constante PI</span>
+                        <span class="language-badge">Java</span>
+                    </div>
+                    <div class="code-content">
+                        <button class="copy-button">Copiar</button>
+                        <pre><code>final double PI = 3.1415926536;</code></pre>
+                    </div>
+                </div>
+
+                <p>En ocasiones puede que al declarar una variable no le demos valor. ¿Qué crees que ocurre en estos casos? Hemos de tener en cuenta que las variables no se inicializan automáticamente. Debemos asignarles nosotros un valor antes de ser usadas, ya que si el compilador detecta que la variable se usa antes de que se le asigne un valor, se produce un error. Por ejemplo en este caso:</p>
+
+                <div class="code-container">
+                    <div class="code-header">
+                        <span>Error de inicialización</span>
+                        <span class="language-badge">Java</span>
+                    </div>
+                    <div class="code-content">
+                        <button class="copy-button">Copiar</button>
+                        <pre><code>int p;
+int q = p; // error</code></pre>
+                    </div>
+                </div>
+
+                <p>Estamos intentando inicializar la variable q con el valor que tenga p, pero como p no ha sido inicializada no tiene ningún valor, así que el compilador no sabe qué valor asignar, y producirá un error.</p>
+
+                <h3>5. Tipos referenciados</h3>
+
+                <p>¿No te parece que los tipos vistos hasta ahora son un poco limitados? Por ejemplo, no parece razonable que para almacenar las notas de los 800 alumnos y alumnas de un centro escolar para la primera, segunda y tercera evaluación, tuviéramos que declarar en nuestro programa 3 x 800 = 2.400 variables, ¿no te parece? ¿Y qué pasa si el curso próximo el centro tiene 805 alumnos? Tendríamos que ir cambiando el programa cada vez que cambiara el número de alumnos y alumnas. O si quisiéramos meter una cuarta nota para la evaluación final, etc. ¡¡Se haría inmanejable!!</p>
+
+                <p>A partir de los ocho tipos de datos primitivos, se pueden construir otros tipos de datos. Estos tipos de datos se llaman tipos referenciados o referencias, porque se utilizan para almacenar la dirección de los datos en la memoria del ordenador.</p>
+
+                <div class="code-container">
+                    <div class="code-header">
+                        <span>Tipos referenciados</span>
+                        <span class="language-badge">Java</span>
+                    </div>
+                    <div class="code-content">
+                        <button class="copy-button">Copiar</button>
+                        <pre><code>int[] arrayDeEnteros;
+Cuenta cuentaCliente;</code></pre>
+                    </div>
+                </div>
+
+                <p>En la primera instrucción declaramos una lista de números del mismo tipo, en este caso, enteros (le llamamos array de enteros, vector de enteros). En la segunda instrucción estamos declarando la variable u objeto cuentaCliente como una referencia de tipo Cuenta. (Cuenta es una clase que habrá definido el usuario, y que especificará qué elementos forman parte de una cuenta, y qué operaciones se pueden hacer con ella).</p>
+
+                <p>Como comentábamos al principio del apartado de Tipos de datos, cualquier aplicación de hoy en día necesita no perder de vista una cierta cantidad de datos. Cuando el conjunto de datos utilizado tiene características similares se suelen agrupar en estructuras para facilitar el acceso a los mismos, son los llamados datos estructurados. Son datos estructurados los arrays, listas, árboles, etc. Pueden estar en la memoria del programa en ejecución, guardados en el disco como ficheros, o almacenados en una base de datos.</p>
+
+                <p>Además de los ocho tipos de datos primitivos que ya hemos descrito, Java proporciona un tratamiento especial a los textos o cadenas de caracteres mediante el tipo de dato String. Java crea automáticamente un nuevo objeto de tipo String cuando se encuentra una cadena de caracteres encerrada entre comillas dobles. En realidad se trata de objetos, y por tanto son tipos referenciados, pero el lenguaje nos permite utilizarlos también de forma sencilla como si fueran variables de tipos primitivos:</p>
+
+                <div class="code-container">
+                    <div class="code-header">
+                        <span>Ejemplo String referenciado</span>
+                        <span class="language-badge">Java</span>
+                    </div>
+                    <div class="code-content">
+                        <button class="copy-button">Copiar</button>
+                        <pre><code>String primerMensaje;
+primerMensaje="El primer mensaje";
+String segundoMensaje="Otro mensaje más";</code></pre>
+                    </div>
+                </div>
+
+                <p>Hemos visto qué son las variables, cómo se declaran y los tipos de datos que pueden adoptar. Anteriormente hemos visto también un ejemplo de creación de variables. Ahora vamos a crear más variables, pero de distintos tipos primitivos y las vamos a mostrar por pantalla. Los tipos referenciados los veremos en unidades posteriores.</p>
+
+                <p>Aquí tienes otro ejemplo donde se declaran más variables, una de ellas de tipo referenciado:</p>
+
+                <div class="code-container">
+                    <div class="code-header">
+                        <span>EjemploTipos.java</span>
+                        <span class="language-badge">Java</span>
+                    </div>
+                    <div class="code-content">
+                        <button class="copy-button">Copiar</button>
+                        <pre><code>public class EjemploTipos {
+ public static void main(String[] args) {
+ int i = 10;
+ double d = 3.14;
+ char c1 = 'a';
+ char c2 = 65;
+ boolean encontrado = true;
+ String mensaje = "Bienvenido a Java";
+ System.out.println("La variable i es de tipo entero y su valor es: " + i);
+ System.out.println("La variable d es de tipo double y su valor es: " + d);
+ System.out.println("La variable c1 es de tipo carácter y su valor es: " + c1);
+ System.out.println("La variable c2 es de tipo carácter y su valor es: " + c2);
+ System.out.println("La variable encontrado es de tipo booleano y su valor es: " + encontrado);
+ System.out.println("La variable mensaje es de tipo String y su valor es: " + mensaje);
+ }
+}</code></pre>
+                    </div>
+                </div>
+
+                <p>El resultado que se obtendrá por pantalla al ejecutar el programa tendrá el siguiente aspecto:</p>
+
+                <pre class="output">La variable i es de tipo entero y su valor es: 10
+La variable d es de tipo double y su valor es: 3.14
+La variable c1 es de tipo carácter y su valor es: a
+La variable c2 es de tipo carácter y su valor es: A
+La variable encontrado es de tipo booleano y su valor es: true
+La variable mensaje es de tipo String y su valor es: Bienvenido a Java</pre>
+
+                <h3>6. Tipos enumerados</h3>
+
+                <p>Los tipos de datos enumerados permiten una forma de declarar una variable con un conjunto restringido de valores. Por ejemplo: los días de la semana, las estaciones del año, los meses, etc. Es como si definiéramos nuestro propio tipo de datos.</p>
+
+                <p>Para declararlos se usa la palabra reservada enum, seguida del nombre de la variable y la lista de valores que puede tomar entre llaves. A los valores que se colocan dentro de las llaves se les considera como constantes, van separados por comas y deben ser valores únicos.</p>
+
+                <p>La lista de valores se coloca entre llaves, porque un tipo de datos enum no es otra cosa que una especie de clase en Java, y todas las clases llevan su contenido entre llaves.</p>
+
+                <p>Al considerar Java este tipo de datos como si de una clase se tratara, no solamente podemos definir los valores de un tipo enumerado, sino que también podemos definir operaciones a realizar con él y otro tipo de elementos, lo que hace que este tipo de dato sea más versátil y potente que en otros lenguajes de programación. Pero eso se verá en unidades más avanzadas. Por el momento debemos quedarnos con que los enum nos permiten definir un nuevo tipo cuyos valores posibles son los que nosotros definamos.</p>
+
+                <p>A continuación tienes un ejemplo de creación y uso de un tipo de dato enumerado (enum en Java). Declaramos un enum Dias que contiene valores que representan todos los posibles días de la semana. Para acceder a cada posible valor de un tipo enumerado se utiliza el nombre del enum seguido de un punto y el valor en la lista:</p>
+
+                <div class="code-container">
+                    <div class="code-header">
+                        <span>TiposEnumerados.java</span>
+                        <span class="language-badge">Java</span>
+                    </div>
+                    <div class="code-content">
+                        <button class="copy-button">Copiar</button>
+                        <pre><code>public class TiposEnumerados {
+ public enum Dias {LUNES, MARTES, MIERCOLES, JUEVES, VIERNES, SABADO, DOMINGO};
+
+ public static void main(String[] args) {
+ Dias diaActual = Dias.MARTES ;
+ Dias diaSiguiente = Dias.MIERCOLES ;
+
+ System.out.println("Hoy es: " + diaActual);
+ System.out.println("Mañana es " + diaSiguiente);
+ }
+}</code></pre>
+                    </div>
+                </div>
+
+                <p>Este programa, además de declarar el enum Dias con sus posibles valores, declara dos variables de ese nuevo tipo (diaActual y diaSiguiente) que acabamos de definir y les asigna valores de entre el conjunto de valores posibles. El resultado de su ejecución debería mostrar por pantalla lo siguiente:</p>
+
+                <pre class="output">Hoy es: MARTES
+Mañana es MIERCOLES</pre>
+            </div>
+
+
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+</html>

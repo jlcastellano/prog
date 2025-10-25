@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Comentarios - Introducción a la programación</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/vs2015.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">Introducción a la Programación</div>
+
+        </div>
+    </header>
+
+    <div class="container">
+
+
+        <main class="main-content">
+            <div class="lesson-header">
+                <h1 id="page-title"> Comentarios</h1>
+            </div>
+
+            <div id="lesson-content">
+                <p>Los comentarios son muy importantes a la hora de describir qué hace un determinado programa. A lo largo de la unidad los hemos utilizado para documentar los ejemplos y mejorar la comprensión del código. Para lograr ese objetivo, es normal que cada programa comience con unas líneas de comentario que indiquen, al menos, una breve descripción del programa, el autor o autora del mismo y la última fecha en que se ha modificado.</p>
+
+                <p>Todos los lenguajes de programación disponen de alguna forma de introducir comentarios en el código. En el caso de Java, nos podemos encontrar los siguientes tipos de comentarios:</p>
+
+                <ul>
+                    <li><strong>Comentarios de una sola línea</strong>. Utilizaremos el delimitador // para introducir comentarios de sólo una línea.</li>
+                </ul>
+
+                <div class="code-container">
+                    <div class="code-header">
+                        <span>Ejemplo de comentario de una sola línea</span>
+                        <span class="language-badge">Java</span>
+                    </div>
+                    <div class="code-content">
+                        <button class="copy-button">Copiar</button>
+                        <pre><code>// comentario de una sola línea</code></pre>
+                    </div>
+                </div>
+
+                <ul>
+                    <li><strong>Comentarios de múltiples líneas</strong>. Para introducir este tipo de comentarios, utilizaremos una barra inclinada y un asterisco (/*), al principio del párrafo y un asterisco seguido de una barra inclinada (*/) al final del mismo. Aunque no es necesario poner asteriscos al comienzo de cada nueva línea dentro del comentario, suele hacerse para que de esa forma quede visualmente delimitado qué líneas abarca el comentario. De esta forma, en el ejemplo siguiente se ve cómo suele ponerse el comentario primero... y luego se repite con lo que sería estrictamente necesario.</li>
+                </ul>
+
+                <div class="code-container">
+                    <div class="code-header">
+                        <span>Ejemplo de comentario de múltiples líneas</span>
+                        <span class="language-badge">Java</span>
+                    </div>
+                    <div class="code-content">
+                        <button class="copy-button">Copiar</button>
+                        <pre><code>/* Esto es un comentario
+ * de varias líneas */
+/* Esto es otro comentario
+ de varias líneas */</code></pre>
+                    </div>
+                </div>
+
+                <ul>
+                    <li><strong>Comentarios Javadoc</strong>. Utilizaremos los delimitadores /** y */. Al igual que con los comentarios tradicionales, el texto entre estos delimitadores será ignorado por el compilador. Este tipo de comentarios se emplean para generar documentación automática del programa. A través del programa javadoc, incluido en Java SE, se recogen todos estos comentarios y se llevan a un documento en formato .html. Al igual que en los comentarios de múltiples líneas, no serían necesarios los asteriscos iniciales para la segunda, tercera y cuarta líneas del comentario siguiente.</li>
+                </ul>
+
+                <div class="code-container">
+                    <div class="code-header">
+                        <span>Ejemplo de comentario Javadoc</span>
+                        <span class="language-badge">Java</span>
+                    </div>
+                    <div class="code-content">
+                        <button class="copy-button">Copiar</button>
+                        <pre><code>/** Comentario de documentación.
+ * Javadoc extrae los comentarios del código y
+ * genera un archivo html a partir de este tipo de comentarios
+ */</code></pre>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+</html>
