@@ -139,15 +139,288 @@
                         <li>Evitar saltos a regiones remotas de código</li>
                     </ul>
 
-                    <div class="structure-notes">
-                        <strong>⚠️ ¿Por qué evitarlos?</strong> Porque crean "puertas traseras" que complican el código. La condición del bucle debe ser el único punto de control.
+                </div>
+            </div>
+
+            <!-- Sección 5.1: La sentencia break -->
+            <div class="lesson-section">
+                <h2 class="section-title">5.1. La sentencia break</h2>
+                <div class="text-content">
+                    <p>La sentencia <b>break</b> provoca la salida inmediata del bucle o estructura switch en la que se encuentra.</p>
+                    
+                    <div class="structure-container">
+                        <div class="structure-examples">
+                            <div class="example-box pseudocode">
+                                <h4>Pseudocódigo con break (DESACONSEJADO)</h4>
+                                <div class="structure-syntax">
+<pre>Para i desde 0 hasta 9 hacer
+    Si i == 5 entonces
+        Romper
+    FinSi
+    Escribir "i = ", i
+FinPara
+Escribir "Bucle terminado"
+
+// Salida:
+// i = 0
+// i = 1
+// i = 2
+// i = 3
+// i = 4
+// Bucle terminado</pre>
+                                </div>
+                            </div>
+
+                            <div class="example-box java">
+                                <h4>Java con break (DESACONSEJADO)</h4>
+                                <div class="structure-syntax">
+<pre><code class="language-java">for (int i = 0; i < 10; i++) {
+    if (i == 5) {
+        break; // Sale del bucle
+    }
+    System.out.println("i = " + i);
+}
+System.out.println("Bucle terminado");
+
+// Salida:
+// i = 0
+// i = 1
+// i = 2
+// i = 3
+// i = 4
+// Bucle terminado</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="structure-notes">
+                            <strong>Único uso recomendado de break:</strong> En estructuras switch para evitar la ejecución en cascada de los casos.
+                        </div>
+
+                        <div class="structure-examples">
+                            <div class="example-box pseudocode">
+                                <h4>Pseudocódigo con break en switch (CORRECTO)</h4>
+                                <div class="structure-syntax">
+<pre>opcion ← 2
+Según sea opcion hacer
+    Caso 1:
+        Escribir "Opción 1"
+        Romper
+    Caso 2:
+        Escribir "Opción 2"
+        Romper
+    Caso 3:
+        Escribir "Opción 3"
+        Romper
+    Por defecto:
+        Escribir "Opción no válida"
+FinSegún</pre>
+                                </div>
+                            </div>
+
+                            <div class="example-box java">
+                                <h4>Java con break en switch (CORRECTO)</h4>
+                                <div class="structure-syntax">
+<pre><code class="language-java">int opcion = 2;
+switch (opcion) {
+    case 1:
+        System.out.println("Opción 1");
+        break;
+    case 2:
+        System.out.println("Opción 2");
+        break;
+    case 3:
+        System.out.println("Opción 3");
+        break;
+    default:
+        System.out.println("Opción no válida");
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-</div>
+
+            <!-- Sección 5.2: La sentencia continue -->
+            <div class="lesson-section">
+                <h2 class="section-title">5.2. La sentencia continue</h2>
+                <div class="text-content">
+                    <p>La sentencia <b>continue</b> provoca que se salte el resto del código en la iteración actual y se pase directamente a la siguiente iteración del bucle.</p>
+                    
+                    <div class="structure-container">
+                        <div class="structure-examples">
+                            <div class="example-box pseudocode">
+                                <h4>Pseudocódigo con continue (DESACONSEJADO)</h4>
+                                <div class="structure-syntax">
+<pre>Para i desde 0 hasta 9 hacer
+    Si i mod 2 == 0 entonces
+        Continuar
+    FinSi
+    Escribir "Número impar: ", i
+FinPara
+
+// Salida:
+// Número impar: 1
+// Número impar: 3
+// Número impar: 5
+// Número impar: 7
+// Número impar: 9</pre>
+                                </div>
+                            </div>
+
+                            <div class="example-box java">
+                                <h4>Java con continue (DESACONSEJADO)</h4>
+                                <div class="structure-syntax">
+<pre><code class="language-java">for (int i = 0; i < 10; i++) {
+    if (i % 2 == 0) {
+        continue; // Salta pares
+    }
+    System.out.println("Número impar: " + i);
+}
+
+// Salida:
+// Número impar: 1
+// Número impar: 3
+// Número impar: 5
+// Número impar: 7
+// Número impar: 9</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección 5.3: Alternativas recomendadas -->
+            <div class="lesson-section">
+                <h2 class="section-title">5.3. Alternativas recomendadas (SIN break/continue)</h2>
+                <div class="text-content">
+                    <p>En lugar de usar break y continue, se recomienda usar condiciones apropiadas que mantengan el flujo estructurado del programa.</p>
+                    
+                    <div class="structure-container">
+                        <h3 style="color: #2c3e50; margin-bottom: 1rem;">Alternativa a break: Usar condiciones en el bucle</h3>
+                        <div class="structure-examples">
+                            <div class="example-box pseudocode">
+                                <h4>Pseudocódigo SIN break (RECOMENDADO)</h4>
+                                <div class="structure-syntax">
+<pre>encontrado ← falso
+i ← 0
+Mientras i < longitud(array) Y NO encontrado hacer
+    Si array[i] == valorBuscado entonces
+        encontrado ← verdadero
+    FinSi
+    i ← i + 1
+FinMientras</pre>
+                                </div>
+                            </div>
+
+                            <div class="example-box java">
+                                <h4>Java SIN break (RECOMENDADO)</h4>
+                                <div class="structure-syntax">
+<pre><code class="language-java">boolean encontrado = false;
+int i = 0;
+while (i < array.length && !encontrado) {
+    if (array[i] == valorBuscado) {
+        encontrado = true;
+    }
+    i++;
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3 style="color: #2c3e50; margin: 2rem 0 1rem 0;">Alternativa a continue: Usar if-else</h3>
+                        <div class="structure-examples">
+                            <div class="example-box pseudocode">
+                                <h4>Pseudocódigo SIN continue (RECOMENDADO)</h4>
+                                <div class="structure-syntax">
+<pre>Para i desde 0 hasta 9 hacer
+    Si i mod 2 != 0 entonces
+        Escribir "Número impar: ", i
+    FinSi
+FinPara</pre>
+                                </div>
+                            </div>
+
+                            <div class="example-box java">
+                                <h4>Java SIN continue (RECOMENDADO)</h4>
+                                <div class="structure-syntax">
+<pre><code class="language-java">for (int i = 0; i < 10; i++) {
+    if (i % 2 != 0) {
+        System.out.println("Número impar: " + i);
+    }
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="structure-notes">
+                            <strong>💡 Ventajas del código estructurado:</strong>
+                            <ul style="margin-top: 0.5rem;">
+                                <li>Más fácil de leer y entender</li>
+                                <li>Más fácil de mantener y modificar</li>
+                                <li>Menos propenso a errores</li>
+                                <li>Sigue el principio de "una entrada - una salida"</li>
+                                <li>La condición del bucle refleja toda la lógica de control</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección 5.4: Comparación y conclusiones -->
+            <div class="lesson-section">
+                <h2 class="section-title">5.4. Resumen y conclusiones</h2>
+                <div class="text-content">
+                    <div class="structure-container">
+                        <h3 style="color: #2c3e50; margin-bottom: 1rem;">Comparación break vs continue</h3>
+                        <table style="width: 100%; border-collapse: collapse; margin-bottom: 2rem;">
+                            <thead>
+                                <tr style="background-color: #3498db; color: white;">
+                                    <th style="padding: 0.75rem; text-align: left; border: 1px solid #ddd;">Característica</th>
+                                    <th style="padding: 0.75rem; text-align: left; border: 1px solid #ddd;">break</th>
+                                    <th style="padding: 0.75rem; text-align: left; border: 1px solid #ddd;">continue</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="padding: 0.75rem; border: 1px solid #ddd;"><b>Acción</b></td>
+                                    <td style="padding: 0.75rem; border: 1px solid #ddd;">Termina el bucle completamente</td>
+                                    <td style="padding: 0.75rem; border: 1px solid #ddd;">Salta a la siguiente iteración</td>
+                                </tr>
+                                <tr style="background-color: #f9f9f9;">
+                                    <td style="padding: 0.75rem; border: 1px solid #ddd;"><b>Uso recomendado</b></td>
+                                    <td style="padding: 0.75rem; border: 1px solid #ddd;">Solo en switch</td>
+                                    <td style="padding: 0.75rem; border: 1px solid #ddd;">Evitar su uso</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 0.75rem; border: 1px solid #ddd;"><b>Alternativa</b></td>
+                                    <td style="padding: 0.75rem; border: 1px solid #ddd;">Condiciones en el bucle</td>
+                                    <td style="padding: 0.75rem; border: 1px solid #ddd;">if-else o condiciones positivas</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="structure-notes" style="background-color: #f8d7da; border-left-color: #dc3545;">
+                            <strong style="color: #721c24;">🎯 Reglas de oro de la programación estructurada:</strong>
+                            <ul style="margin-top: 0.5rem;">
+                                <li><b>Evita break y continue</b> en bucles (excepto break en switch)</li>
+                                <li><b>Usa condiciones claras</b> que expresen toda la lógica en el bucle</li>
+                                <li><b>Mantén una entrada y una salida</b> en cada estructura</li>
+                                <li><b>Prefiere código legible</b> sobre código compacto</li>
+                                <li><b>La condición del bucle</b> debe ser el único punto de control</li>
+                            </ul>
+                        </div>
+
+                        <p style="margin-top: 1.5rem;"><b>Conclusión:</b> Aunque break y continue son características válidas del lenguaje Java, su uso (fuera del switch) viola los principios de la programación estructurada y dificulta el mantenimiento del código. Siempre existe una alternativa más clara y estructurada.</p>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </main>
-</div>
+    </div>
     <script src="js/main.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
     <script>
