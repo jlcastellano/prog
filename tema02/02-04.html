@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2Uso de Estructuras de Control</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/vs2015.min.css">
+    <style>
+        /* Estilos para las estructuras de control */
+        .structure-container {
+            margin: 2rem 0;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            background-color: #f9f9f9;
+        }
+
+        .structure-flow {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .structure-flow img {
+            max-width: 100%;
+            height: auto;
+            max-height: 400px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 0.5rem;
+            background-color: white;
+        }
+
+        .structure-flow h3 {
+            margin-top: 1rem;
+            color: #2c3e50;
+            font-size: 1.1rem;
+        }
+
+        .structure-examples {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .structure-examples {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .example-box {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .example-box h4 {
+            margin: 0 0 1rem 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #3498db;
+            color: #2c3e50;
+            font-size: 1rem;
+        }
+
+        .example-box.pseudocode h4 {
+            border-bottom-color: #e74c3c;
+        }
+
+        .example-box.java h4 {
+            border-bottom-color: #27ae60;
+        }
+
+        .structure-syntax {
+            background-color: #f5f5f5;
+            padding: 1rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            border-left: 4px solid #3498db;
+            margin-bottom: 1rem;
+        }
+
+        .pseudocode .structure-syntax {
+            border-left-color: #e74c3c;
+        }
+
+        .java .structure-syntax {
+            border-left-color: #27ae60;
+        }
+
+        .structure-notes {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1rem;
+            margin-top: 1rem;
+            border-radius: 4px;
+        }
+
+        .structure-notes strong {
+            color: #856404;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">Estructuras de Control</div>
+        </div>
+    </header>
+    <div class="container">
+    <main class="main-content">
+        <div class="content-header">
+            <h1 id="page-title" class="content-title">Uso de Estructuras de Control</h1>
+        </div>
+
+            <div class="lesson-section">
+                <h2 class="section-title">4. Estructuras repetitivas, iterativas o cíclicas</h2>
+                <div class="text-content">
+                    <p>Permiten repetir un bloque de instrucciones hasta cumplir un objetivo o condición.</p>
+                    <p>Tipos de bucles:</p>
+                    <ul>
+                        <li><b>while:</b> Repite MIENTRAS se cumpla la condición (puede no ejecutarse nunca)</li>
+                        <li><b>do-while:</b> Ejecuta AL MENOS UNA VEZ, luego repite mientras se cumpla la condición</li>
+                        <li><b>for:</b> Para repeticiones con número conocido (controlado por contador)</li>
+                    </ul>
+                    <p>Usa while/do-while cuando no sabes cuántas veces repetir. Usa for cuando lo sabes de antemano.</p>
+                </div>
+            </div>
+
+            <div class="lesson-section">
+                <h2 class="section-title">4.1. Estructura repetitiva while</h2>
+                <div class="text-content">
+                    <p>Repite un bloque MIENTRAS la condición sea verdadera. La condición se evalúa ANTES de cada ejecución.</p>
+
+                    <div class="structure-container">
+                        <div class="structure-flow">
+                            <img src="imagen02-05.png" alt="Diagrama de flujo estructura while">
+
+                        </div>
+
+                        <div class="structure-examples">
+                            <div class="example-box pseudocode">
+                                <h4>📝 Pseudocódigo (PSeInt)</h4>
+                                <div class="structure-syntax">
+<pre>Mientras condicion Hacer
+    sentencias
+FinMientras</pre>
+                                </div>
+                                <p><strong>Ejemplo:</strong></p>
+                                <div class="structure-syntax">
+<pre>numero <- 1
+Mientras numero <= 5 Hacer
+    Escribir numero
+    numero <- numero + 1
+FinMientras</pre>
+                                </div>
+                            </div>
+
+                            <div class="example-box java">
+                                <h4>☕ Java</h4>
+                                <div class="structure-syntax">
+<pre>while (condicion) {
+    sentencias;
+}</pre>
+                                </div>
+                                <p><strong>Ejemplo:</strong></p>
+                                <div class="structure-syntax">
+<pre>int numero = 1;
+while (numero <= 5) {
+    System.out.println(numero);
+    numero++;
+}</pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="structure-notes">
+                            <strong>⚠️ Cuidado:</strong> Debes modificar la condición dentro del bucle para evitar bucles infinitos. La condición se evalúa ANTES, por lo que el bloque puede NO ejecutarse nunca.
+                        </div>
+                    </div>
+
+                    <p><b>Uso típico:</b> Validación de entrada de datos</p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>Validación con while</span>
+                            <span class="language-badge">Java</span>
+                        </div>
+                        <div class="code-content">
+                            <button class="copy-button">Copiar</button>
+                            <pre><code>System.out.print("Introduce inicio: ");
+inicio = teclado.nextInt();
+System.out.print("Introduce fin: ");
+fin = teclado.nextInt();
+
+while (inicio > fin) {
+    System.out.println("Error: fin debe ser >= inicio");
+    System.out.print("Introduce inicio: ");
+    inicio = teclado.nextInt();
+    System.out.print("Introduce fin: ");
+    fin = teclado.nextInt();
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lesson-section">
+                <h2 class="section-title">4.2. Estructura repetitiva do-while</h2>
+                <div class="text-content">
+                    <p>Ejecuta el bloque AL MENOS UNA VEZ, luego evalúa la condición. Si es verdadera, repite.</p>
+
+                    <div class="structure-container">
+                        <div class="structure-flow">
+                            <img src="imagen02-06.png" alt="Diagrama de flujo estructura do-while">
+
+                        </div>
+
+                        <div class="structure-examples">
+                            <div class="example-box pseudocode">
+                                <h4>📝 Pseudocódigo (PSeInt)</h4>
+                                <div class="structure-syntax">
+<pre>Repetir
+    sentencias
+Hasta Que condicion</pre>
+                                </div>
+                                <p><strong>Ejemplo:</strong></p>
+                                <div class="structure-syntax">
+<pre>numero <- 1
+Repetir
+    Escribir numero
+    numero <- numero + 1
+Hasta Que numero > 5</pre>
+                                </div>
+                            </div>
+
+                            <div class="example-box java">
+                                <h4>☕ Java</h4>
+                                <div class="structure-syntax">
+<pre>do {
+    sentencias;
+} while (condicion);</pre>
+                                </div>
+                                <p><strong>Ejemplo:</strong></p>
+                                <div class="structure-syntax">
+<pre>int numero = 1;
+do {
+    System.out.println(numero);
+    numero++;
+} while (numero <= 5);</pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="structure-notes">
+                            <strong>💡 "Primero dispara, luego pregunta":</strong> La condición se comprueba AL FINAL. Ideal para menús y validaciones que deben ejecutarse al menos una vez.
+                        </div>
+                    </div>
+
+                    <p><b>Validación mejorada con do-while:</b></p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>Validación con do-while</span>
+                            <span class="language-badge">Java</span>
+                        </div>
+                        <div class="code-content">
+                            <button class="copy-button">Copiar</button>
+                            <pre><code>do {
+    System.out.print("Introduce inicio: ");
+    inicio = teclado.nextInt();
+    System.out.print("Introduce fin: ");
+    fin = teclado.nextInt();
+} while (inicio > fin); // Solo escribes la petición una vez</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lesson-section">
+                <h2 class="section-title">4.3. Estructura repetitiva for</h2>
+                <div class="text-content">
+                    <p>Bucle controlado por contador. Úsalo cuando SABES EXACTAMENTE cuántas veces repetir.</p>
+
+                    <div class="structure-container">
+                        <div class="structure-flow">
+                            <img src="imagen02-07.png" alt="Diagrama de flujo estructura for">
+     
+                        </div>
+
+                        <div class="structure-examples">
+                            <div class="example-box pseudocode">
+                                <h4>📝 Pseudocódigo (PSeInt)</h4>
+                                <div class="structure-syntax">
+<pre>Para variable <- inicio Hasta fin Con Paso incremento Hacer
+    sentencias
+FinPara</pre>
+                                </div>
+                                <p><strong>Ejemplo:</strong></p>
+                                <div class="structure-syntax">
+<pre>Para numero <- 1 Hasta 5 Con Paso 1 Hacer
+    Escribir numero
+FinPara</pre>
+                                </div>
+                            </div>
+
+                            <div class="example-box java">
+                                <h4>☕ Java</h4>
+                                <div class="structure-syntax">
+<pre>for (inicializacion; condicion; incremento) {
+    sentencias;
+}</pre>
+                                </div>
+                                <p><strong>Ejemplo:</strong></p>
+                                <div class="structure-syntax">
+<pre>for (int numero = 1; numero <= 5; numero++) {
+    System.out.println(numero);
+}</pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="structure-notes">
+                            <strong>📊 Partes del for:</strong><br>
+                            • <strong>Inicialización:</strong> Se ejecuta UNA VEZ al inicio<br>
+                            • <strong>Condición:</strong> Se comprueba ANTES de cada iteración<br>
+                            • <strong>Incremento:</strong> Se ejecuta DESPUÉS de cada iteración
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="lesson-section">
+                <h2 class="section-title">4.4. Conceptos: Contador y Acumulador</h2>
+                <div class="text-content">
+                    <p><b>Contador:</b> Variable que se incrementa o decrementa en cada iteración.</p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>Ejemplo de contador</span>
+                            <span class="language-badge">Java</span>
+                        </div>
+                        <div class="code-content">
+                            <button class="copy-button">Copiar</button>
+                            <pre><code>int numIntentos = 0; // Contador
+do {
+    System.out.print("Introduce código: ");
+    codigo = teclado.nextInt();
+    numIntentos++; // Incrementar contador
+} while (codigo != CODIGO_CORRECTO && numIntentos < 3);</code></pre>
+                        </div>
+                    </div>
+
+                    <p><b>Acumulador:</b> Variable que suma o acumula valores progresivamente.</p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>Ejemplo de acumulador</span>
+                            <span class="language-badge">Java</span>
+                        </div>
+                        <div class="code-content">
+                            <button class="copy-button">Copiar</button>
+                            <pre><code>int contador = 1;
+int suma = 0; // Acumulador (SIEMPRE inicializar a 0)
+
+while (contador <= 5) {
+    suma += contador; // Acumular el valor
+    contador++;
+}
+System.out.println("La suma es: " + suma); // Resultado: 15</code></pre>
+                        </div>
+                    </div>
+
+                    <p><b>Diferencia:</b></p>
+                    <ul>
+                        <li><b>Contador:</b> Suma siempre +1 (cuenta cuántos)</li>
+                        <li><b>Acumulador:</b> Suma cantidades variables (suma totales)</li>
+                    </ul>
+                </div>
+            </div>
+</div>
+        </div>
+    </main>
+</div>
+    <script src="js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+</html>

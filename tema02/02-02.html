@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uso de Estructuras de Control</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/vs2015.min.css">
+    <style>
+        /* Estilos para las estructuras de control */
+        .structure-container {
+            margin: 2rem 0;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            background-color: #f9f9f9;
+        }
+
+        .structure-flow {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .structure-flow img {
+            max-width: 100%;
+            height: auto;
+            max-height: 400px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 0.5rem;
+            background-color: white;
+        }
+
+        .structure-flow h3 {
+            margin-top: 1rem;
+            color: #2c3e50;
+            font-size: 1.1rem;
+        }
+
+        .structure-examples {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .structure-examples {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .example-box {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .example-box h4 {
+            margin: 0 0 1rem 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #3498db;
+            color: #2c3e50;
+            font-size: 1rem;
+        }
+
+        .example-box.pseudocode h4 {
+            border-bottom-color: #e74c3c;
+        }
+
+        .example-box.java h4 {
+            border-bottom-color: #27ae60;
+        }
+
+        .structure-syntax {
+            background-color: #f5f5f5;
+            padding: 1rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            border-left: 4px solid #3498db;
+            margin-bottom: 1rem;
+        }
+
+        .pseudocode .structure-syntax {
+            border-left-color: #e74c3c;
+        }
+
+        .java .structure-syntax {
+            border-left-color: #27ae60;
+        }
+
+        .structure-notes {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1rem;
+            margin-top: 1rem;
+            border-radius: 4px;
+        }
+
+        .structure-notes strong {
+            color: #856404;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">Estructuras de Control</div>
+        </div>
+    </header>
+    <div class="container">
+    <main class="main-content">
+        <div class="content-header">
+            <h1 id="page-title" class="content-title">Uso de Estructuras de Control</h1>
+        </div>
+
+        <div id="lesson-content" class="lesson-content">
+
+            <div class="lesson-section">
+                <h2 class="section-title">2. Estructura secuencial: sentencias y bloques</h2>
+                <div class="text-content">
+                    <p>Conceptos básicos a recordar:</p>
+                    <ul>
+                        <li><b>¿Cómo se escribe un programa?</b> Colocando las instrucciones en el orden de ejecución deseado.</li>
+                        <li><b>¿Una línea por sentencia?</b> Sí, es muy recomendable para facilitar la lectura y localización de errores.</li>
+                        <li><b>¿Punto y coma al final?</b> Sí, todas las sentencias terminan con ; (excepto las cabeceras de estructuras de control).</li>
+                        <li><b>¿Qué es un bloque?</b> Conjunto de sentencias entre llaves { } que se ejecuta como una unidad. Se usa en estructuras de control, clases y métodos.</li>
+                    </ul>
+                    <p><b>Importante:</b> Documenta tu código con claridad, nombres descriptivos y sin faltas de ortografía (tanto en comentarios como en cadenas literales).</p>
+                </div>
+            </div>
+
+            <div class="lesson-section">
+                <h2 class="section-title">2.1. Ámbito o alcance de una variable</h2>
+                <div class="text-content">
+                    <p>El <b>ámbito</b> de una variable es la zona donde "existe". Está definido por el bloque (entre llaves) donde se declaró. Al cerrar la llave }, la variable desaparece.</p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>Ejemplo de ámbito de variables</span>
+                            <span class="language-badge">Java</span>
+                        </div>
+                        <div class="code-content">
+                            <button class="copy-button">Copiar</button>
+                            <pre><code>public static void main(String[] args) {
+    int num1 = 10; // Existe en todo el main
+    {
+        int num2 = 20; // Solo existe en este bloque
+        num1++; // Puede usar num1
+    }
+    // num2 ya NO existe aquí - daría error
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</div>
+        </div>
+    </main>
+</div>
+    <script src="js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+</html>

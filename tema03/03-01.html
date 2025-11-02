@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utilización de objetos</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/vs2015.min.css">
+    <style>
+        /* Estilos heredados de la unidad anterior */
+        .structure-container {
+            margin: 2rem 0;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            background-color: #f9f9f9;
+        }
+
+        .structure-flow {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .structure-flow img {
+            max-width: 100%;
+            height: auto;
+            max-height: 400px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 0.5rem;
+            background-color: white;
+        }
+
+        .structure-flow h3 {
+            margin-top: 1rem;
+            color: #2c3e50;
+            font-size: 1.1rem;
+        }
+
+        .structure-examples {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .structure-examples {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .example-box {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .example-box h4 {
+            margin: 0 0 1rem 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #3498db;
+            color: #2c3e50;
+            font-size: 1rem;
+        }
+
+        .example-box.pseudocode h4 {
+            border-bottom-color: #e74c3c;
+        }
+
+        .example-box.java h4 {
+            border-bottom-color: #27ae60;
+        }
+
+        .structure-syntax {
+            background-color: #f5f5f5;
+            padding: 1rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            border-left: 4px solid #3498db;
+            margin-bottom: 1rem;
+        }
+
+        .pseudocode .structure-syntax {
+            border-left-color: #e74c3c;
+        }
+
+        .java .structure-syntax {
+            border-left-color: #27ae60;
+        }
+
+        .structure-notes {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1rem;
+            margin-top: 1rem;
+            border-radius: 4px;
+        }
+
+        .structure-notes strong {
+            color: #856404;
+        }
+
+        /* Estilos específicos para POO */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .comparison-table th {
+            background-color: #3498db;
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .comparison-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .highlight-box h3 {
+            margin-top: 0;
+            color: white;
+        }
+
+        .concept-card {
+            background-color: white;
+            border-left: 4px solid #3498db;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .concept-card h4 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .benefit-item {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-top: 3px solid #27ae60;
+        }
+
+        .benefit-item h4 {
+            color: #27ae60;
+            margin-top: 0;
+        }
+
+        .warning-box {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .info-box {
+            background-color: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .success-box {
+            background-color: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .diagram-container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .diagram-container img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+            margin: 1.5rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: #3498db;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 1.5rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.5rem;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #3498db;
+            border: 3px solid white;
+            box-shadow: 0 0 0 2px #3498db;
+        }
+
+        .timeline-item h4 {
+            color: #3498db;
+            margin: 0 0 0.5rem 0;
+        }
+
+        .api-reference {
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 4px;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+        }
+
+        .method-signature {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            margin: 0.5rem 0;
+            font-family: 'Courier New', monospace;
+        }
+
+        .param-description {
+            padding-left: 1.5rem;
+            margin: 0.5rem 0;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">Programación Orientada a Objetos</div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <main class="main-content">
+            <div class="content-header">
+                <h1 id="page-title" class="content-title">Utilización de Objetos</h1>
+                <p id="page-subtitle" class="content-subtitle">Fundamentos de la Programación Orientada a Objetos en Java</p>
+            </div>
+
+            <div id="lesson-content" class="lesson-content">
+                <!-- 1. INTRODUCCIÓN -->
+                <div class="lesson-section">
+                    <h2 class="section-title">1. Introducción</h2>
+                    <div class="text-content">
+                        <div class="highlight-box">
+                            <h3>¿Por qué programar con objetos?</h3>
+                            <p>El mundo real está formado por <b>objetos</b>: coches, edificios, personas, animales... Todos tienen <b>características</b> (color, tamaño, altura) y <b>comportamientos</b> (acelerar, crecer, comer).</p>
+                            <p>Si programamos usando los mismos términos del mundo real en lugar de términos del sistema informático, nuestros programas serán <b>más legibles, fáciles de desarrollar y mantener</b>, y por tanto, menos costosos.</p>
+                        </div>
+
+                        <p>Los programas solucionan problemas del mundo real. Pero muchas veces se organizan según los términos del sistema donde se ejecutarán, no según los términos del problema que intentan resolver.</p>
+
+                        <p>La <b>Programación Orientada a Objetos (POO)</b> pretende establecer técnicas que permitan trasladar los problemas del mundo real a nuestro sistema informático, utilizando objetos como elemento fundamental.</p>
+
+                        <div class="info-box">
+                            <strong>Recuerda:</strong> Ya conoces la sintaxis básica de Java. Ahora es el momento de comenzar a utilizar las características orientadas a objetos de este lenguaje y estudiar los conceptos fundamentales de este modelo de programación.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. FUNDAMENTOS POO -->
+                <div class="lesson-section">
+                    <h2 class="section-title">2. Fundamentos de la Programación Orientada a Objetos</h2>
+                    <div class="text-content">
+                        <p>Existen dos paradigmas fundamentales de programación:</p>
+
+                        <div class="structure-examples">
+                            <div class="concept-card">
+                                <h4>Programación Estructurada</h4>
+                                <p>Se centra en <b>acciones o verbos</b>. El problema se descompone en funciones o procedimientos que definen las acciones a realizar.</p>
+                                <p><b>Ejemplo:</b> Resolver ecuación → pedir coeficientes, calcular resultado, mostrar resultado.</p>
+                                <p><b>Problema:</b> Datos y funciones están separados. Cualquier cambio en los datos puede requerir modificar todas las funciones.</p>
+                            </div>
+
+                            <div class="concept-card">
+                                <h4>Programación Orientada a Objetos</h4>
+                                <p>Se centra en <b>objetos (sustantivos)</b>. El problema se descompone en objetos que tienen datos y acciones juntos.</p>
+                                <p><b>Ejemplo:</b> Lavadora → tiene motor, tambor, cables (datos) y programas de lavado (acciones).</p>
+                                <p><b>Ventaja:</b> Datos y funciones están encapsulados. Los cambios en un objeto sólo afectan a ese objeto.</p>
+                            </div>
+                        </div>
+
+                        <div class="highlight-box">
+                            <h3>Diferencia clave</h3>
+                            <p><b>Programación Estructurada:</b> División de procesos y datos (separados).</p>
+                            <p><b>Programación Orientada a Objetos:</b> Relación entre datos y acciones (juntos dentro del objeto).</p>
+                        </div>
+
+                        <div class="success-box">
+                            <strong>La POO aborda los problemas de forma más natural:</strong> Está más en contacto con el mundo que nos rodea, es más cercana a nuestra forma de analizar, entender y resolver problemas.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2.2 BENEFICIOS -->
+                <div class="lesson-section">
+                    <h2 class="section-title">2.2. Beneficios de la POO</h2>
+                    <div class="text-content">
+                        <p>Un <b>objeto</b> es cualquier entidad que podemos ver o apreciar. Utilizar objetos aporta múltiples ventajas:</p>
+
+                        <div class="benefits-grid">
+                            <div class="benefit-item">
+                                <h4>📖 Comprensión</h4>
+                                <p>Los conceptos del problema real están reflejados en el código. La lectura del código describe la solución en términos del mundo real.</p>
+                            </div>
+
+                            <div class="benefit-item">
+                                <h4>🧩 Modularidad</h4>
+                                <p>Los objetos se definen en módulos o archivos independientes. Las aplicaciones están mejor organizadas y son más fáciles de entender.</p>
+                            </div>
+
+                            <div class="benefit-item">
+                                <h4>🔧 Fácil mantenimiento</h4>
+                                <p>Cualquier modificación en las acciones queda reflejada en los datos automáticamente. Más fácil localizar y corregir errores.</p>
+                            </div>
+
+                            <div class="benefit-item">
+                                <h4>🔒 Seguridad</h4>
+                                <p>No puedes modificar los datos directamente, sino mediante las acciones definidas. Menos probabilidad de errores.</p>
+                            </div>
+
+                            <div class="benefit-item">
+                                <h4>♻️ Reusabilidad</h4>
+                                <p>Los objetos son entidades reutilizables. Puedes usar definiciones de objetos de otros programas sin crearlos de nuevo.</p>
+                            </div>
+                        </div>
+
+                 
+                    </div>
+                </div>
+
+                <!-- 2.3 CARACTERÍSTICAS -->
+                <div class="lesson-section">
+                    <h2 class="section-title">2.3. Características de la POO</h2>
+                    <div class="text-content">
+                        <p>Cualquier lenguaje orientado a objetos debe cumplir estas características fundamentales:</p>
+
+                        <div class="concept-card">
+                            <h4>🎨 Abstracción</h4>
+                            <p>Proceso de definir las características más importantes de un objeto sin preocuparnos de cómo se escribirán en el código.</p>
+                            <p><b>Herramienta:</b> La <b>clase</b>. Agrupa características comunes de un conjunto de objetos.</p>
+                            <p><b>Ejemplo:</b> La clase <code>Vehículo</code> es una abstracción de <code>Coche</code> y <code>Camión</code>.</p>
+                        </div>
+
+                        <div class="concept-card">
+                            <h4>📦 Modularidad</h4>
+                            <p>Cada clase se encuentra en un archivo diferente. Puedes modificar una clase sin afectar al resto de la aplicación.</p>
+                        </div>
+
+                        <div class="concept-card">
+                            <h4>🔐 Encapsulación (Ocultamiento de información)</h4>
+                            <p>Mecanismo para ocultar la información interna de un objeto. Un objeto puede ocultar o restringir el acceso a su información.</p>
+                            <p><b>Ejemplo:</b> Una <code>Persona</code> usa un <code>Coche</code> mediante la acción "conducir", sin saber cómo funciona internamente el motor.</p>
+                        </div>
+
+                        <div class="concept-card">
+                            <h4>📊 Jerarquía</h4>
+                            <p>Define relaciones entre clases y objetos. Dos jerarquías importantes:</p>
+                            <ul>
+                                <li><b>Generalización/Especialización (Herencia):</b> "es un". Ejemplo: <code>CocheDeCarreras</code> es un <code>Coche</code>.</li>
+                                <li><b>Agregación (Inclusión):</b> "es parte de". Ejemplo: <code>Motor</code>, <code>Ruedas</code>, <code>Frenos</code> son parte de <code>Coche</code>.</li>
+                            </ul>
+                        </div>
+
+                        <div class="concept-card">
+                            <h4>🎭 Polimorfismo</h4>
+                            <p>Capacidad de que varias clases realicen una misma acción de forma diferente.</p>
+                            <p><b>Ejemplo:</b> La clase <code>Animal</code> tiene la acción "expresarse". Los <code>Perros</code> ladran, los <code>Gatos</code> maúllan, las <code>Personas</code> hablamos.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2.4 LENGUAJES POO -->
+                <div class="lesson-section">
+                    <h2 class="section-title">2.4. Evolución de los Lenguajes POO</h2>
+                    <div class="text-content">
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <h4>1962 - Simula</h4>
+                                <p>Primer lenguaje que introdujo el concepto de <b>clase</b> como elemento que incorpora datos y operaciones sobre esos datos.</p>
+                            </div>
+
+                            <div class="timeline-item">
+                                <h4>1972 - SmallTalk</h4>
+                                <p>Primera versión totalmente orientada a objetos. Introdujo el patrón Modelo-Vista-Controlador (MVC). Influyó en C++ y Java.</p>
+                            </div>
+
+                            <div class="timeline-item">
+                                <h4>1985 - C++</h4>
+                                <p>Deriva de C, añade mecanismos de orientación a objetos. Introduce el concepto de clase tal como lo conocemos actualmente.</p>
+                            </div>
+
+                            <div class="timeline-item">
+                                <h4>1995 - Java</h4>
+                                <p>Lenguaje orientado a objetos diseñado desde cero. Recibe influencias de C++. Produce bytecode interpretado por la máquina virtual.</p>
+                            </div>
+
+                            <div class="timeline-item">
+                                <h4>2000 - C#</h4>
+                                <p>Creado por Microsoft como ampliación de C con orientación a objetos. Basado en C++ y Java, evita problemas de diseño de C++.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. CLASES Y OBJETOS -->
+                <div class="lesson-section">
+                    <h2 class="section-title">3. Clases y Objetos</h2>
+                    <div class="text-content">
+                        <div class="highlight-box">
+                            <h3>🎯 Concepto fundamental</h3>
+                            <p><b>Objeto:</b> Conjunto de datos con las operaciones definidas para ellos. Los objetos tienen un <b>estado</b> y un <b>comportamiento</b>.</p>
+                        </div>
+
+                        <p>Un objeto software es una representación de un objeto del mundo real. Para resolver un problema, debes identificar los objetos presentes y trasladarlos al modelo computacional.</p>
+
+                        <div class="concept-card">
+                            <h4>🆔 Identidad</h4>
+                            <p>Característica que permite diferenciar un objeto de otro, aunque sean exactamente iguales en sus atributos.</p>
+                            <p><b>Ejemplo:</b> Dos vehículos idénticos son distintos porque tienen diferente número de bastidor.</p>
+                        </div>
+
+                        <div class="concept-card">
+                            <h4>📊 Estado</h4>
+                            <p>Determinado por propiedades o atributos que describen el objeto y sus valores.</p>
+                            <p><b>Ejemplo:</b> Para un <code>Vehículo</code>: marca, modelo, color, cilindrada.</p>
+                        </div>
+
+                        <div class="concept-card">
+                            <h4>⚡ Comportamiento</h4>
+                            <p>Acciones que se pueden realizar sobre el objeto (métodos o procedimientos).</p>
+                            <p><b>Ejemplo:</b> Para un <code>Vehículo</code>: arrancar, parar, acelerar, frenar.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3.1 PROPIEDADES Y MÉTODOS -->
+                <div class="lesson-section">
+                    <h2 class="section-title">3.1. Propiedades y Métodos de los Objetos</h2>
+                    <div class="text-content">
+                        <p>Las partes de un objeto son:</p>
+
+                        <div class="structure-examples">
+                            <div class="concept-card">
+                                <h4>📋 Atributos, campos o propiedades</h4>
+                                <p>Parte del objeto que almacena los datos. También llamadas <b>variables miembro</b>.</p>
+                                <p>Pueden ser de cualquier tipo primitivo (<code>boolean</code>, <code>char</code>, <code>int</code>, <code>double</code>) o referencias a otros objetos.</p>
+                                <p><b>Ejemplo:</b> Un objeto <code>Vehículo</code> puede contener varios objetos <code>Rueda</code>.</p>
+                            </div>
+
+                            <div class="concept-card">
+                                <h4>⚙️ Métodos o funciones miembro</h4>
+                                <p>Parte del objeto que lleva a cabo operaciones sobre los atributos.</p>
+                                <p>Los métodos son la <b>única forma</b> de manipular la información del objeto.</p>
+                                <p><b>Ejemplo:</b> Para conocer el valor de un atributo, usas el método que muestra ese valor.</p>
+                            </div>
+                        </div>
+
+                        <div class="info-box">
+                            <strong>🔐 Encapsulación:</strong> Los atributos y métodos están <b>encapsulados</b> dentro del objeto. La única forma de manipular la información es a través de los métodos definidos, evitando alteraciones inadecuadas.
+                        </div>
+
+                        <div class="diagram-container">
+                            <img src="imagen03-01.jpg" alt="Estructura de un objeto con atributos y métodos">
+                            <p><i>Estructura de un objeto: atributos (datos) y métodos (acciones) encapsulados</i></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3.2 INTERACCIÓN ENTRE OBJETOS -->
+                <div class="lesson-section">
+                    <h2 class="section-title">3.2. Interacción entre Objetos</h2>
+                    <div class="text-content">
+                        <div class="highlight-box">
+                            <h3>💬 Comunicación entre objetos</h3>
+                            <p><b>Mensaje:</b> Solicitud a un objeto para que realice una determinada acción.</p>
+                            <p><b>Método:</b> Función o procedimiento que se llama para actuar sobre un objeto (enviarle un mensaje).</p>
+                        </div>
+
+                        <p>Los objetos se comunican llamando unos a los métodos de otros. Cuando un objeto (objeto1) quiere actuar sobre otro (objeto2), ejecuta uno de sus métodos. Entonces se dice que objeto2 recibe un mensaje de objeto1.</p>
+
+                        <p><b>Protocolo de un objeto:</b> Conjunto de mensajes a los que puede responder.</p>
+
+                        <div class="concept-card">
+                            <h4>🔄 Proceso de interacción</h4>
+                            <p>Cuando se ejecuta un programa:</p>
+                            <ol>
+                                <li><b>Creación</b> de objetos a medida que se necesitan</li>
+                                <li><b>Comunicación</b> entre objetos mediante envío de mensajes</li>
+                                <li><b>Eliminación</b> de objetos cuando ya no son necesarios (libera memoria)</li>
+                            </ol>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Ejemplo de interacción entre objetos</span>
+                                <span class="language-badge">Concepto</span>
+                            </div>
+                            <div class="code-content">
+                                <pre><code>// objeto1 envía un mensaje a objeto2
+objeto2.realizarAccion();
+
+// El proceso: objeto1 quiere que objeto2 ejecute el método realizarAccion()
+// objeto2 recibe el mensaje y ejecuta el código del método</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3.3 CLASES -->
+                <div class="lesson-section">
+                    <h2 class="section-title">3.3. Clases</h2>
+                    <div class="text-content">
+                        <div class="highlight-box">
+                            <h3>🍪 La metáfora de las galletas</h3>
+                            <p>Piensa en la producción industrial de galletas. No necesitas hacer una sola galleta, sino un montón de ellas.</p>
+                            <p>Para ello usas un <b>molde</b> que establece cómo será cada galleta.</p>
+                            <p>En programación: <b>CLASE = molde</b> / <b>OBJETOS = galletas</b></p>
+                        </div>
+
+                        <p>Un programa se compone de muchos objetos, algunos comparten estructura y comportamiento. En lugar de definir cada objeto por separado (código redundante), creamos una <b>clase</b> que describe el conjunto de objetos similares.</p>
+
+                        <div class="concept-card">
+                            <h4>📚 Definición de Clase</h4>
+                            <p>Una <b>clase</b> es una descripción de un conjunto de objetos que comparten una estructura y un comportamiento común.</p>
+                            <p>A partir de la clase, se crean tantas "copias" o "instancias" como necesitemos. Esas copias son los <b>objetos de la clase</b>.</p>
+                        </div>
+
+                        <div class="success-box">
+                            <strong>✅ Componentes de una clase:</strong>
+                            <ul>
+                                <li>Atributos comunes a todos los objetos de la clase</li>
+                                <li>Métodos que pueden utilizarse para manejar esos objetos</li>
+                            </ul>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Estructura de una clase en Java</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>// CABECERA: modificadores + class + nombre
+public class NombreClase {
+    // CUERPO: atributos y métodos entre llaves
+    
+    // Atributos (variables miembro)
+    tipo atributo1;
+    tipo atributo2;
+    
+    // Métodos (funciones miembro)
+    tipoRetorno nombreMetodo(parametros) {
+        // código del método
+    }
+}</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="info-box">
+                            <strong>💡 Por ahora:</strong> La única clase que implementaremos es la clase principal que contiene nuestro programa dentro del método <code>main</code>. Utilizaremos clases ya implementadas de la API de Java.
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Clase principal con método main</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>public class MiPrograma {
+    // El método main indica que es la clase principal
+    // Aquí empieza la ejecución del programa
+    public static void main(String[] args) {
+        // Todo nuestro programa va aquí
+    }
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. UTILIZACIÓN DE OBJETOS -->
+                <div class="lesson-section">
+                    <h2 class="section-title">4. Utilización de Objetos</h2>
+                    <div class="text-content">
+                        <div class="highlight-box">
+                            <h3>🎯 Crear objetos a partir de clases</h3>
+                            <p>Cuando creamos un objeto a partir de una clase decimos que hemos creado una <b>"instancia de la clase"</b>.</p>
+                            <p>"Objeto" e "instancia de clase" son sinónimos.</p>
+                        </div>
+
+                        <div class="concept-card">
+                            <h4>🍪 Molde y galletas (de nuevo)</h4>
+                            <p><b>Molde (clase):</b> Define características (forma, tamaño)</p>
+                            <p><b>Galletas (objetos/instancias):</b> Creadas a partir del molde. Todas similares pero individuales.</p>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Ejemplo conceptual</span>
+                                <span class="language-badge">Concepto</span>
+                            </div>
+                            <div class="code-content">
+                                <pre><code>// Clase Persona define: nombre, NIF, colorPelo, colorOjos, peso, altura
+// Acciones: crecer, dormir, comer
+
+// Objeto trabajador: instancia de la clase Persona
+// trabajador es una abstracción concreta de Persona
+// Persona es una abstracción del objeto trabajador</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="info-box">
+                            <strong>💾 Variables instancia:</strong> Cada objeto tiene su propia copia de los atributos. El operador <code>new</code> reserva memoria para guardar atributos y métodos del objeto. Cada objeto tiene su zona de almacenamiento propia e independiente.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4.1 CICLO DE VIDA -->
+                <div class="lesson-section">
+                    <h2 class="section-title">4.1. Ciclo de Vida de los Objetos</h2>
+                    <div class="text-content">
+                        <p>Todo programa Java parte de una clase principal que ejecuta su método <code>main</code>. Este método utiliza las demás clases, crea objetos y lanza mensajes a otros objetos.</p>
+
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <h4>1️⃣ Creación</h4>
+                                <p>Reserva de memoria e inicialización de atributos.</p>
+                            </div>
+
+                            <div class="timeline-item">
+                                <h4>2️⃣ Manipulación</h4>
+                                <p>Uso de los atributos y métodos del objeto.</p>
+                            </div>
+
+                            <div class="timeline-item">
+                                <h4>3️⃣ Destrucción</h4>
+                                <p>Eliminación del objeto y liberación de recursos por el recolector de basura.</p>
+                            </div>
+                        </div>
+
+                        <div class="success-box">
+                            <strong>♻️ Recolector de basura:</strong> Cuando un objeto no se va a utilizar más, es destruido automáticamente para liberar recursos que pueden ser reutilizados por otros objetos.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4.2 DECLARACIÓN -->
+                <div class="lesson-section">
+                    <h2 class="section-title">4.2. Declaración de Objetos</h2>
+                    <div class="text-content">
+                        <p>Para crear un objeto hay que seguir dos pasos:</p>
+                        <ol>
+                            <li><b>Declaración:</b> Indicar el tipo de objeto</li>
+                            <li><b>Instanciación:</b> Creación del objeto usando el operador <code>new</code></li>
+                        </ol>
+
+                        <div class="concept-card">
+                            <h4>📝 Sintaxis de declaración</h4>
+                            <div class="api-reference">
+                                Tipo nombreObjeto;
+                            </div>
+                            <p><b>Tipo:</b> Nombre de la clase (empieza por mayúscula)</p>
+                            <p><b>nombreObjeto:</b> Nombre de la variable referencia (empieza por minúscula)</p>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Ejemplo con la clase Rectangle</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>import java.awt.Rectangle; // Importar la clase primero
+
+// Declaración de una referencia
+Rectangle rectangulo;
+
+// Declaración de varias referencias (por separado)
+Rectangle r1;
+Rectangle r2;
+Rectangle r3;
+
+// Declaración de varias referencias (misma línea)
+Rectangle r1, r2, r3;</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="info-box">
+                            <strong>⚠️ Referencia nula (null):</strong> Al declarar una referencia, está vacía hasta que se le asigne un valor. Una referencia vacía contiene el valor <code>null</code> (nulo), que significa que la variable está creada pero NO apunta a ningún objeto.
+                        </div>
+
+                        <div class="info-box">
+                            <strong>🔍 Convención de nombres:</strong>
+                            <ul>
+                                <li>Nombres de <b>clases</b> empiezan con <b>MAYÚSCULA</b>: <code>Rectangle</code></li>
+                                <li>Nombres de <b>objetos</b> (variables) empiezan con <b>minúscula</b>: <code>rectangulo</code></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4.3 INSTANCIACIÓN -->
+                <div class="lesson-section">
+                    <h2 class="section-title">4.3. Instanciación de Objetos</h2>
+                    <div class="text-content">
+                        <p>Una vez declarada la variable referencia, debemos crear la instancia u objeto a la que va a apuntar.</p>
+
+                        <div class="concept-card">
+                            <h4>🔨 Sintaxis de instanciación</h4>
+                            <div class="api-reference">
+                                nombreObjeto = new ConstructorDeLaClase(parámetros);
+                            </div>
+                            <ul>
+                                <li><b>new:</b> Operador para crear el objeto (invocar constructor)</li>
+                                <li><b>ConstructorDeLaClase:</b> Método especial que inicializa el objeto (mismo nombre que la clase)</li>
+                                <li><b>parámetros:</b> Valores iniciales para los atributos del objeto</li>
+                            </ul>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Ejemplo: Declaración + Instanciación separadas</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>Rectangle rectangulo;  // 1. Declaración
+rectangulo = new Rectangle(0, 0, 10, 5);  // 2. Instanciación + asignación
+
+// Crea un rectángulo en posición (0,0) con base 10 y altura 5</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Ejemplo: Declaración + Instanciación en una línea</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>// Todo en una línea (más común)
+Rectangle rectangulo = new Rectangle(0, 0, 10, 5);</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="diagram-container">
+                            <img src="imagen03-02.png" alt="Proceso de instanciación de un objeto">
+                            <p><i>Variable rectangulo apuntando a un objeto Rectangle en memoria</i></p>
+                        </div>
+
+                        <div class="success-box">
+                            <strong>✅ Durante la instanciación:</strong> Se reserva memoria automáticamente para almacenar todos los valores de los atributos del objeto. De esto se encarga la Máquina Virtual de Java.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4.4 CONSTRUCTOR -->
+                <div class="lesson-section">
+                    <h2 class="section-title">4.4. Concepto de Constructor</h2>
+                    <div class="text-content">
+                        <div class="highlight-box">
+                            <h3>🏗️ ¿Qué es un constructor?</h3>
+                            <p>Un <b>constructor</b> es un método especial con el mismo nombre de la clase que NO devuelve ningún valor de forma explícita.</p>
+                            <p>Su función es <b>inicializar</b> los valores de los atributos del objeto que se está creando.</p>
+                        </div>
+
+                        <div class="concept-card">
+                            <h4>📋 Características de los constructores</h4>
+                            <ul>
+                                <li>Se invoca automáticamente al usar <code>new</code></li>
+                                <li>Solo se puede llamar UNA VEZ por objeto (en su creación)</li>
+                                <li>El nombre es IGUAL al nombre de la clase (empieza con mayúscula)</li>
+                                <li>Puede haber varios constructores (sobrecarga) con diferentes parámetros</li>
+                                <li>Puede tener parámetros para inicializar atributos</li>
+                                <li>Si NO implementas ninguno, Java crea uno vacío por defecto</li>
+                            </ul>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Ejemplo de uso de constructor</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>// Constructor de Rectangle con 4 parámetros
+Rectangle rectangulo = new Rectangle(0, 0, 10, 5);
+// Parámetros: x, y, base, altura</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="info-box">
+                            <strong>💡 Constructor por defecto:</strong> Si una clase NO tiene ningún constructor implementado, Java crea automáticamente un constructor vacío que inicializa los atributos a valores por defecto (0 para números, false para boolean, null para referencias).
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4.5 REFERENCIAS A OBJETOS -->
+                <div class="lesson-section">
+                    <h2 class="section-title">4.5. Referencias a Objetos</h2>
+                    <div class="text-content">
+                        <div class="highlight-box">
+                            <h3>🔑 Concepto de referencia</h3>
+                            <p>Una variable de tipo referencia NO contiene el objeto en sí, sino un número (dirección de memoria o "puntero") que indica DÓNDE están los atributos del objeto.</p>
+                            <p><b>Analogía:</b> La variable referencia es un <b>casillero con una llave</b>. La <b>habitación</b> (con su contenido) sería el <b>objeto</b>.</p>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>¿Qué pasa al asignar referencias?</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>Rectangle r1 = new Rectangle(0, 0, 10, 5); // Se crea UN objeto
+Rectangle r2 = r1; // NO se crea otro objeto, r2 apunta al MISMO objeto que r1
+
+// r1 y r2 son dos variables DIFERENTES
+// pero apuntan al MISMO objeto
+// (tienen copias de la misma "llave" para la misma "habitación")</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="diagram-container">
+                            <img src="imagen03-03.png" alt="Dos referencias apuntando al mismo objeto">
+                            <p><i>r1 y r2 apuntan al mismo objeto Rectangle</i></p>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Crear objetos diferentes</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>Rectangle r1 = new Rectangle(0, 0, 10, 5); // Objeto 1
+Rectangle r3 = new Rectangle(1, 1, 6, 3);  // Objeto 2 (DIFERENTE)
+
+// Ahora r1 y r3 apuntan a objetos DIFERENTES</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="diagram-container">
+                            <img src="imagen03-04.png" alt="Dos referencias apuntando a objetos diferentes">
+                            <p><i>r1 y r3 apuntan a objetos Rectangle diferentes</i></p>
+                        </div>
+
+                        <div class="warning-box">
+                            <strong>⚠️ Objetos huérfanos:</strong> Si una referencia deja de apuntar a un objeto y no hay ninguna otra referencia apuntando a él, ese objeto queda "huérfano". El recolector de basura lo eliminará de la memoria automáticamente.
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Ejemplo de objeto huérfano</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>Rectangle r3 = new Rectangle(1, 1, 6, 3);  // Objeto original
+r3 = r2; // Ahora r3 apunta al mismo objeto que r2
+
+// El objeto original (1,1,6,3) queda huérfano
+// El recolector de basura lo eliminará</code></pre>
+                            </div>
+                                                    <div class="diagram-container">
+                            <img src="imagen03-05.png" alt="Objetos huérfano">
+                            <p><i>r1 y r3 ahora apuntan al mismo objeto Rectangle, el otro queda huérfano</i></p>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4.6 MANIPULACIÓN -->
+                <div class="lesson-section">
+                    <h2 class="section-title">4.6. Manipulación de Objetos</h2>
+                    <div class="text-content">
+                        <div class="highlight-box">
+                            <h3>🎯 Operador punto (.)</h3>
+                            <p>Para acceder a atributos y métodos del objeto usamos el <b>operador punto (.)</b></p>
+                       <div class="code-container">
+                            <div class="code-header">
+                                <span>Operador punto</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>
+                                nombreObjeto.nombreAtributo
+                                nombreObjeto.nombreMetodo(parámetros)</code></pre>
+                            </div>
+                            </div>
+                        </div>
+
+                        <div class="info-box">
+                            <strong>🔒 Miembros accesibles:</strong> Solo puedes acceder a miembros (atributos/métodos) que sean <b>públicos</b>. Si son privados, es como si no existieran para ti. Son elementos internos de la clase que desconoces como usuario.
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Ejemplo de manipulación de objetos</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>// 1. Crear el objeto
+Rectangle rectangulo = new Rectangle(50, 50, 150, 150);
+
+// 2. Acceder a atributos públicos (si existen)
+rectangulo.height = 100;
+rectangulo.width = 100;
+
+// 3. Usar métodos para modificar el objeto
+rectangulo.setSize(200, 200);
+
+// 4. Mostrar información usando atributos públicos
+System.out.println("Base: " + rectangulo.width);
+System.out.println("Altura: " + rectangulo.height);</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="info-box">
+                            <strong>💡 Buena práctica:</strong> Lo más habitual es que los atributos sean <b>privados</b> y se manipulen a través de <b>métodos públicos</b>. Esto proporciona control sobre cómo se modifica el objeto.
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Ejemplo completo de uso de Rectangle</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>// Crear objeto
+System.out.print("Creando objeto instancia de la clase Rectangle ");
+System.out.println("y referenciado desde la variable r1.");
+Rectangle r1 = new Rectangle(0, 0, 10, 5);
+System.out.println();
+
+// Mostrar atributos
+System.out.println("Rectángulo r1:");
+System.out.println("Ubicación: x=" + r1.x + " y=" + r1.y);
+System.out.println("Dimensiones: base=" + r1.width + " altura=" + r1.height);
+
+// Modificar directamente atributos
+r1.height = 20;
+r1.width = 100;
+System.out.println();
+System.out.println("Rectángulo r1 modificado mediante atributos:");
+System.out.println("Ubicación: x=" + r1.x + " y=" + r1.y);
+System.out.println("Dimensiones: base=" + r1.width + " altura=" + r1.height);
+
+// Modificar usando un método
+r1.setSize(200, 50);
+System.out.println();
+System.out.println("Rectángulo r1 modificado mediante método:");
+System.out.println("Ubicación: x=" + r1.x + " y=" + r1.y);
+System.out.println("Dimensiones: base=" + r1.width + " altura=" + r1.height);</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4.7 DESTRUCCIÓN -->
+                <div class="lesson-section">
+                    <h2 class="section-title">4.7. Destrucción de Objetos y Liberación de Memoria</h2>
+                    <div class="text-content">
+                        <div class="highlight-box">
+                            <h3>♻️ Recolector de basura (Garbage Collector)</h3>
+                            <p>En Java, la destrucción de objetos corre a cargo del <b>recolector de basura</b>. ¡Un gran invento que te libera de preocupaciones!</p>
+                        </div>
+
+                        <div class="concept-card">
+                            <h4>🤖 ¿Cómo funciona?</h4>
+                            <p>El recolector de basura es un sistema de destrucción <b>automática</b> de objetos que ya no son utilizados (no existe ninguna referencia que enlace a ellos).</p>
+                            <ul>
+                                <li>Se ejecuta en <b>segundo plano</b></li>
+                                <li>Funciona de manera muy <b>eficiente</b></li>
+                                <li>No afecta a la velocidad del programa</li>
+                                <li>Busca objetos huérfanos periódicamente</li>
+                                <li>Los elimina cuando el procesador está menos ocupado</li>
+                            </ul>
+                        </div>
+
+                        <div class="success-box">
+                            <strong>✅ Ventaja principal:</strong> Como programador NO tienes que preocuparte de realizar la liberación de memoria manualmente. El sistema lo hace automáticamente y sin errores.
+                        </div>
+
+                        <div class="warning-box">
+                            <strong>⚠️ Importante:</strong> Cuando un objeto deja de ser referenciado, el recolector de basura lo marca para ser eliminado y libera la memoria que ocupaba para que pueda ser reutilizada.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4.8 OBJETOS STRING -->
+                <div class="lesson-section">
+                    <h2 class="section-title">4.8. Objetos String en Java</h2>
+                    <div class="text-content">
+                        <div class="highlight-box">
+                            <h3>📝 String: Una clase especial</h3>
+                            <p><code>String</code> NO es un tipo primitivo, es una <b>CLASE</b>. Pero Java permite usarla como si fuera un tipo primitivo por comodidad.</p>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Declaración de String</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>// Declaración (como cualquier tipo primitivo)
+String mensaje;
+
+// Comparación con tipo primitivo
+int numero;        // Variable de tipo primitivo
+String mensaje;    // Variable de tipo referencia a objeto String</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Formas de crear un String</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>// Forma 1: Usando el constructor (como cualquier objeto)
+String texto = new String("El primer programa");
+
+// Forma 2: Forma simplificada (Java lo traduce a la Forma 1)
+String texto = "El primer programa";
+
+// Ambas son TOTALMENTE EQUIVALENTES
+// Lo normal es usar la Forma 2 por comodidad</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="warning-box">
+                            <strong>⚠️ Cadena vacía vs null:</strong>
+                            <ul>
+                                <li><b>Cadena vacía (""):</b> Es un objeto String de longitud cero (SÍ es un objeto)</li>
+                                <li><b>null:</b> NO es un String, indica que no se apunta a ningún objeto</li>
+                            </ul>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Ejemplos de inicialización</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>String cadenaVacia = "";           // String de longitud 0 (es un objeto)
+String referenciaNula = null;      // NO apunta a ningún objeto
+String texto = "Hola";             // String con contenido
+
+// Todo en una línea (declaración + instanciación + asignación)
+String mensaje = "Bienvenido";</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="info-box">
+                            <strong>💡 Convención de nombres:</strong>
+                            <ul>
+                                <li>Nombres de clases empiezan con MAYÚSCULA: <code>String</code></li>
+                                <li>Nombres de objetos (variables) empiezan con minúscula: <code>texto</code>, <code>mensaje</code></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CONTINÚA EN EL SIGUIENTE MENSAJE... -->
+
+            </div>
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+</html>

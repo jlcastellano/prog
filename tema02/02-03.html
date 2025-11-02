@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uso de Estructuras de Control</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/vs2015.min.css">
+    <style>
+        /* Estilos para las estructuras de control */
+        .structure-container {
+            margin: 2rem 0;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            background-color: #f9f9f9;
+        }
+
+        .structure-flow {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .structure-flow img {
+            max-width: 100%;
+            height: auto;
+            max-height: 400px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 0.5rem;
+            background-color: white;
+        }
+
+        .structure-flow h3 {
+            margin-top: 1rem;
+            color: #2c3e50;
+            font-size: 1.1rem;
+        }
+
+        .structure-examples {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .structure-examples {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .example-box {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .example-box h4 {
+            margin: 0 0 1rem 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #3498db;
+            color: #2c3e50;
+            font-size: 1rem;
+        }
+
+        .example-box.pseudocode h4 {
+            border-bottom-color: #e74c3c;
+        }
+
+        .example-box.java h4 {
+            border-bottom-color: #27ae60;
+        }
+
+        .structure-syntax {
+            background-color: #f5f5f5;
+            padding: 1rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            border-left: 4px solid #3498db;
+            margin-bottom: 1rem;
+        }
+
+        .pseudocode .structure-syntax {
+            border-left-color: #e74c3c;
+        }
+
+        .java .structure-syntax {
+            border-left-color: #27ae60;
+        }
+
+        .structure-notes {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1rem;
+            margin-top: 1rem;
+            border-radius: 4px;
+        }
+
+        .structure-notes strong {
+            color: #856404;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">Estructuras de Control</div>
+        </div>
+    </header>
+    <div class="container">
+    <main class="main-content">
+        <div class="content-header">
+            <h1 id="page-title" class="content-title">Uso de Estructuras de Control</h1>
+        </div>
+
+        <div id="lesson-content" class="lesson-content">
+    
+
+            <div class="lesson-section">
+                <h2 class="section-title">3. Estructuras de selección o condicionales</h2>
+                <div class="text-content">
+                    <p><b>¿Cómo hacer que un programa tome decisiones?</b> Usando estructuras de selección que evalúan una condición y ejecutan diferentes bloques según el resultado (verdadero o falso).</p>
+                    <p>Ejemplo: Si nota >= 5 mostrar "APROBADO", si no mostrar "SUSPENSO".</p>
+                    <p>Tipos de estructuras de selección:</p>
+                    <ul>
+                        <li>Selección simple: if</li>
+                        <li>Selección compuesta: if-else</li>
+                        <li>Selección múltiple: switch</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="lesson-section">
+                <h2 class="section-title">3.1. Estructura condicional simple: if</h2>
+                <div class="text-content">
+                    <p>Ejecuta un bloque de código solo SI se cumple una condición. Si no se cumple, no hace nada.</p>
+                    
+                    <div class="structure-container">
+                        <div class="structure-flow">
+                            <img src="imagen02-01.png" alt="Diagrama de flujo estructura if">
+                        </div>
+
+                        <div class="structure-examples">
+                            <div class="example-box pseudocode">
+                                <h4>📝 Pseudocódigo (PSeInt)</h4>
+                                <div class="structure-syntax">
+<pre>Si condicion Entonces
+    sentencia_1
+    sentencia_2
+    ...
+FinSi</pre>
+                                </div>
+                                <p><strong>Ejemplo:</strong></p>
+                                <div class="structure-syntax">
+<pre>Si valor < 0 Entonces
+    Escribir "El valor es negativo"
+FinSi</pre></0>
+                                </div>
+                            </div>
+
+                            <div class="example-box java">
+                                <h4>☕ Java</h4>
+                                <div class="structure-syntax">
+<pre>if (condicion) {
+    sentencia_1;
+    sentencia_2;
+    ...
+}</pre>
+                                </div>
+                                <p><strong>Ejemplo:</strong></p>
+                                <div class="structure-syntax">
+<pre>if (valor < 0) {
+    System.out.println("El valor es negativo");
+}</pre></0>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="lesson-section">
+                <h2 class="section-title">3.2. Estructura condicional compuesta: if-else</h2>
+                <div class="text-content">
+                    <p>Ejecuta un bloque SI se cumple la condición, y otro diferente si NO se cumple.</p>
+
+                    <div class="structure-container">
+                        <div class="structure-flow">
+                            <img src="imagen02-02.png" alt="Diagrama de flujo estructura if-else">
+                        </div>
+
+                        <div class="structure-examples">
+                            <div class="example-box pseudocode">
+                                <h4>📝 Pseudocódigo (PSeInt)</h4>
+                                <div class="structure-syntax">
+<pre>Si condicion Entonces
+    secuencia_1
+Sino
+    secuencia_2
+FinSi</pre>
+                                </div>
+                                <p><strong>Ejemplo:</strong></p>
+                                <div class="structure-syntax">
+<pre>Si numero % 2 = 0 Entonces
+    Escribir "El número es par"
+Sino
+    Escribir "El número es impar"
+FinSi</pre>
+                                </div>
+                            </div>
+
+                            <div class="example-box java">
+                                <h4>☕ Java</h4>
+                                <div class="structure-syntax">
+<pre>if (condicion) {
+    sentencias_1;
+} else {
+    sentencias_2;
+}</pre>
+                                </div>
+                                <p><strong>Ejemplo:</strong></p>
+                                <div class="structure-syntax">
+<pre>if (numero % 2 == 0) {
+    System.out.println("El número es par");
+} else {
+    System.out.println("El número es impar");
+}</pre>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="lesson-section">
+                <h2 class="section-title">3.3. Estructura selectiva múltiple: switch</h2>
+                <div class="text-content">
+                    <p><b>¿Qué hacer con más de dos alternativas?</b> Usa switch. Es más eficiente que múltiples if anidados cuando comparas una variable con varios valores constantes.</p>
+
+                    <div class="structure-container">
+                        <div class="structure-flow">
+                            <img src="imagen02-04.png" alt="Diagrama de flujo estructura switch">
+
+                        </div>
+
+                        <div class="structure-examples">
+                            <div class="example-box pseudocode">
+                                <h4>📝 Pseudocódigo (PSeInt)</h4>
+                                <div class="structure-syntax">
+<pre>Segun variable Hacer
+    caso1:
+        sentencias_1
+    caso2:
+        sentencias_2
+    De Otro Modo:
+        sentencias_default
+FinSegun</pre>
+                                </div>
+                                <p><strong>Ejemplo:</strong></p>
+                                <div class="structure-syntax">
+<pre>Segun numero Hacer
+    0:
+        Escribir "cero"
+    1:
+        Escribir "uno"
+    2:
+        Escribir "dos"
+    De Otro Modo:
+        Escribir "otro"
+FinSegun</pre>
+                                </div>
+                            </div>
+
+                            <div class="example-box java">
+                                <h4>☕ Java</h4>
+                                <div class="structure-syntax">
+<pre>switch (variable) {
+    case valor1:
+        sentencias;
+        break;
+    case valor2:
+        sentencias;
+        break;
+    default:
+        sentencias;
+}</pre>
+                                </div>
+                                <p><strong>Ejemplo:</strong></p>
+                                <div class="structure-syntax">
+<pre>switch (numero) {
+    case 0:
+        System.out.println("cero");
+        break;
+    case 1:
+        System.out.println("uno");
+        break;
+    case 2:
+        System.out.println("dos");
+        break;
+    default:
+        System.out.println("otro");
+}</pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="structure-notes">
+                            <strong>⚠️ Importante en Java:</strong> El <code>break</code> es OBLIGATORIO para evitar ejecución en cascada. Puedes agrupar varios case para la misma acción. Desde Java 7 puedes usar String.
+                        </div>
+                    </div>
+                </div>
+            </div>
+</div>
+        </div>
+    </main>
+</div>
+    <script src="js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+</html>
