@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utilización de objetos</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/vs2015.min.css">
+
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">Programación Orientada a Objetos</div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <main class="main-content">
+            <div class="content-header">
+                <h1 id="page-title" class="content-title">Utilización de Objetos</h1>
+                <p id="page-subtitle" class="content-subtitle">Fundamentos de la Programación Orientada a Objetos en Java</p>
+            </div>
+
+                <!-- 4. UTILIZACIÓN DE OBJETOS -->
+                <div class="lesson-section">
+                    <h2 class="section-title">4. Utilización de Objetos</h2>
+                    <div class="text-content">
+                        <div class="highlight-box">
+                            <h3>🎯 Crear objetos a partir de clases</h3>
+                            <p>Cuando creamos un objeto a partir de una clase decimos que hemos creado una <b>"instancia de la clase"</b>.</p>
+                            <p>"Objeto" e "instancia de clase" son sinónimos.</p>
+                        </div>
+
+                        <div class="concept-card">
+                            <h4>🍪 Molde y galletas (de nuevo)</h4>
+                            <p><b>Molde (clase):</b> Define características (forma, tamaño)</p>
+                            <p><b>Galletas (objetos/instancias):</b> Creadas a partir del molde. Todas similares pero individuales.</p>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Ejemplo conceptual</span>
+                                <span class="language-badge">Concepto</span>
+                            </div>
+                            <div class="code-content">
+                                <pre><code>// Clase Persona define: nombre, NIF, colorPelo, colorOjos, peso, altura
+// Acciones: crecer, dormir, comer
+
+// Objeto trabajador: instancia de la clase Persona
+// trabajador es una abstracción concreta de Persona
+// Persona es una abstracción del objeto trabajador</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="info-box">
+                            <strong>💾 Variables instancia:</strong> Cada objeto tiene su propia copia de los atributos. El operador <code>new</code> reserva memoria para guardar atributos y métodos del objeto. Cada objeto tiene su zona de almacenamiento propia e independiente.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4.1 CICLO DE VIDA -->
+                <div class="lesson-section">
+                    <h2 class="section-title">4.1. Ciclo de Vida de los Objetos</h2>
+                    <div class="text-content">
+                        <p>Todo programa Java parte de una clase principal que ejecuta su método <code>main</code>. Este método utiliza las demás clases, crea objetos y lanza mensajes a otros objetos.</p>
+
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <h4>1️⃣ Creación</h4>
+                                <p>Reserva de memoria e inicialización de atributos.</p>
+                            </div>
+
+                            <div class="timeline-item">
+                                <h4>2️⃣ Manipulación</h4>
+                                <p>Uso de los atributos y métodos del objeto.</p>
+                            </div>
+
+                            <div class="timeline-item">
+                                <h4>3️⃣ Destrucción</h4>
+                                <p>Eliminación del objeto y liberación de recursos por el recolector de basura.</p>
+                            </div>
+                        </div>
+
+                        <div class="success-box">
+                            <strong>♻️ Recolector de basura:</strong> Cuando un objeto no se va a utilizar más, es destruido automáticamente para liberar recursos que pueden ser reutilizados por otros objetos.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4.2 DECLARACIÓN -->
+                <div class="lesson-section">
+                    <h2 class="section-title">4.2. Declaración de Objetos</h2>
+                    <div class="text-content">
+                        <p>Para crear un objeto hay que seguir dos pasos:</p>
+                        <ol>
+                            <li><b>Declaración:</b> Indicar el tipo de objeto</li>
+                            <li><b>Instanciación:</b> Creación del objeto usando el operador <code>new</code></li>
+                        </ol>
+
+                        <div class="concept-card">
+                            <h4>📝 Sintaxis de declaración</h4>
+                            <div class="api-reference">
+                                Tipo nombreObjeto;
+                            </div>
+                            <p><b>Tipo:</b> Nombre de la clase (empieza por mayúscula)</p>
+                            <p><b>nombreObjeto:</b> Nombre de la variable referencia (empieza por minúscula)</p>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Ejemplo con la clase Rectangle</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>import java.awt.Rectangle; // Importar la clase primero
+
+// Declaración de una referencia
+Rectangle rectangulo;
+
+// Declaración de varias referencias (por separado)
+Rectangle r1;
+Rectangle r2;
+Rectangle r3;
+
+// Declaración de varias referencias (misma línea)
+Rectangle r1, r2, r3;</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="info-box">
+                            <strong>⚠️ Referencia nula (null):</strong> Al declarar una referencia, está vacía hasta que se le asigne un valor. Una referencia vacía contiene el valor <code>null</code> (nulo), que significa que la variable está creada pero NO apunta a ningún objeto.
+                        </div>
+
+                        <div class="info-box">
+                            <strong>🔍 Convención de nombres:</strong>
+                            <ul>
+                                <li>Nombres de <b>clases</b> empiezan con <b>MAYÚSCULA</b>: <code>Rectangle</code></li>
+                                <li>Nombres de <b>objetos</b> (variables) empiezan con <b>minúscula</b>: <code>rectangulo</code></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4.3 INSTANCIACIÓN -->
+                <div class="lesson-section">
+                    <h2 class="section-title">4.3. Instanciación de Objetos</h2>
+                    <div class="text-content">
+                        <p>Una vez declarada la variable referencia, debemos crear la instancia u objeto a la que va a apuntar.</p>
+
+                        <div class="concept-card">
+                            <h4>🔨 Sintaxis de instanciación</h4>
+                            <div class="api-reference">
+                                nombreObjeto = new ConstructorDeLaClase(parámetros);
+                            </div>
+                            <ul>
+                                <li><b>new:</b> Operador para crear el objeto (invocar constructor)</li>
+                                <li><b>ConstructorDeLaClase:</b> Método especial que inicializa el objeto (mismo nombre que la clase)</li>
+                                <li><b>parámetros:</b> Valores iniciales para los atributos del objeto</li>
+                            </ul>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Ejemplo: Declaración + Instanciación separadas</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>Rectangle rectangulo;  // 1. Declaración
+rectangulo = new Rectangle(0, 0, 10, 5);  // 2. Instanciación + asignación
+
+// Crea un rectángulo en posición (0,0) con base 10 y altura 5</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Ejemplo: Declaración + Instanciación en una línea</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>// Todo en una línea (más común)
+Rectangle rectangulo = new Rectangle(0, 0, 10, 5);</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="diagram-container">
+                            <img src="imagen03-02.png" alt="Proceso de instanciación de un objeto">
+                            <p><i>Variable rectangulo apuntando a un objeto Rectangle en memoria</i></p>
+                        </div>
+
+                        <div class="success-box">
+                            <strong>✅ Durante la instanciación:</strong> Se reserva memoria automáticamente para almacenar todos los valores de los atributos del objeto. De esto se encarga la Máquina Virtual de Java.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4.4 CONSTRUCTOR -->
+                <div class="lesson-section">
+                    <h2 class="section-title">4.4. Concepto de Constructor</h2>
+                    <div class="text-content">
+                        <div class="highlight-box">
+                            <h3>🏗️ ¿Qué es un constructor?</h3>
+                            <p>Un <b>constructor</b> es un método especial con el mismo nombre de la clase que NO devuelve ningún valor de forma explícita.</p>
+                            <p>Su función es <b>inicializar</b> los valores de los atributos del objeto que se está creando.</p>
+                        </div>
+
+                        <div class="concept-card">
+                            <h4>📋 Características de los constructores</h4>
+                            <ul>
+                                <li>Se invoca automáticamente al usar <code>new</code></li>
+                                <li>Solo se puede llamar UNA VEZ por objeto (en su creación)</li>
+                                <li>El nombre es IGUAL al nombre de la clase (empieza con mayúscula)</li>
+                                <li>Puede haber varios constructores (sobrecarga) con diferentes parámetros</li>
+                                <li>Puede tener parámetros para inicializar atributos</li>
+                                <li>Si NO implementas ninguno, Java crea uno vacío por defecto</li>
+                            </ul>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Ejemplo de uso de constructor</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>// Constructor de Rectangle con 4 parámetros
+Rectangle rectangulo = new Rectangle(0, 0, 10, 5);
+// Parámetros: x, y, base, altura</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="info-box">
+                            <strong>💡 Constructor por defecto:</strong> Si una clase NO tiene ningún constructor implementado, Java crea automáticamente un constructor vacío que inicializa los atributos a valores por defecto (0 para números, false para boolean, null para referencias).
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4.5 REFERENCIAS A OBJETOS -->
+                <div class="lesson-section">
+                    <h2 class="section-title">4.5. Referencias a Objetos</h2>
+                    <div class="text-content">
+                        <div class="highlight-box">
+                            <h3>🔑 Concepto de referencia</h3>
+                            <p>Una variable de tipo referencia NO contiene el objeto en sí, sino un número (dirección de memoria o "puntero") que indica DÓNDE están los atributos del objeto.</p>
+                            <p><b>Analogía:</b> La variable referencia es un <b>casillero con una llave</b>. La <b>habitación</b> (con su contenido) sería el <b>objeto</b>.</p>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>¿Qué pasa al asignar referencias?</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>Rectangle r1 = new Rectangle(0, 0, 10, 5); // Se crea UN objeto
+Rectangle r2 = r1; // NO se crea otro objeto, r2 apunta al MISMO objeto que r1
+
+// r1 y r2 son dos variables DIFERENTES
+// pero apuntan al MISMO objeto
+// (tienen copias de la misma "llave" para la misma "habitación")</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="diagram-container">
+                            <img src="imagen03-03.png" alt="Dos referencias apuntando al mismo objeto">
+                            <p><i>r1 y r2 apuntan al mismo objeto Rectangle</i></p>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Crear objetos diferentes</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>Rectangle r1 = new Rectangle(0, 0, 10, 5); // Objeto 1
+Rectangle r3 = new Rectangle(1, 1, 6, 3);  // Objeto 2 (DIFERENTE)
+
+// Ahora r1 y r3 apuntan a objetos DIFERENTES</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="diagram-container">
+                            <img src="imagen03-04.png" alt="Dos referencias apuntando a objetos diferentes">
+                            <p><i>r1 y r3 apuntan a objetos Rectangle diferentes</i></p>
+                        </div>
+
+                        <div class="warning-box">
+                            <strong>⚠️ Objetos huérfanos:</strong> Si una referencia deja de apuntar a un objeto y no hay ninguna otra referencia apuntando a él, ese objeto queda "huérfano". El recolector de basura lo eliminará de la memoria automáticamente.
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Ejemplo de objeto huérfano</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>Rectangle r3 = new Rectangle(1, 1, 6, 3);  // Objeto original
+r3 = r2; // Ahora r3 apunta al mismo objeto que r2
+
+// El objeto original (1,1,6,3) queda huérfano
+// El recolector de basura lo eliminará</code></pre>
+                            </div>
+                                                    <div class="diagram-container">
+                            <img src="imagen03-05.png" alt="Objetos huérfano">
+                            <p><i>r1 y r3 ahora apuntan al mismo objeto Rectangle, el otro queda huérfano</i></p>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4.6 MANIPULACIÓN -->
+                <div class="lesson-section">
+                    <h2 class="section-title">4.6. Manipulación de Objetos</h2>
+                    <div class="text-content">
+                        <div class="highlight-box">
+                            <h3>🎯 Operador punto (.)</h3>
+                            <p>Para acceder a atributos y métodos del objeto usamos el <b>operador punto (.)</b></p>
+                       <div class="code-container">
+                            <div class="code-header">
+                                <span>Operador punto</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>
+                                nombreObjeto.nombreAtributo
+                                nombreObjeto.nombreMetodo(parámetros)</code></pre>
+                            </div>
+                            </div>
+                        </div>
+
+                        <div class="info-box">
+                            <strong>🔒 Miembros accesibles:</strong> Solo puedes acceder a miembros (atributos/métodos) que sean <b>públicos</b>. Si son privados, es como si no existieran para ti. Son elementos internos de la clase que desconoces como usuario.
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Ejemplo de manipulación de objetos</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>// 1. Crear el objeto
+Rectangle rectangulo = new Rectangle(50, 50, 150, 150);
+
+// 2. Acceder a atributos públicos (si existen)
+rectangulo.height = 100;
+rectangulo.width = 100;
+
+// 3. Usar métodos para modificar el objeto
+rectangulo.setSize(200, 200);
+
+// 4. Mostrar información usando atributos públicos
+System.out.println("Base: " + rectangulo.width);
+System.out.println("Altura: " + rectangulo.height);</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="info-box">
+                            <strong>💡 Buena práctica:</strong> Lo más habitual es que los atributos sean <b>privados</b> y se manipulen a través de <b>métodos públicos</b>. Esto proporciona control sobre cómo se modifica el objeto.
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Ejemplo completo de uso de Rectangle</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>// Crear objeto
+System.out.print("Creando objeto instancia de la clase Rectangle ");
+System.out.println("y referenciado desde la variable r1.");
+Rectangle r1 = new Rectangle(0, 0, 10, 5);
+System.out.println();
+
+// Mostrar atributos
+System.out.println("Rectángulo r1:");
+System.out.println("Ubicación: x=" + r1.x + " y=" + r1.y);
+System.out.println("Dimensiones: base=" + r1.width + " altura=" + r1.height);
+
+// Modificar directamente atributos
+r1.height = 20;
+r1.width = 100;
+System.out.println();
+System.out.println("Rectángulo r1 modificado mediante atributos:");
+System.out.println("Ubicación: x=" + r1.x + " y=" + r1.y);
+System.out.println("Dimensiones: base=" + r1.width + " altura=" + r1.height);
+
+// Modificar usando un método
+r1.setSize(200, 50);
+System.out.println();
+System.out.println("Rectángulo r1 modificado mediante método:");
+System.out.println("Ubicación: x=" + r1.x + " y=" + r1.y);
+System.out.println("Dimensiones: base=" + r1.width + " altura=" + r1.height);</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4.7 DESTRUCCIÓN -->
+                <div class="lesson-section">
+                    <h2 class="section-title">4.7. Destrucción de Objetos y Liberación de Memoria</h2>
+                    <div class="text-content">
+                        <div class="highlight-box">
+                            <h3>♻️ Recolector de basura (Garbage Collector)</h3>
+                            <p>En Java, la destrucción de objetos corre a cargo del <b>recolector de basura</b>. ¡Un gran invento que te libera de preocupaciones!</p>
+                        </div>
+
+                        <div class="concept-card">
+                            <h4>🤖 ¿Cómo funciona?</h4>
+                            <p>El recolector de basura es un sistema de destrucción <b>automática</b> de objetos que ya no son utilizados (no existe ninguna referencia que enlace a ellos).</p>
+                            <ul>
+                                <li>Se ejecuta en <b>segundo plano</b></li>
+                                <li>Funciona de manera muy <b>eficiente</b></li>
+                                <li>No afecta a la velocidad del programa</li>
+                                <li>Busca objetos huérfanos periódicamente</li>
+                                <li>Los elimina cuando el procesador está menos ocupado</li>
+                            </ul>
+                        </div>
+
+                        <div class="success-box">
+                            <strong>✅ Ventaja principal:</strong> Como programador NO tienes que preocuparte de realizar la liberación de memoria manualmente. El sistema lo hace automáticamente y sin errores.
+                        </div>
+
+                        <div class="warning-box">
+                            <strong>⚠️ Importante:</strong> Cuando un objeto deja de ser referenciado, el recolector de basura lo marca para ser eliminado y libera la memoria que ocupaba para que pueda ser reutilizada.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4.8 OBJETOS STRING -->
+                <div class="lesson-section">
+                    <h2 class="section-title">4.8. Objetos String en Java</h2>
+                    <div class="text-content">
+                        <div class="highlight-box">
+                            <h3>📝 String: Una clase especial</h3>
+                            <p><code>String</code> NO es un tipo primitivo, es una <b>CLASE</b>. Pero Java permite usarla como si fuera un tipo primitivo por comodidad.</p>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Declaración de String</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>// Declaración (como cualquier tipo primitivo)
+String mensaje;
+
+// Comparación con tipo primitivo
+int numero;        // Variable de tipo primitivo
+String mensaje;    // Variable de tipo referencia a objeto String</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Formas de crear un String</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>// Forma 1: Usando el constructor (como cualquier objeto)
+String texto = new String("El primer programa");
+
+// Forma 2: Forma simplificada (Java lo traduce a la Forma 1)
+String texto = "El primer programa";
+
+// Ambas son TOTALMENTE EQUIVALENTES
+// Lo normal es usar la Forma 2 por comodidad</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="warning-box">
+                            <strong>⚠️ Cadena vacía vs null:</strong>
+                            <ul>
+                                <li><b>Cadena vacía (""):</b> Es un objeto String de longitud cero (SÍ es un objeto)</li>
+                                <li><b>null:</b> NO es un String, indica que no se apunta a ningún objeto</li>
+                            </ul>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Ejemplos de inicialización</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>String cadenaVacia = "";           // String de longitud 0 (es un objeto)
+String referenciaNula = null;      // NO apunta a ningún objeto
+String texto = "Hola";             // String con contenido
+
+// Todo en una línea (declaración + instanciación + asignación)
+String mensaje = "Bienvenido";</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="info-box">
+                            <strong>💡 Convención de nombres:</strong>
+                            <ul>
+                                <li>Nombres de clases empiezan con MAYÚSCULA: <code>String</code></li>
+                                <li>Nombres de objetos (variables) empiezan con minúscula: <code>texto</code>, <code>mensaje</code></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+</html>

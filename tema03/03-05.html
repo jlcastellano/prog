@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utilización de objetos</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/vs2015.min.css">
+
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">Programación Orientada a Objetos</div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <main class="main-content">
+            <div class="content-header">
+                <h1 id="page-title" class="content-title">Utilización de Objetos</h1>
+                <p id="page-subtitle" class="content-subtitle">Fundamentos de la Programación Orientada a Objetos en Java</p>
+            </div>
+
+<!-- 5. MÉTODOS -->
+                <div class="lesson-section">
+                    <h2 class="section-title">5. Métodos</h2>
+                    <div class="text-content">
+                        <div class="highlight-box">
+                            <h3>⚙️ ¿Qué son los métodos?</h3>
+                            <p>Los <b>métodos</b>, junto con los atributos, forman la estructura interna de un objeto.</p>
+                            <p>Contienen las <b>operaciones</b> que se pueden realizar sobre el estado del objeto (sobre el valor de sus atributos).</p>
+                        </div>
+
+                        <div class="concept-card">
+                            <h4>📋 Estructura de un método</h4>
+                            <p>Un método está compuesto por:</p>
+                            <ul>
+                                <li><b>Cabecera:</b> Interfaz de comunicación con el objeto (lo que vemos desde fuera)</li>
+                                <li><b>Cuerpo:</b> Código interno que realiza las operaciones (implementación interna)</li>
+                            </ul>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Estructura de un método</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>// CABECERA del método
+public tipoRetorno nombreMetodo(tipo1 param1, tipo2 param2) {
+    // CUERPO del método
+    // - Inicialización de atributos
+    // - Consulta de valores
+    // - Modificación de atributos
+    // - Llamadas a otros métodos
+    // - Estructuras de control (if, while, for...)
+    // - Cálculos diversos
+}</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="info-box">
+                            <strong>💡 Como usuario de una clase:</strong> NO necesitas conocer el código interno del método (cuerpo). Solo necesitas saber su <b>interfaz</b> (cabecera): qué parámetros necesita y qué devuelve.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5.1 PARÁMETROS Y VALORES DEVUELTOS -->
+                <div class="lesson-section">
+                    <h2 class="section-title">5.1. Parámetros y Valores Devueltos</h2>
+                    <div class="text-content">
+                        <p>Los métodos se pueden usar para:</p>
+                        <ul>
+                            <li><b>Consultar información</b> del objeto → Se devuelve mediante el <b>valor de retorno</b></li>
+                            <li><b>Modificar el estado</b> del objeto → Se hace mediante los <b>parámetros</b></li>
+                        </ul>
+
+                        <div class="concept-card">
+                            <h4>📥 Paso de parámetros en Java</h4>
+                            <div class="warning-box">
+                                <strong>⚠️ Importante:</strong> En Java, todos los parámetros se pasan <b>POR VALOR</b>.
+                            </div>
+                            <p><b>Tipos primitivos:</b> Se pasa una copia del valor. Las modificaciones NO afectan fuera del método.</p>
+                            <p><b>Referencias a objetos:</b></p>
+                            <ul>
+                                <li>La referencia (dirección de memoria) NO puede cambiar</li>
+                                <li>Pero el <b>contenido del objeto</b> (sus atributos) SÍ puede modificarse</li>
+                                <li>Solo si el objeto es <b>inmutable</b> se garantiza que no cambiará</li>
+                            </ul>
+                        </div>
+
+                        <div class="concept-card">
+                            <h4>📤 Valor de retorno</h4>
+                            <p>Es la información que devuelve un método tras su ejecución.</p>
+                            <p>Puede ser:</p>
+                            <ul>
+                                <li>Un <b>tipo primitivo</b> (int, double, boolean...)</li>
+                                <li>Un <b>tipo referenciado</b> (objeto de alguna clase)</li>
+                                <li><b>void</b>: No devuelve nada</li>
+                            </ul>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Sintaxis de la cabecera de un método</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>// Estructura de la cabecera
+public tipoDevuelto nombreMetodo(tipo1 param1, tipo2 param2, ..., tipoN paramN) {
+    // Cuerpo del método (implementación interna)
+}
+
+// Ejemplo real de la clase Rectangle
+public boolean contains(int x, int y) {
+    // Implementación interna
+}
+// Devuelve: boolean
+// Parámetros: dos int (x, y)</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="warning-box">
+                            <strong>⚠️ Regla importante:</strong> Al llamar a un método, los argumentos deben <b>coincidir en número, tipo y orden</b> con los parámetros de la declaración del método. Si no, se produce un error de sintaxis.
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Ejemplo de llamada a método</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>// Método de la clase Rectangle
+// public boolean contains(int x, int y)
+
+Rectangle r1 = new Rectangle(0, 0, 10, 5);
+
+// Llamada al método
+boolean test = r1.contains(3, 4);
+// r1: objeto Rectangle
+// contains: método
+// 3, 4: argumentos (coinciden con los parámetros x, y)
+// Resultado: true o false (si el punto (3,4) está dentro del rectángulo)</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="info-box">
+                            <strong>💡 Parámetros formales vs actuales:</strong>
+                            <ul>
+                                <li><b>Parámetros formales:</b> Los que aparecen en la declaración del método (x, y)</li>
+                                <li><b>Parámetros actuales (argumentos):</b> Los valores concretos que se pasan al llamar (3, 4)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5.2 USO DE MÉTODOS -->
+                <div class="lesson-section">
+                    <h2 class="section-title">5.2. Uso de Métodos</h2>
+                    <div class="text-content">
+                        <p>Veamos algunos métodos de la clase <code>Rectangle</code> y cómo utilizarlos:</p>
+
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>Método</th>
+                                    <th>Descripción</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>boolean contains(int x, int y)</code></td>
+                                    <td>Indica si el rectángulo contiene el punto (x,y)</td>
+                                </tr>
+                                <tr>
+                                    <td><code>Rectangle intersection(Rectangle r)</code></td>
+                                    <td>Calcula el rectángulo resultante de la intersección con r</td>
+                                </tr>
+                                <tr>
+                                    <td><code>boolean intersects(Rectangle r)</code></td>
+                                    <td>Indica si hay intersección con el rectángulo r</td>
+                                </tr>
+                                <tr>
+                                    <td><code>void setLocation(int x, int y)</code></td>
+                                    <td>Desplaza el rectángulo a la posición (x,y)</td>
+                                </tr>
+                                <tr>
+                                    <td><code>void setSize(int width, int height)</code></td>
+                                    <td>Establece nuevo tamaño (base y altura)</td>
+                                </tr>
+                                <tr>
+                                    <td><code>Rectangle union(Rectangle r)</code></td>
+                                    <td>Calcula la unión con el rectángulo r</td>
+                                </tr>
+                                <tr>
+                                    <td><code>double getHeight()</code></td>
+                                    <td>Obtiene la altura del rectángulo</td>
+                                </tr>
+                                <tr>
+                                    <td><code>double getWidth()</code></td>
+                                    <td>Obtiene la anchura (base) del rectángulo</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Ejemplos prácticos de uso de métodos</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>// Crear dos rectángulos
+Rectangle rec1 = new Rectangle(1, 2, 5, 4);
+Rectangle rec2 = new Rectangle(5, 3, 4, 6);
+
+// 1. Comprobar si contienen el punto (3,3)
+System.out.println("rec1 contiene el punto (3,3): " + 
+    (rec1.contains(3, 3) ? "sí" : "no"));
+System.out.println("rec2 contiene el punto (3,3): " + 
+    (rec2.contains(3, 3) ? "sí" : "no"));
+
+// 2. Comprobar si tienen zona en común
+System.out.println("rec1 tiene zona común con rec2: " + 
+    (rec1.intersects(rec2) ? "sí" : "no"));
+
+// 3. Calcular el área común (nuevo rectángulo intersección)
+Rectangle rec3 = rec1.intersection(rec2);
+System.out.println("Rectángulo rec3 intersección de rec1 y rec2:");
+System.out.println("Ubicación: x=" + rec3.x + " y=" + rec3.y);
+System.out.println("Dimensiones: base=" + rec3.width + " altura=" + rec3.height);
+
+// 4. Reubicar rec1 en la posición (2,2)
+rec1.setLocation(2, 2);</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="info-box">
+                            <strong>💡 Caja negra:</strong> No necesitas conocer el código interno de los métodos. Solo necesitas saber qué hacen, qué parámetros necesitan y qué devuelven. Los usas como "cajas negras".
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5.3 DOCUMENTACIÓN -->
+                <div class="lesson-section">
+                    <h2 class="section-title">5.3. Documentación de una Clase</h2>
+                    <div class="text-content">
+                        <div class="highlight-box">
+                            <h3>📚 ¿Cómo saber qué métodos tiene una clase?</h3>
+                            <p>Cuando usas clases creadas por otros programadores, necesitas saber:</p>
+                            <ul>
+                                <li>¿Qué operaciones (métodos) puedo realizar?</li>
+                                <li>¿Qué parámetros necesitan?</li>
+                                <li>¿Qué valores devuelven?</li>
+                                <li>¿Qué atributos públicos hay?</li>
+                                <li>¿Qué constructores existen?</li>
+                            </ul>
+                        </div>
+
+                        <div class="concept-card">
+                            <h4>📖 Javadoc</h4>
+                            <p>En Java, la documentación se genera usando <b>javadoc</b>. Es un conjunto de documentos en formato <b>HTML</b> que facilita la navegación entre clases, paquetes, métodos, etc.</p>
+                            <p>Proporciona información completa sobre cada clase sin necesidad de conocer su implementación interna.</p>
+                        </div>
+
+                        <div class="success-box">
+                            <strong>✅ Estructura de la documentación javadoc:</strong>
+                            <ul>
+                                <li><b>Cabecera:</b> Nombre y descripción general de la clase</li>
+                                <li><b>Field Summary:</b> Tabla resumen de atributos públicos</li>
+                                <li><b>Constructor Summary:</b> Tabla resumen de constructores</li>
+                                <li><b>Method Summary:</b> Tabla resumen de métodos públicos</li>
+                                <li><b>Field Detail:</b> Explicación detallada de cada atributo</li>
+                                <li><b>Constructor Detail:</b> Explicación detallada de cada constructor</li>
+                                <li><b>Method Detail:</b> Explicación detallada de cada método</li>
+                            </ul>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Enlaces a la documentación oficial</span>
+                                <span class="language-badge">Recursos</span>
+                            </div>
+                            <div class="code-content">
+                                <pre><code>📚 Documentación completa de la API de Java:
+https://docs.oracle.com/en/java/javase/
+
+📦 Paquete java.awt:
+https://docs.oracle.com/en/java/javase/17/docs/api/java.desktop/java/awt/package-summary.html
+
+🔲 Clase Rectangle:
+https://docs.oracle.com/en/java/javase/17/docs/api/java.desktop/java/awt/Rectangle.html</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="warning-box">
+                            <strong>⚠️ Consejo:</strong> Cuando uses una nueva clase de la API de Java, consulta su documentación javadoc. Te ahorrará mucho tiempo y evitarás errores. Es la herramienta fundamental del programador Java.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5.4 OBJETOS INMUTABLES -->
+                <div class="lesson-section">
+                    <h2 class="section-title">5.4. Objetos Inmutables</h2>
+                    <div class="text-content">
+                        <div class="highlight-box">
+                            <h3>🔒 ¿Qué es un objeto inmutable?</h3>
+                            <p>Un objeto es <b>inmutable</b> cuando una vez creado e inicializado <b>NO puede modificar su estado</b>.</p>
+                            <p>Los métodos que parecen modificarlo en realidad <b>generan una nueva instancia</b> con los cambios.</p>
+                        </div>
+
+                        <div class="concept-card">
+                            <h4>📋 Clases inmutables en Java</h4>
+                            <ul>
+                                <li><code>String</code></li>
+                                <li>Clases envoltorio: <code>Integer</code>, <code>Double</code>, <code>Boolean</code>, etc.</li>
+                                <li>Clases de fecha/hora: <code>LocalDate</code>, <code>LocalTime</code>, <code>LocalDateTime</code></li>
+                            </ul>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Ejemplo con String (objeto inmutable)</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>// Crear una cadena
+String cadenaOriginal = new String("Hola");
+System.out.println("Cadena original: " + cadenaOriginal);
+
+// Intentar concatenar (parece que modificamos)
+cadenaOriginal.concat(" caracola");
+
+// Mostrar de nuevo
+System.out.println("Después de concat: " + cadenaOriginal);
+
+// RESULTADO:
+// Cadena original: Hola
+// Después de concat: Hola  ← ¡NO ha cambiado!
+
+// ¿Por qué? Porque String es INMUTABLE
+// concat() ha creado un NUEVO objeto, pero no lo hemos guardado</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Forma correcta de usar métodos en objetos inmutables</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>// Opción 1: Mostrar directamente el resultado
+String cadenaOriginal = "Hola";
+System.out.println("Resultado: " + cadenaOriginal.concat(" caracola"));
+// Resultado: Hola caracola
+
+// Opción 2: Guardar en nueva variable
+String cadenaOriginal = "Hola";
+String cadenaTransformada = cadenaOriginal.concat(" caracola");
+System.out.println("Original: " + cadenaOriginal);        // Hola
+System.out.println("Transformada: " + cadenaTransformada); // Hola caracola
+
+// Opción 3: Reasignar a la misma variable (se pierde la original)
+String miVar = "Hola";
+miVar = miVar.concat(" Antonio");
+System.out.println("Resultado: " + miVar);  // Hola Antonio
+// ⚠️ Se ha perdido la referencia al objeto original "Hola"</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="warning-box">
+                            <strong>⚠️ Importante:</strong> Con objetos inmutables, si no guardas la referencia al nuevo objeto creado por el método, ese objeto quedará sin referenciar y será eliminado por el recolector de basura.
+                        </div>
+
+                        <div class="success-box">
+                            <strong>✅ Ventaja de String en Java:</strong> Normalmente no usarás <code>new String()</code> ni <code>.concat()</code>. Java permite usar <code>=</code> para crear y <code>+</code> para concatenar:
+                            <div class="code-container">
+                                <div class="code-content">
+                                    <pre><code>String miVar = "Hola";           // En lugar de new String("Hola")
+miVar = miVar + " Antonio";      // En lugar de miVar.concat(" Antonio")</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5.5 COMPARACIÓN DE OBJETOS -->
+                <div class="lesson-section">
+                    <h2 class="section-title">5.5. Comparación de Objetos: Método equals</h2>
+                    <div class="text-content">
+                        <div class="highlight-box">
+                            <h3>⚖️ ¿Cómo comparar objetos?</h3>
+                            <p>Para tipos primitivos usamos <code>==</code>. Pero con objetos es diferente.</p>
+                            <p>Para comparar objetos usamos el método <b>equals()</b>.</p>
+                        </div>
+
+                        <div class="concept-card">
+                            <h4>🤔 ¿Qué significa que dos objetos sean iguales?</h4>
+                            <p>Dos objetos son <b>iguales</b> cuando tienen el <b>mismo estado</b>, es decir, los mismos valores en todos sus atributos.</p>
+                            <p><b>Ejemplo:</b> Dos rectángulos son iguales si tienen la misma posición (x, y) y las mismas dimensiones (base, altura).</p>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Comparación con equals()</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>// Crear tres rectángulos
+Rectangle r1 = new Rectangle(1, 2, 5, 4);
+Rectangle r2 = new Rectangle(5, 3, 4, 6);
+Rectangle r3 = new Rectangle(5, 3, 4, 6);  // Igual que r2
+
+// Comparar usando equals()
+System.out.println("r1.equals(r2): " + r1.equals(r2));  // false (diferentes)
+System.out.println("r1.equals(r3): " + r1.equals(r3));  // false (diferentes)
+System.out.println("r2.equals(r3): " + r2.equals(r3));  // true (¡iguales!)
+
+// r2 y r3 tienen los mismos valores en sus atributos
+// Por tanto, son iguales según equals()</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="warning-box">
+                            <strong>⚠️ ¿Y el operador ==?</strong>
+                            <div class="code-container">
+                                <div class="code-content">
+                                    <pre><code>System.out.println("r1 == r2: " + (r1 == r2));  // false
+System.out.println("r1 == r3: " + (r1 == r3));  // false
+System.out.println("r2 == r3: " + (r2 == r3));  // false ← ¡TODAS false!
+
+// ¿Por qué? Porque == compara REFERENCIAS (direcciones de memoria)
+// r1, r2 y r3 apuntan a objetos DIFERENTES (en diferentes posiciones de memoria)
+// Aunque r2 y r3 tengan los mismos valores, son objetos distintos</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Diferencia entre equals() y ==</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>Rectangle r1 = new Rectangle(1, 2, 5, 4);
+Rectangle r2 = new Rectangle(5, 3, 4, 6);
+Rectangle r3 = new Rectangle(5, 3, 4, 6);
+
+// Hacer que r1 apunte al mismo objeto que r3
+r1 = r3;
+
+// Ahora comparamos
+System.out.println("Comparación de OBJETOS (equals):");
+System.out.println("r1.equals(r2): " + r1.equals(r2));  // true (valores iguales)
+System.out.println("r1.equals(r3): " + r1.equals(r3));  // true (valores iguales)
+System.out.println("r2.equals(r3): " + r2.equals(r3));  // true (valores iguales)
+
+System.out.println("\nComparación de REFERENCIAS (==):");
+System.out.println("r1 == r2: " + (r1 == r2));  // false (diferentes objetos)
+System.out.println("r1 == r3: " + (r1 == r3));  // true (MISMO objeto)
+System.out.println("r2 == r3: " + (r2 == r3));  // false (diferentes objetos)</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="success-box">
+                            <strong>✅ Conclusión:</strong>
+                            <ul>
+                                <li><code>equals()</code> → Compara si los objetos tienen los <b>mismos valores</b> (son iguales)</li>
+                                <li><code>==</code> → Compara si las referencias apuntan al <b>mismo objeto</b></li>
+                            </ul>
+                        </div>
+
+                        <div class="highlight-box">
+                            <h3>🎯 Regla de oro</h3>
+                            <p>En Java, para comparar objetos SIEMPRE usa <b>equals()</b>, no uses <code>==</code>.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5.6 MÉTODOS ESTÁTICOS -->
+                <div class="lesson-section">
+                    <h2 class="section-title">5.6. Métodos Estáticos</h2>
+                    <div class="text-content">
+                        <div class="highlight-box">
+                            <h3>🏛️ ¿Qué son los métodos estáticos?</h3>
+                            <p>Un <b>método estático</b> puede usarse directamente desde la <b>clase</b> sin necesidad de crear ningún objeto.</p>
+                            <p>También se llaman <b>métodos de clase</b> (frente a los métodos de instancia u objeto).</p>
+                        </div>
+
+                        <div class="concept-card">
+                            <h4>📋 Características de métodos estáticos</h4>
+                            <ul>
+                                <li>NO necesitan un objeto para ser invocados</li>
+                                <li>NO pueden manipular instancias (objetos)</li>
+                                <li>Se usan para operaciones <b>genéricas e independientes</b> de los objetos</li>
+                                <li>Pueden invocarse aunque NO existan objetos de la clase</li>
+                            </ul>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Sintaxis correcta para invocar métodos estáticos</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>// ✅ FORMA CORRECTA: Usar el nombre de la CLASE
+NombreClase.nombreMetodoEstatico();
+
+// ❌ FORMA INCORRECTA (aunque funciona): Usar un objeto
+// nombreObjeto.nombreMetodoEstatico();  
+// No uses esta forma, puede confundir</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="warning-box">
+                            <strong>⚠️ Importante:</strong> SIEMPRE invoca métodos estáticos usando el nombre de la CLASE, no el nombre de un objeto. Así queda claro que es un método estático.
+                        </div>
+
+                        <div class="concept-card">
+                            <h4>📐 Ejemplo: Clase Math</h4>
+                            <p>La clase <code>Math</code> del paquete <code>java.lang</code> es un ejemplo perfecto de clase con métodos estáticos.</p>
+                            <ul>
+                                <li>NO puede ser instanciada (no se pueden crear objetos Math)</li>
+                                <li>TODOS sus métodos son estáticos</li>
+                                <li>Es como una "caja de herramientas" matemáticas</li>
+                            </ul>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Algunos métodos estáticos de la clase Math</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>// Métodos estáticos de Math
+static double abs(double a)          // Valor absoluto
+static double cos(double a)          // Coseno
+static double exp(double a)          // e elevado a una potencia
+static double log(double a)          // Logaritmo neperiano
+static double max(double a, double b) // Máximo de dos números
+static double pow(double a, double b) // a elevado a b
+static double sqrt(double a)         // Raíz cuadrada
+static double random()               // Número aleatorio [0.0, 1.0)
+
+// Atributos estáticos (constantes)
+public static double E              // Número e (2.718281828459045)
+public static double PI             // Número π (3.141592653589793)</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Ejemplos de uso de Math</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>// Funciones trigonométricas
+double angulo = 45.0 * Math.PI / 180.0;
+System.out.println("cos(" + angulo + ") = " + Math.cos(angulo));
+
+// Función exponencial (e elevado a una potencia)
+System.out.println("exp(10.0) = " + Math.exp(10.0));
+
+// Logaritmo natural (base e)
+System.out.println("log(10.0) = " + Math.log(10.0));
+System.out.println("log(Math.E) = " + Math.log(Math.E));  // Resultado: 1.0
+
+// Potencias (10 elevado a 2.5)
+System.out.println("pow(10.0, 2.5) = " + Math.pow(10.0, 2.5));
+
+// Raíz cuadrada
+System.out.println("Raíz cuadrada de 3 = " + Math.sqrt(3));</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="concept-card">
+                            <h4>🖥️ Otro ejemplo: Clase System</h4>
+                            <p>La clase <code>System</code> también tiene métodos estáticos y NO puede ser instanciada.</p>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Ejemplos con System</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>// Hora actual en milisegundos
+long horaMiliseg = System.currentTimeMillis();
+System.out.println("Hora actual en milisegundos: " + horaMiliseg);
+
+// Separador de carpetas en rutas
+String separador = System.getProperty("file.separator");
+System.out.println("Separador de carpetas: " + separador);
+
+// Idioma del sistema
+String idioma = System.getProperty("user.language");
+System.out.println("Idioma: " + idioma);
+
+// Versión de Java
+String versionJava = System.getProperty("java.version");
+System.out.println("Versión de Java: " + versionJava);</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5.7 MÉTODOS FÁBRICA -->
+                <div class="lesson-section">
+                    <h2 class="section-title">5.7. Métodos "Fábrica" o Pseudoconstructores</h2>
+                    <div class="text-content">
+                        <div class="highlight-box">
+                            <h3>🏭 ¿Qué son los métodos fábrica?</h3>
+                            <p>Son <b>métodos estáticos</b> que crean y devuelven objetos de una clase, funcionando como si fueran constructores.</p>
+                            <p>También se llaman <b>pseudoconstructores</b> porque "fabrican" objetos.</p>
+                        </div>
+
+                        <div class="concept-card">
+                            <h4>🔍 Diferencia con constructores</h4>
+                            <table class="comparison-table">
+                                <thead>
+                                    <tr>
+                                        <th>Constructor</th>
+                                        <th>Método fábrica</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Se llama con <code>new</code></td>
+                                        <td>Se llama como método estático</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nombre = nombre de la clase</td>
+                                        <td>Puede tener cualquier nombre</td>
+                                    </tr>
+                                    <tr>
+                                        <td>No es un método estático</td>
+                                        <td>Es un método estático</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="info-box">
+                            <strong>💡 Ejemplo:</strong> La clase <code>LocalTime</code> NO tiene constructores públicos. Para crear objetos <code>LocalTime</code> debes usar métodos fábrica como <code>now()</code>, <code>of()</code>, <code>parse()</code>, etc.
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Ejemplo con LocalTime (veremos más adelante)</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>// Métodos fábrica de LocalTime
+LocalTime ahora = LocalTime.now();           // Hora actual
+LocalTime hora = LocalTime.of(20, 30, 45);   // Hora específica
+LocalTime hora2 = LocalTime.parse("10:25:45"); // Desde String
+
+// Todos estos métodos CREAN objetos LocalTime
+// pero NO son constructores, son métodos estáticos fábrica</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="success-box">
+                            <strong>✅ Ventaja:</strong> Los métodos fábrica pueden tener nombres descriptivos que indican claramente qué tipo de objeto están creando, a diferencia de los constructores que siempre tienen el mismo nombre que la clase.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5.8 CLASES ENVOLTORIO -->
+                <div class="lesson-section">
+                    <h2 class="section-title">5.8. Clases Envoltorio (Wrapper Classes)</h2>
+                    <div class="text-content">
+                        <div class="highlight-box">
+                            <h3>📦 ¿Qué son las clases envoltorio?</h3>
+                            <p>Son clases que <b>"envuelven" tipos primitivos</b> dentro de objetos.</p>
+                            <p>Permiten usar tipos primitivos como si fueran objetos cuando es necesario.</p>
+                        </div>
+
+                        <div class="concept-card">
+                            <h4>🔄 Correspondencia tipos primitivos - clases envoltorio</h4>
+                            <table class="comparison-table">
+                                <thead>
+                                    <tr>
+                                        <th>Tipo Primitivo</th>
+                                        <th>Clase Envoltorio</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>boolean</td><td>Boolean</td></tr>
+                                    <tr><td>byte</td><td>Byte</td></tr>
+                                    <tr><td>char</td><td>Character</td></tr>
+                                    <tr><td>short</td><td>Short</td></tr>
+                                    <tr><td>int</td><td>Integer</td></tr>
+                                    <tr><td>long</td><td>Long</td></tr>
+                                    <tr><td>float</td><td>Float</td></tr>
+                                    <tr><td>double</td><td>Double</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Forma antigua (antes de Java 5)</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>// Boxing: de primitivo a objeto
+int entero = 20;
+Integer oEntero = new Integer(entero);  // Crear objeto Integer
+
+// Unboxing: de objeto a primitivo
+int miEntero = oEntero.intValue();      // Obtener valor primitivo</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Forma moderna (desde Java 5): Autoboxing</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>// Autoboxing: conversión automática de primitivo a objeto
+int entero = 20;
+Integer oEntero = entero;  // Java hace la conversión automáticamente
+
+// O directamente
+Integer oEntero = 20;      // ¡Mucho más simple!
+
+// Autounboxing: conversión automática de objeto a primitivo
+int miEntero = oEntero;    // Java hace la conversión automáticamente</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="success-box">
+                            <strong>✅ Autoboxing/Unboxing:</strong> Desde Java 5, el compilador hace las conversiones automáticamente. No necesitas usar constructores ni métodos como <code>intValue()</code>.
+                        </div>
+
+                        <div class="warning-box">
+                            <strong>⚠️ Las clases envoltorio son INMUTABLES:</strong>
+                            <div class="code-container">
+                                <div class="code-content">
+                                    <pre><code>Integer oNumero = 3;
+oNumero += 3;  // Se crea una NUEVA instancia con valor 6
+
+// La instancia original (valor 3) se pierde
+// Ahora oNumero apunta a una nueva instancia con valor 6</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Guardar ambas instancias</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>Integer oNumero1 = 3;
+Integer oNumero2;
+oNumero2 = oNumero1 + 3;  // Nueva instancia con valor 6
+
+// Ahora tenemos dos objetos:
+// oNumero1 apunta al objeto con valor 3
+// oNumero2 apunta al objeto con valor 6</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5.9 MÉTODO toString -->
+                <div class="lesson-section">
+                    <h2 class="section-title">5.9. Representación Textual: Método toString</h2>
+                    <div class="text-content">
+                        <div class="highlight-box">
+                            <h3>📝 Método toString()</h3>
+                            <p>En Java, <b>toda clase</b> dispone del método <code>toString()</code>.</p>
+                            <p>Su propósito es devolver una representación <b>textual del contenido</b> del objeto.</p>
+                        </div>
+
+                        <div class="concept-card">
+                            <h4>🎯 ¿Para qué sirve?</h4>
+                            <p>Evita tener que acceder a todos los atributos uno por uno para mostrar el estado del objeto.</p>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Forma tradicional (sin toString)</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>Rectangle rec1 = new Rectangle(1, 2, 5, 4);
+
+// Mostrar todos los atributos uno por uno
+System.out.println("Rectángulo rec1:");
+System.out.println("Ubicación: x=" + rec1.x + " y=" + rec1.y);
+System.out.println("Dimensiones: base=" + rec1.width + " altura=" + rec1.height);</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Forma moderna (con toString)</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>Rectangle r1 = new Rectangle(1, 2, 5, 4);
+
+// Llamada explícita a toString()
+System.out.println("r1 = " + r1.toString());
+
+// Resultado:
+// r1 = java.awt.Rectangle[x=1,y=2,width=5,height=4]</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="success-box">
+                            <strong>✅ Llamada implícita a toString():</strong>
+                            <p>Java llama automáticamente a <code>toString()</code> cuando intentas usar un objeto como String.</p>
+                            <div class="code-container">
+                                <div class="code-content">
+                                    <pre><code>// ¡No necesitas escribir .toString()!
+System.out.println("r1 = " + r1);  // Java llama a r1.toString() automáticamente
+
+// Es equivalente a:
+System.out.println("r1 = " + r1.toString());</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="warning-box">
+                            <strong>⚠️ Si la clase NO tiene toString() implementado:</strong>
+                            <p>Si el programador no ha escrito el método <code>toString()</code>, Java usa uno por defecto que devuelve algo como:</p>
+                            <code>java.awt.Rectangle@1af7ab3</code>
+                            <p>Esto es el "hash" del objeto (relacionado con su posición en memoria). No es muy útil.</p>
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+</html>

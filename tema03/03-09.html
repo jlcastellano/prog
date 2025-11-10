@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utilización de objetos</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/vs2015.min.css">
+
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">Programación Orientada a Objetos</div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <main class="main-content">
+            <div class="content-header">
+                <h1 id="page-title" class="content-title">Utilización de Objetos</h1>
+                <p id="page-subtitle" class="content-subtitle">Fundamentos de la Programación Orientada a Objetos en Java</p>
+            </div>
+
+                <!-- 9. EXCEPCIONES -->
+                <div class="lesson-section">
+                    <h2 class="section-title">9. Excepciones</h2>
+                    <div class="text-content">
+                        <div class="highlight-box">
+                            <h3>⚠️ ¿Qué es una excepción?</h3>
+                            <p>Una <b>excepción</b> es un evento que interrumpe el flujo normal del programa debido a un <b>error en tiempo de ejecución</b>.</p>
+                            <p>Ejemplos: división por cero, acceso a posición inexistente de un array, archivo que no existe, etc.</p>
+                        </div>
+
+                        <div class="concept-card">
+                            <h4>🔍 Tipos de errores en programación</h4>
+                            <ul>
+                                <li><b>Errores de sintaxis:</b> Detectados por el compilador antes de ejecutar (falta un punto y coma, paréntesis no cerrado...)</li>
+                                <li><b>Errores lógicos:</b> El programa funciona pero da resultados incorrectos (algoritmo mal diseñado)</li>
+                                <li><b>Errores en tiempo de ejecución (excepciones):</b> Ocurren mientras el programa se ejecuta</li>
+                            </ul>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Ejemplo de excepción: División por cero</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>public class EjemploExcepcion {
+    public static void main(String[] args) {
+        int a = 10;
+        int b = 0;
+        
+        // Esto provocará una excepción
+        int resultado = a / b;  // ¡ERROR! División por cero
+        
+        System.out.println("Resultado: " + resultado);  // Esta línea NO se ejecuta
+    }
+}
+
+// SALIDA:
+// Exception in thread "main" java.lang.ArithmeticException: / by zero
+//     at EjemploExcepcion.main(EjemploExcepcion.java:6)</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="warning-box">
+                            <strong>⚠️ ¿Qué pasa cuando ocurre una excepción?</strong>
+                            <ul>
+                                <li>El programa se <b>detiene abruptamente</b></li>
+                                <li>Se muestra un mensaje de error en consola</li>
+                                <li>Las líneas de código posteriores NO se ejecutan</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 9.1 GESTIÓN DE EXCEPCIONES -->
+                <div class="lesson-section">
+                    <h2 class="section-title">9.1. Gestión de Excepciones: try-catch</h2>
+                    <div class="text-content">
+                        <div class="highlight-box">
+                            <h3>🛡️ Capturar y manejar excepciones</h3>
+                            <p>Java permite <b>capturar excepciones</b> para que el programa no se detenga y pueda continuar su ejecución.</p>
+                            <p>Se usa la estructura <code>try-catch</code>.</p>
+                        </div>
+
+                        <div class="concept-card">
+                            <h4>📋 Estructura try-catch</h4>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Sintaxis básica</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>try {
+    // Código que PUEDE lanzar una excepción
+    // (código "peligroso")
+    
+} catch (TipoExcepcion nombreVariable) {
+    // Código que se ejecuta SI ocurre la excepción
+    // (manejo del error)
+}</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Ejemplo: Capturar división por cero</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>public class GestionExcepcion {
+    public static void main(String[] args) {
+        int a = 10;
+        int b = 0;
+        
+        try {
+            // Código que puede fallar
+            int resultado = a / b;
+            System.out.println("Resultado: " + resultado);
+            
+        } catch (ArithmeticException e) {
+            // Se ejecuta si hay división por cero
+            System.out.println("ERROR: No se puede dividir por cero");
+        }
+        
+        // El programa CONTINÚA ejecutándose
+        System.out.println("Programa finalizado correctamente");
+    }
+}
+
+// SALIDA:
+// ERROR: No se puede dividir por cero
+// Programa finalizado correctamente</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="success-box">
+                            <strong>✅ Ventaja:</strong> El programa NO se detiene. Capturamos el error, mostramos un mensaje amigable y continuamos la ejecución.
+                        </div>
+
+                        <div class="concept-card">
+                            <h4>🔗 Capturar múltiples excepciones</h4>
+                            <p>Puedes tener varios bloques <code>catch</code> para diferentes tipos de excepciones:</p>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Múltiples catch</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>import java.util.Scanner;
+
+public class MultiplesExcepciones {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        try {
+            System.out.print("Introduce el numerador: ");
+            int a = sc.nextInt();
+            
+            System.out.print("Introduce el denominador: ");
+            int b = sc.nextInt();
+            
+            int resultado = a / b;
+            System.out.println("Resultado: " + resultado);
+            
+            int[] numeros = {1, 2, 3};
+            System.out.println("Número en posición 5: " + numeros[5]);
+            
+        } catch (ArithmeticException e) {
+            System.out.println("ERROR: División por cero");
+            
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("ERROR: Posición del array no válida");
+            
+        } catch (Exception e) {
+            System.out.println("ERROR: Ha ocurrido un error inesperado");
+        }
+        
+        System.out.println("Fin del programa");
+        sc.close();
+    }
+}</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="warning-box">
+                            <strong>⚠️ Orden de los catch:</strong> Los bloques catch se evalúan de arriba a abajo. Pon primero las excepciones MÁS ESPECÍFICAS y al final las MÁS GENERALES (como <code>Exception</code>).
+                        </div>
+
+                        <div class="concept-card">
+                            <h4>🔄 Bloque finally (opcional)</h4>
+                            <p>El bloque <code>finally</code> se ejecuta SIEMPRE, haya o no excepción. Se usa para liberar recursos (cerrar archivos, conexiones, etc.).</p>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Uso de finally</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>try {
+    // Código que puede lanzar excepción
+    int resultado = 10 / 0;
+    
+} catch (ArithmeticException e) {
+    System.out.println("ERROR: División por cero");
+    
+} finally {
+    // Este bloque SIEMPRE se ejecuta
+    System.out.println("Bloque finally ejecutado");
+}
+
+// SALIDA:
+// ERROR: División por cero
+// Bloque finally ejecutado</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 9.2 JERARQUÍA DE EXCEPCIONES -->
+                <div class="lesson-section">
+                    <h2 class="section-title">9.2. Jerarquía de Excepciones en Java</h2>
+                    <div class="text-content">
+                        <div class="highlight-box">
+                            <h3>🌳 Clases de excepciones</h3>
+                            <p>En Java, todas las excepciones son <b>objetos</b> que heredan de la clase <code>Throwable</code>.</p>
+                        </div>
+
+                        <div class="concept-card">
+                            <h4>📋 Jerarquía principal</h4>
+                            <div class="code-container">
+                                <div class="code-content">
+                                    <pre><code>Throwable (clase raíz)
+├── Error (errores graves del sistema, NO se capturan)
+│   ├── OutOfMemoryError
+│   ├── StackOverflowError
+│   └── ...
+│
+└── Exception (excepciones que SÍ se pueden capturar)
+    ├── RuntimeException (excepciones NO comprobadas)
+    │   ├── ArithmeticException
+    │   ├── NullPointerException
+    │   ├── ArrayIndexOutOfBoundsException
+    │   ├── NumberFormatException
+    │   └── ...
+    │
+    └── Otras Exception (excepciones comprobadas)
+        ├── IOException
+        ├── SQLException
+        ├── FileNotFoundException
+        └── ...</code></pre>
+                                </div>
+                            </div>
+                        </div>
+<img alt="Jerarquía de Excepciones en Java" src="imagen03-06.png" class="responsive-image">
+                        <div class="concept-card">
+                            <h4>🔍 Tipos de excepciones</h4>
+                            <ul>
+                                <li><b>Excepciones comprobadas (Checked):</b> El compilador OBLIGA a capturarlas con try-catch o declararlas con <code>throws</code>. Ejemplo: <code>IOException</code></li>
+                                <li><b>Excepciones NO comprobadas (Unchecked):</b> Heredan de <code>RuntimeException</code>. NO es obligatorio capturarlas. Ejemplo: <code>ArithmeticException</code></li>
+                                <li><b>Errores (Error):</b> Problemas graves del sistema. NO se deben capturar. Ejemplo: <code>OutOfMemoryError</code></li>
+                            </ul>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Excepciones comunes en Java</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>// ArithmeticException - División por cero
+int x = 10 / 0;
+
+// NullPointerException - Acceder a objeto null
+String texto = null;
+int longitud = texto.length();
+
+// ArrayIndexOutOfBoundsException - Índice fuera de rango
+int[] numeros = {1, 2, 3};
+int valor = numeros[10];
+
+// NumberFormatException - Conversión incorrecta
+int numero = Integer.parseInt("abc");
+
+// ClassCastException - Casting incorrecto
+Object obj = "Hola";
+Integer num = (Integer) obj;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 9.3 INFORMACIÓN DE LA EXCEPCIÓN -->
+                <div class="lesson-section">
+                    <h2 class="section-title">9.3. Obtener Información de la Excepción</h2>
+                    <div class="text-content">
+                        <div class="highlight-box">
+                            <h3>ℹ️ Métodos útiles de Exception</h3>
+                            <p>Cuando capturamos una excepción, el objeto excepción tiene métodos que nos dan información sobre el error:</p>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Métodos de información</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>try {
+    int resultado = 10 / 0;
+    
+} catch (ArithmeticException e) {
+    // getMessage() - Mensaje descriptivo del error
+    System.out.println("Mensaje: " + e.getMessage());
+    // Salida: Mensaje: / by zero
+    
+    // toString() - Nombre de la clase + mensaje
+    System.out.println("toString: " + e.toString());
+    // Salida: toString: java.lang.ArithmeticException: / by zero
+    
+    // printStackTrace() - Muestra la traza completa del error
+    e.printStackTrace();
+    // Muestra toda la pila de llamadas donde ocurrió el error
+}</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="info-box">
+                            <strong>💡 Buenas prácticas:</strong>
+                            <ul>
+                                <li>Usa <code>getMessage()</code> para mostrar mensajes al usuario</li>
+                                <li>Usa <code>printStackTrace()</code> para depuración (desarrollo)</li>
+                                <li>NO muestres <code>printStackTrace()</code> a usuarios finales (información técnica confusa)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 9.4 LANZAR EXCEPCIONES -->
+                <div class="lesson-section">
+                    <h2 class="section-title">9.4. Lanzar Excepciones: throw y throws</h2>
+                    <div class="text-content">
+                        <div class="highlight-box">
+                            <h3>🚀 Palabra clave throw</h3>
+                            <p>Permite <b>lanzar una excepción manualmente</b> desde tu código.</p>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Lanzar una excepción con throw</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>public class LanzarExcepcion {
+    
+    public static void validarEdad(int edad) {
+        if (edad < 0 || edad > 150) {
+            // Lanzar una excepción
+            throw new IllegalArgumentException("Edad no válida: " + edad);
+        }
+        System.out.println("Edad válida: " + edad);
+    }
+    
+    public static void main(String[] args) {
+        try {
+            validarEdad(25);   // OK
+            validarEdad(-5);   // Lanza excepción
+            validarEdad(200);  // Esta línea no se ejecutará
+            
+        } catch (IllegalArgumentException e) {
+            System.out.println("ERROR: " + e.getMessage());
+        }
+    }
+}
+
+// SALIDA:
+// Edad válida: 25
+// ERROR: Edad no válida: -5</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="highlight-box">
+                            <h3>📢 Palabra clave throws</h3>
+                            <p>Se usa en la <b>declaración de un método</b> para indicar que ese método <b>puede lanzar</b> ciertas excepciones.</p>
+                            <p>Obliga a quien llame al método a capturar la excepción o propagarla.</p>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Declarar excepciones con throws</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>import java.io.IOException;
+
+public class EjemploThrows {
+    
+    // Este método declara que puede lanzar IOException
+    public static void leerArchivo(String ruta) throws IOException {
+        // Código que puede lanzar IOException
+        if (ruta == null) {
+            throw new IOException("Ruta no válida");
+        }
+        System.out.println("Leyendo archivo: " + ruta);
+    }
+    
+    public static void main(String[] args) {
+        try {
+            // Debemos capturar la excepción porque el método la declara
+            leerArchivo("documento.txt");
+            leerArchivo(null);
+            
+        } catch (IOException e) {
+            System.out.println("ERROR al leer archivo: " + e.getMessage());
+        }
+    }
+}
+
+// SALIDA:
+// Leyendo archivo: documento.txt
+// ERROR al leer archivo: Ruta no válida</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="warning-box">
+                            <strong>⚠️ Diferencia throw vs throws:</strong>
+                            <ul>
+                                <li><code>throw</code> → Se usa DENTRO del método para lanzar la excepción</li>
+                                <li><code>throws</code> → Se usa en la DECLARACIÓN del método para indicar qué excepciones puede lanzar</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 9.5 CREAR EXCEPCIONES PROPIAS -->
+                <div class="lesson-section">
+                    <h2 class="section-title">9.5. Crear Excepciones Personalizadas</h2>
+                    <div class="text-content">
+                        <div class="highlight-box">
+                            <h3>🎨 Excepciones personalizadas</h3>
+                            <p>Puedes crear tus propias clases de excepción heredando de <code>Exception</code> o <code>RuntimeException</code>.</p>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Crear una excepción personalizada</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>// Definir la excepción personalizada
+public class EdadInvalidaException extends Exception {
+    
+    // Constructor con mensaje
+    public EdadInvalidaException(String mensaje) {
+        super(mensaje);
+    }
+    
+    // Constructor sin mensaje
+    public EdadInvalidaException() {
+        super("Edad no válida");
+    }
+}
+
+// Usar la excepción personalizada
+public class Persona {
+    private int edad;
+    
+    public void setEdad(int edad) throws EdadInvalidaException {
+        if (edad < 0 || edad > 150) {
+            throw new EdadInvalidaException("La edad debe estar entre 0 y 150");
+        }
+        this.edad = edad;
+    }
+    
+    public static void main(String[] args) {
+        Persona p = new Persona();
+        
+        try {
+            p.setEdad(25);    // OK
+            p.setEdad(-10);   // Lanza EdadInvalidaException
+            
+        } catch (EdadInvalidaException e) {
+            System.out.println("ERROR: " + e.getMessage());
+        }
+    }
+}</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="success-box">
+                            <strong>✅ Ventajas de excepciones personalizadas:</strong>
+                            <ul>
+                                <li>Código más legible y expresivo</li>
+                                <li>Mejor organización de errores específicos de tu aplicación</li>
+                                <li>Facilita el mantenimiento del código</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 9.6 BUENAS PRÁCTICAS -->
+                <div class="lesson-section">
+                    <h2 class="section-title">9.6. Buenas Prácticas con Excepciones</h2>
+                    <div class="text-content">
+                        <div class="benefits-grid">
+                            <div class="benefit-item">
+                                <h4>✅ Captura excepciones específicas</h4>
+                                <p>Evita capturar <code>Exception</code> genérica. Captura el tipo exacto de excepción que esperas.</p>
+                            </div>
+
+                            <div class="benefit-item">
+                                <h4>✅ No ignores excepciones</h4>
+                                <p>Nunca dejes un bloque catch vacío. Al menos registra el error.</p>
+                            </div>
+
+                            <div class="benefit-item">
+                                <h4>✅ Mensajes claros</h4>
+                                <p>Proporciona mensajes de error descriptivos que ayuden a identificar el problema.</p>
+                            </div>
+
+                            <div class="benefit-item">
+                                <h4>✅ Libera recursos</h4>
+                                <p>Usa <code>finally</code> o try-with-resources para cerrar archivos, conexiones, etc.</p>
+                            </div>
+
+                            <div class="benefit-item">
+                                <h4>❌ No uses excepciones para control de flujo</h4>
+                                <p>Las excepciones son para errores excepcionales, no para lógica normal del programa.</p>
+                            </div>
+
+                            <div class="benefit-item">
+                                <h4>✅ Documenta las excepciones</h4>
+                                <p>Usa <code>@throws</code> en javadoc para documentar qué excepciones puede lanzar un método.</p>
+                            </div>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Try-with-resources (Java 7+)</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>import java.util.Scanner;
+import java.io.File;
+import java.io.FileNotFoundException;
+
+// Los recursos se cierran automáticamente
+try (Scanner sc = new Scanner(new File("datos.txt"))) {
+    while (sc.hasNextLine()) {
+        System.out.println(sc.nextLine());
+    }
+    // NO necesitas sc.close(), se hace automáticamente
+    
+} catch (FileNotFoundException e) {
+    System.out.println("ERROR: Archivo no encontrado");
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+           
+            </div>
+        </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+</html>

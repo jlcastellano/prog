@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utilización de objetos</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/vs2015.min.css">
+
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">Programación Orientada a Objetos</div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <main class="main-content">
+            <div class="content-header">
+                <h1 id="page-title" class="content-title">Utilización de Objetos</h1>
+                <p id="page-subtitle" class="content-subtitle">Fundamentos de la Programación Orientada a Objetos en Java</p>
+            </div>
+
+<!-- 8. MANIPULACIÓN DE FECHA Y HORA -->
+                <div class="lesson-section">
+                    <h2 class="section-title">8. Manipulación de Fecha y Hora</h2>
+                    <div class="text-content">
+                        <div class="highlight-box">
+                            <h3>📅 Clases para trabajar con fechas y horas</h3>
+                            <p>Desde Java 8, el paquete <code>java.time</code> proporciona clases modernas e inmutables para trabajar con fechas y horas.</p>
+                        </div>
+
+                        <div class="concept-card">
+                            <h4>📦 Principales clases de java.time</h4>
+                            <ul>
+                                <li><code>LocalDate</code> → Solo fecha (año, mes, día)</li>
+                                <li><code>LocalTime</code> → Solo hora (hora, minuto, segundo, nanosegundo)</li>
+                                <li><code>LocalDateTime</code> → Fecha y hora juntas</li>
+                                <li><code>Period</code> → Período de tiempo en años, meses y días</li>
+                                <li><code>Duration</code> → Duración en horas, minutos, segundos</li>
+                                <li><code>DateTimeFormatter</code> → Formato de fechas/horas</li>
+                            </ul>
+                        </div>
+
+                        <div class="warning-box">
+                            <strong>⚠️ Importante:</strong> Todas estas clases son <b>INMUTABLES</b>. Los métodos que parecen modificarlas en realidad devuelven nuevas instancias.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8.1 LOCALDATE -->
+                <div class="lesson-section">
+                    <h2 class="section-title">8.1. Clase LocalDate</h2>
+                    <div class="text-content">
+                        <div class="highlight-box">
+                            <h3>📆 LocalDate - Trabajar solo con fechas</h3>
+                            <p>La clase <code>LocalDate</code> representa una fecha sin hora (año-mes-día).</p>
+                        </div>
+
+                        <div class="concept-card">
+                            <h4>🏭 Crear objetos LocalDate (métodos fábrica)</h4>
+                            <p>LocalDate NO tiene constructores públicos. Se crean objetos usando métodos estáticos:</p>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Métodos para crear LocalDate</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>import java.time.LocalDate;
+
+// 1. Fecha actual
+LocalDate hoy = LocalDate.now();
+System.out.println("Hoy es: " + hoy);  // 2025-11-02
+
+// 2. Fecha específica (año, mes, día)
+LocalDate fecha1 = LocalDate.of(2025, 12, 25);
+System.out.println("Navidad 2025: " + fecha1);  // 2025-12-25
+
+// 3. Desde un String (formato ISO: yyyy-MM-dd)
+LocalDate fecha2 = LocalDate.parse("2025-01-15");
+System.out.println("Fecha parseada: " + fecha2);  // 2025-01-15
+
+// 4. Epoch day (días desde 1970-01-01)
+LocalDate fecha3 = LocalDate.ofEpochDay(0);
+System.out.println("Día 0: " + fecha3);  // 1970-01-01</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="concept-card">
+                            <h4>📋 Métodos getter de LocalDate</h4>
+                            <p>Para obtener componentes de la fecha:</p>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Obtener componentes de la fecha</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>LocalDate fecha = LocalDate.of(2025, 11, 2);
+
+// Obtener año, mes, día
+int año = fecha.getYear();           // 2025
+int mes = fecha.getMonthValue();     // 11 (enero=1, diciembre=12)
+int dia = fecha.getDayOfMonth();     // 2
+
+System.out.println("Año: " + año);
+System.out.println("Mes: " + mes);
+System.out.println("Día: " + dia);
+
+// Obtener día de la semana y del año
+System.out.println("Día de la semana: " + fecha.getDayOfWeek());  // SATURDAY
+System.out.println("Día del año: " + fecha.getDayOfYear());       // 306
+
+// Comprobar si es año bisiesto
+System.out.println("¿Año bisiesto?: " + fecha.isLeapYear());      // false</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="concept-card">
+                            <h4>➕➖ Operaciones con fechas</h4>
+                            <p>Los métodos de modificación devuelven NUEVAS instancias (inmutabilidad):</p>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Sumar y restar tiempo</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>LocalDate hoy = LocalDate.now();
+System.out.println("Hoy: " + hoy);
+
+// Sumar días, meses, años
+LocalDate manana = hoy.plusDays(1);
+LocalDate proxMes = hoy.plusMonths(1);
+LocalDate proxAño = hoy.plusYears(1);
+
+System.out.println("Mañana: " + manana);
+System.out.println("Próximo mes: " + proxMes);
+System.out.println("Próximo año: " + proxAño);
+
+// Restar días, meses, años
+LocalDate ayer = hoy.minusDays(1);
+LocalDate mesPasado = hoy.minusMonths(1);
+LocalDate añoPasado = hoy.minusYears(1);
+
+System.out.println("Ayer: " + ayer);
+System.out.println("Mes pasado: " + mesPasado);
+System.out.println("Año pasado: " + añoPasado);
+
+// ⚠️ La fecha original NO cambia (inmutabilidad)
+System.out.println("Hoy sigue siendo: " + hoy);</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Modificar componentes específicos</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>LocalDate fecha = LocalDate.of(2025, 11, 2);
+
+// Cambiar año, mes o día
+LocalDate nuevaFecha1 = fecha.withYear(2030);
+LocalDate nuevaFecha2 = fecha.withMonth(6);
+LocalDate nuevaFecha3 = fecha.withDayOfMonth(15);
+
+System.out.println("Fecha original: " + fecha);        // 2025-11-02
+System.out.println("Con año 2030: " + nuevaFecha1);    // 2030-11-02
+System.out.println("Con mes 6: " + nuevaFecha2);       // 2025-06-02
+System.out.println("Con día 15: " + nuevaFecha3);      // 2025-11-15</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="concept-card">
+                            <h4>⚖️ Comparar fechas</h4>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Métodos de comparación</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>LocalDate fecha1 = LocalDate.of(2025, 11, 2);
+LocalDate fecha2 = LocalDate.of(2025, 12, 25);
+
+// Comprobar si son iguales
+System.out.println("¿Iguales?: " + fecha1.equals(fecha2));  // false
+
+// Comprobar si una es anterior/posterior
+System.out.println("¿fecha1 antes que fecha2?: " + fecha1.isBefore(fecha2));  // true
+System.out.println("¿fecha1 después que fecha2?: " + fecha1.isAfter(fecha2)); // false
+
+// Comparar (devuelve negativo, 0 o positivo)
+int comparacion = fecha1.compareTo(fecha2);
+System.out.println("Comparación: " + comparacion);  // negativo (fecha1 < fecha2)</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="info-box">
+                            <strong>💡 Consejo:</strong> Para comparar fechas usa <code>isBefore()</code>, <code>isAfter()</code> o <code>equals()</code>. Son más legibles que <code>compareTo()</code>.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8.2 LOCALTIME -->
+                <div class="lesson-section">
+                    <h2 class="section-title">8.2. Clase LocalTime</h2>
+                    <div class="text-content">
+                        <div class="highlight-box">
+                            <h3>⏰ LocalTime - Trabajar solo con horas</h3>
+                            <p>La clase <code>LocalTime</code> representa una hora sin fecha (hora:minuto:segundo.nanosegundo).</p>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Crear objetos LocalTime</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>import java.time.LocalTime;
+
+// 1. Hora actual
+LocalTime ahora = LocalTime.now();
+System.out.println("Hora actual: " + ahora);  // 14:30:45.123456789
+
+// 2. Hora específica (hora, minuto)
+LocalTime hora1 = LocalTime.of(14, 30);
+System.out.println(hora1);  // 14:30
+
+// 3. Hora específica (hora, minuto, segundo)
+LocalTime hora2 = LocalTime.of(14, 30, 45);
+System.out.println(hora2);  // 14:30:45
+
+// 4. Hora específica (hora, minuto, segundo, nanosegundo)
+LocalTime hora3 = LocalTime.of(14, 30, 45, 123456789);
+System.out.println(hora3);  // 14:30:45.123456789
+
+// 5. Desde un String (formato ISO: HH:mm:ss)
+LocalTime hora4 = LocalTime.parse("10:25:45");
+System.out.println(hora4);  // 10:25:45
+
+// 6. Constantes predefinidas
+LocalTime medianoche = LocalTime.MIDNIGHT;  // 00:00
+LocalTime mediodia = LocalTime.NOON;        // 12:00
+LocalTime maxima = LocalTime.MAX;           // 23:59:59.999999999
+LocalTime minima = LocalTime.MIN;           // 00:00</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Obtener componentes y operar con horas</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>LocalTime hora = LocalTime.of(14, 30, 45);
+
+// Obtener componentes
+int h = hora.getHour();          // 14
+int m = hora.getMinute();        // 30
+int s = hora.getSecond();        // 45
+int n = hora.getNano();          // 0
+
+System.out.println("Hora: " + h + ":" + m + ":" + s);
+
+// Sumar tiempo
+LocalTime masHoras = hora.plusHours(2);        // 16:30:45
+LocalTime masMinutos = hora.plusMinutes(15);   // 14:45:45
+LocalTime masSegundos = hora.plusSeconds(30);  // 14:31:15
+
+// Restar tiempo
+LocalTime menosHoras = hora.minusHours(1);     // 13:30:45
+
+// Modificar componentes
+LocalTime nuevaHora = hora.withHour(20);       // 20:30:45
+LocalTime nuevoMinuto = hora.withMinute(0);    // 14:00:45
+
+System.out.println("Hora + 2h: " + masHoras);
+System.out.println("Hora - 1h: " + menosHoras);</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8.3 LOCALDATETIME -->
+                <div class="lesson-section">
+                    <h2 class="section-title">8.3. Clase LocalDateTime</h2>
+                    <div class="text-content">
+                        <div class="highlight-box">
+                            <h3>📅⏰ LocalDateTime - Fecha y hora juntas</h3>
+                            <p>La clase <code>LocalDateTime</code> combina fecha y hora.</p>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Crear y usar LocalDateTime</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>import java.time.LocalDateTime;
+import java.time.LocalDate;
+import java.time.LocalTime;
+
+// 1. Fecha y hora actual
+LocalDateTime ahora = LocalDateTime.now();
+System.out.println("Ahora: " + ahora);  // 2025-11-02T14:30:45.123456789
+
+// 2. Fecha y hora específicas
+LocalDateTime momento = LocalDateTime.of(2025, 12, 25, 20, 30, 0);
+System.out.println(momento);  // 2025-12-25T20:30
+
+// 3. Combinar LocalDate y LocalTime
+LocalDate fecha = LocalDate.of(2025, 11, 2);
+LocalTime hora = LocalTime.of(14, 30);
+LocalDateTime combinado = LocalDateTime.of(fecha, hora);
+System.out.println(combinado);  // 2025-11-02T14:30
+
+// 4. Desde un String
+LocalDateTime parseado = LocalDateTime.parse("2025-11-02T14:30:45");
+System.out.println(parseado);  // 2025-11-02T14:30:45
+
+// 5. Extraer fecha u hora
+LocalDate soloFecha = ahora.toLocalDate();
+LocalTime soloHora = ahora.toLocalTime();
+System.out.println("Solo fecha: " + soloFecha);
+System.out.println("Solo hora: " + soloHora);
+
+// Operaciones: igual que LocalDate y LocalTime
+LocalDateTime mañana = ahora.plusDays(1);
+LocalDateTime enDosHoras = ahora.plusHours(2);
+System.out.println("Mañana a esta hora: " + mañana);
+System.out.println("En dos horas: " + enDosHoras);</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8.4 PERIOD -->
+                <div class="lesson-section">
+                    <h2 class="section-title">8.4. Clase Period</h2>
+                    <div class="text-content">
+                        <div class="highlight-box">
+                            <h3>📏 Period - Períodos de tiempo</h3>
+                            <p>La clase <code>Period</code> representa un período de tiempo en años, meses y días.</p>
+                            <p>Se usa para medir diferencias entre fechas o sumar/restar períodos.</p>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Crear y usar Period</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>import java.time.Period;
+import java.time.LocalDate;
+
+// 1. Crear períodos específicos
+Period unAño = Period.ofYears(1);
+Period dosMeses = Period.ofMonths(2);
+Period tresDias = Period.ofDays(3);
+Period completo = Period.of(1, 2, 3);  // 1 año, 2 meses, 3 días
+
+// 2. Calcular período entre dos fechas
+LocalDate inicio = LocalDate.of(2020, 1, 15);
+LocalDate fin = LocalDate.of(2025, 11, 2);
+Period periodo = Period.between(inicio, fin);
+
+System.out.println("Período entre fechas: " + periodo);
+System.out.println("Años: " + periodo.getYears());      // 5
+System.out.println("Meses: " + periodo.getMonths());    // 9
+System.out.println("Días: " + periodo.getDays());       // 18
+
+// 3. Usar Period para sumar a una fecha
+LocalDate hoy = LocalDate.now();
+LocalDate futuro = hoy.plus(Period.ofMonths(6));
+System.out.println("Dentro de 6 meses: " + futuro);
+
+// 4. Obtener total en meses o días
+long meses = periodo.toTotalMonths();  // Total de meses (años*12 + meses)
+System.out.println("Total meses: " + meses);</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="info-box">
+                            <strong>💡 Importante:</strong> Period trabaja con unidades de FECHA (años, meses, días). Para unidades de TIEMPO (horas, minutos, segundos) usa <code>Duration</code>.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8.5 DURATION -->
+                <div class="lesson-section">
+                    <h2 class="section-title">8.5. Clase Duration</h2>
+                    <div class="text-content">
+                        <div class="highlight-box">
+                            <h3>⏱️ Duration - Duraciones de tiempo</h3>
+                            <p>La clase <code>Duration</code> representa una duración de tiempo en horas, minutos, segundos y nanosegundos.</p>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Crear y usar Duration</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>import java.time.Duration;
+import java.time.LocalTime;
+import java.time.LocalDateTime;
+
+// 1. Crear duraciones específicas
+Duration dosHoras = Duration.ofHours(2);
+Duration treintaMin = Duration.ofMinutes(30);
+Duration cuarentaySeg = Duration.ofSeconds(45);
+
+// 2. Calcular duración entre dos horas
+LocalTime inicio = LocalTime.of(9, 30);
+LocalTime fin = LocalTime.of(14, 45);
+Duration duracion = Duration.between(inicio, fin);
+
+System.out.println("Duración: " + duracion);
+System.out.println("En horas: " + duracion.toHours());        // 5
+System.out.println("En minutos: " + duracion.toMinutes());    // 315
+System.out.println("En segundos: " + duracion.getSeconds());  // 18900
+
+// 3. Usar con LocalDateTime
+LocalDateTime momento1 = LocalDateTime.of(2025, 11, 2, 10, 0);
+LocalDateTime momento2 = LocalDateTime.of(2025, 11, 2, 15, 30);
+Duration diferencia = Duration.between(momento1, momento2);
+System.out.println("Diferencia: " + diferencia);  // PT5H30M
+
+// 4. Sumar duración a una hora
+LocalTime ahora = LocalTime.now();
+LocalTime despues = ahora.plus(Duration.ofMinutes(90));
+System.out.println("Dentro de 90 minutos: " + despues);</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="warning-box">
+                            <strong>⚠️ Period vs Duration:</strong>
+                            <ul>
+                                <li><code>Period</code> → Para FECHAS (años, meses, días)</li>
+                                <li><code>Duration</code> → Para HORAS (horas, minutos, segundos)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8.6 DATETIMEFORMATTER -->
+                <div class="lesson-section">
+                    <h2 class="section-title">8.6. Clase DateTimeFormatter</h2>
+                    <div class="text-content">
+                        <div class="highlight-box">
+                            <h3>🎨 DateTimeFormatter - Formatear fechas y horas</h3>
+                            <p>La clase <code>DateTimeFormatter</code> permite convertir fechas/horas a String con formatos personalizados.</p>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Formatos predefinidos</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+LocalDateTime ahora = LocalDateTime.now();
+
+// Formatos ISO predefinidos
+String iso = ahora.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+System.out.println("ISO: " + iso);  // 2025-11-02T14:30:45.123456789
+
+// Formatos básicos predefinidos
+String basico = ahora.format(DateTimeFormatter.BASIC_ISO_DATE);
+System.out.println("Básico: " + basico);  // 20251102</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="concept-card">
+                            <h4>📋 Patrones de formato personalizados</h4>
+                            <table class="comparison-table">
+                                <thead>
+                                    <tr>
+                                        <th>Símbolo</th>
+                                        <th>Significado</th>
+                                        <th>Ejemplo</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>y</td><td>Año</td><td>2025</td></tr>
+                                    <tr><td>M</td><td>Mes</td><td>11 o Nov</td></tr>
+                                    <tr><td>d</td><td>Día del mes</td><td>02</td></tr>
+                                    <tr><td>E</td><td>Día de la semana</td><td>Sat</td></tr>
+                                    <tr><td>H</td><td>Hora (0-23)</td><td>14</td></tr>
+                                    <tr><td>h</td><td>Hora (1-12)</td><td>02</td></tr>
+                                    <tr><td>m</td><td>Minuto</td><td>30</td></tr>
+                                    <tr><td>s</td><td>Segundo</td><td>45</td></tr>
+                                    <tr><td>a</td><td>AM/PM</td><td>PM</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Formatos personalizados</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+LocalDateTime ahora = LocalDateTime.now();
+
+// Crear formateadores personalizados
+DateTimeFormatter formato1 = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+DateTimeFormatter formato2 = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+DateTimeFormatter formato3 = DateTimeFormatter.ofPattern("EEEE, d 'de' MMMM 'de' yyyy");
+DateTimeFormatter formato4 = DateTimeFormatter.ofPattern("hh:mm a");
+
+// Formatear la fecha/hora
+String f1 = ahora.format(formato1);
+String f2 = ahora.format(formato2);
+String f3 = ahora.format(formato3);
+String f4 = ahora.format(formato4);
+
+System.out.println("Formato 1: " + f1);  // 02/11/2025
+System.out.println("Formato 2: " + f2);  // 02-11-2025 14:30:45
+System.out.println("Formato 3: " + f3);  // sábado, 2 de noviembre de 2025
+System.out.println("Formato 4: " + f4);  // 02:30 PM</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Parsear (convertir String a fecha)</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+// Definir el formato del String
+DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+// Convertir String a LocalDate
+String fechaTexto = "25/12/2025";
+LocalDate fecha = LocalDate.parse(fechaTexto, formato);
+
+System.out.println("Fecha parseada: " + fecha);  // 2025-12-25
+
+// Ahora podemos operar con la fecha
+LocalDate unaSemanaAntes = fecha.minusWeeks(1);
+System.out.println("Una semana antes: " + unaSemanaAntes);</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="success-box">
+                            <strong>✅ Flujo completo:</strong>
+                            <ol>
+                                <li>Usuario introduce fecha como String: <code>"25/12/2025"</code></li>
+                                <li>Parsear a LocalDate usando DateTimeFormatter</li>
+                                <li>Realizar operaciones (sumar, restar, comparar...)</li>
+                                <li>Formatear de nuevo a String para mostrar al usuario</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+</html>

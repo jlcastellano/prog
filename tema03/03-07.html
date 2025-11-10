@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utilización de objetos</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/vs2015.min.css">
+
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">Programación Orientada a Objetos</div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <main class="main-content">
+            <div class="content-header">
+                <h1 id="page-title" class="content-title">Utilización de Objetos</h1>
+                <p id="page-subtitle" class="content-subtitle">Fundamentos de la Programación Orientada a Objetos en Java</p>
+            </div>
+                <!-- 7. CONSOLA -->
+                <div class="lesson-section">
+                    <h2 class="section-title">7. Programación de la Consola: Entrada y Salida</h2>
+                    <div class="text-content">
+                        <div class="highlight-box">
+                            <h3>🖥️ Clase System</h3>
+                            <p>En Java, la entrada por teclado y salida por pantalla se hace mediante la clase <code>System</code> del paquete <code>java.lang</code>.</p>
+                        </div>
+
+                        <div class="concept-card">
+                            <h4>📋 Tres objetos de System para E/S</h4>
+                            <ul>
+                                <li><code>System.in</code> → <b>Entrada estándar</b> (teclado)</li>
+                                <li><code>System.out</code> → <b>Salida estándar</b> (pantalla)</li>
+                                <li><code>System.err</code> → <b>Salida de error estándar</b> (mensajes de error)</li>
+                            </ul>
+                        </div>
+
+                        <div class="info-box">
+                            <strong>💡 Importante:</strong> NO se pueden crear objetos de la clase <code>System</code>. Se usa directamente llamando a sus métodos estáticos con el operador punto.
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Ejemplo básico de salida</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>System.out.println("Bienvenido a Java");</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7.2 ENTRADA POR TECLADO - CLASE SCANNER -->
+                <div class="lesson-section">
+                    <h2 class="section-title">7.3. Entrada por Teclado: Clase Scanner</h2>
+                    <div class="text-content">
+                        <div class="highlight-box">
+                            <h3>⌨️ Clase Scanner</h3>
+                            <p>Desde Java 1.5, la clase <code>java.util.Scanner</code> permite leer fácilmente diferentes tipos de datos por teclado.</p>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Crear un Scanner</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>import java.util.Scanner;
+
+public class MiPrograma {
+    public static void main(String[] args) {
+        // Crear objeto Scanner asociado al teclado (System.in)
+        Scanner teclado = new Scanner(System.in);
+        
+        // Ahora podemos leer datos
+    }
+}</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="concept-card">
+                            <h4>📋 Métodos principales de Scanner</h4>
+                            <table class="comparison-table">
+                                <thead>
+                                    <tr>
+                                        <th>Método</th>
+                                        <th>Descripción</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><code>nextInt()</code></td>
+                                        <td>Lee un número entero</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>nextDouble()</code></td>
+                                        <td>Lee un número decimal</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>next()</code></td>
+                                        <td>Lee una palabra (hasta espacio)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>nextLine()</code></td>
+                                        <td>Lee una línea completa</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>nextBoolean()</code></td>
+                                        <td>Lee un booleano (true/false)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Ejemplo completo de uso de Scanner</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>import java.util.Scanner;
+
+public class EjemploScanner {
+    public static void main(String[] args) {
+        Scanner teclado = new Scanner(System.in);
+        
+        // Leer un entero
+        System.out.print("Introduce tu edad: ");
+        int edad = teclado.nextInt();
+        
+        // Leer un decimal
+        System.out.print("Introduce tu altura (en metros): ");
+        double altura = teclado.nextDouble();
+        
+        // Limpiar el buffer antes de leer String
+        teclado.nextLine();
+        
+        // Leer una línea completa
+        System.out.print("Introduce tu nombre completo: ");
+        String nombre = teclado.nextLine();
+        
+        // Mostrar resultados
+        System.out.println("\n--- Datos introducidos ---");
+        System.out.println("Nombre: " + nombre);
+        System.out.println("Edad: " + edad + " años");
+        System.out.println("Altura: " + altura + " m");
+        
+        // Cerrar el Scanner
+        teclado.close();
+    }
+}</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="warning-box">
+                            <strong>⚠️ Problema común:</strong> Después de usar <code>nextInt()</code> o <code>nextDouble()</code>, si vas a usar <code>nextLine()</code>, necesitas hacer un <code>nextLine()</code> extra para limpiar el buffer (salto de línea pendiente).
+                        </div>
+
+                    <div class="text-content">
+                        <div class="text-content">
+                            <h3>Otra solución al fallo de Scanner</h3>
+                            <p>Para evitar estos errores, nos podemos a acostrumbrar a usar únicamente el método <code>nextLine()</code> y parsear su resultado:</p>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Otra solución al fallo de Scanner</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>import java.util.Scanner;
+
+public class MiPrograma {
+    public static void main(String[] args) {
+        Scanner teclado = new Scanner(System.in);
+
+        int numero = Integer.parseInt(teclado.nextLine());
+
+        double decimal = Double.parseDouble(teclado.nextLine());
+    }
+}</code></pre>
+                            </div>
+                        </div>                        
+                    </div>
+                </div>
+
+                <!-- 7.4 SALIDA POR PANTALLA -->
+                <div class="lesson-section">
+                    <h2 class="section-title">7.4. Salida por Pantalla</h2>
+                    <div class="text-content">
+                        <p>Para mostrar información por pantalla usamos <code>System.out</code>, que es una instancia de la clase <code>PrintStream</code>.</p>
+
+                        <div class="concept-card">
+                            <h4>📋 Métodos de salida</h4>
+                            <table class="comparison-table">
+                                <thead>
+                                    <tr>
+                                        <th>Método</th>
+                                        <th>Descripción</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><code>print(String s)</code></td>
+                                        <td>Escribe un texto (sin salto de línea)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>println(String s)</code></td>
+                                        <td>Escribe un texto y termina la línea</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>printf(String format, ...)</code></td>
+                                        <td>Escribe con formato</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Ejemplos de print y println</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>String nombre = "Carlos";
+
+// println: escribe y salta de línea
+System.out.println("Hola");
+System.out.println("Mundo");
+// Resultado:
+// Hola
+// Mundo
+
+// print: escribe sin saltar de línea
+System.out.print("Hola ");
+System.out.print("Mundo");
+// Resultado: Hola Mundo
+
+// Concatenar con el operador +
+System.out.println("Bienvenido, " + nombre);
+// Resultado: Bienvenido, Carlos</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="concept-card">
+                            <h4>🎨 Método printf (con formato)</h4>
+                            <p>Permite formatear la salida con códigos de conversión:</p>
+                            <table class="comparison-table">
+                                <thead>
+                                    <tr>
+                                        <th>Código</th>
+                                        <th>Tipo</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><code>%c</code></td><td>Carácter</td></tr>
+                                    <tr><td><code>%s</code></td><td>Cadena de texto</td></tr>
+                                    <tr><td><code>%d</code></td><td>Entero</td></tr>
+                                    <tr><td><code>%f</code></td><td>Número decimal</td></tr>
+                                    <tr><td><code>%e</code></td><td>Notación científica</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Ejemplos de printf</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>// Formatear un número decimal con 2 decimales y separador de miles
+System.out.printf("%,.2f", 12345.1684);
+// Resultado: 12.345,17
+
+// Varios valores
+String nombre = "Ana";
+int edad = 25;
+double altura = 1.65;
+
+System.out.printf("Nombre: %s, Edad: %d, Altura: %.2f m\n", nombre, edad, altura);
+// Resultado: Nombre: Ana, Edad: 25, Altura: 1.65 m
+
+// Secuencias de escape
+System.out.println("Primera línea\nSegunda línea");  // \n = salto de línea
+System.out.println("Columna1\tColumna2");            // \t = tabulación</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="warning-box">
+                            <strong>⚠️ Importante:</strong> El formateo solo afecta a cómo se MUESTRA el valor, NO cambia el valor almacenado en la variable.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7.5 SALIDA DE ERROR -->
+                <div class="lesson-section">
+                    <h2 class="section-title">7.5. Salida de Error</h2>
+                    <div class="text-content">
+                        <p>La salida de error está representada por <code>System.err</code>, también de clase <code>PrintStream</code>.</p>
+
+                        <div class="info-box">
+                            <strong>💡 Diferencia entre out y err:</strong>
+                            <ul>
+                                <li><code>System.out</code> → Mensajes normales</li>
+                                <li><code>System.err</code> → Mensajes de error</li>
+                            </ul>
+                            <p>Por defecto ambos van a la misma pantalla, pero en algunos entornos <code>err</code> se muestra en color diferente (normalmente rojo).</p>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Ejemplo de System.err</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>System.out.println("Este es un mensaje normal");
+System.err.println("¡ERROR! Algo ha ido mal");
+
+// En muchos entornos, el mensaje de error aparecerá en rojo</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+     </div>
+        </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+</html>

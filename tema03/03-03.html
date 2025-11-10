@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utilización de objetos</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/vs2015.min.css">
+
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">Programación Orientada a Objetos</div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <main class="main-content">
+            <div class="content-header">
+                <h1 id="page-title" class="content-title">Utilización de Objetos</h1>
+                <p id="page-subtitle" class="content-subtitle">Fundamentos de la Programación Orientada a Objetos en Java</p>
+            </div>
+                <!-- 3. CLASES Y OBJETOS -->
+                <div class="lesson-section">
+                    <h2 class="section-title">3. Clases y Objetos</h2>
+                    <div class="text-content">
+                        <div class="highlight-box">
+                            <h3>🎯 Concepto fundamental</h3>
+                            <p><b>Objeto:</b> Conjunto de datos con las operaciones definidas para ellos. Los objetos tienen un <b>estado</b> y un <b>comportamiento</b>.</p>
+                        </div>
+
+                        <p>Un objeto software es una representación de un objeto del mundo real. Para resolver un problema, debes identificar los objetos presentes y trasladarlos al modelo computacional.</p>
+
+                        <div class="concept-card">
+                            <h4>🆔 Identidad</h4>
+                            <p>Característica que permite diferenciar un objeto de otro, aunque sean exactamente iguales en sus atributos.</p>
+                            <p><b>Ejemplo:</b> Dos vehículos idénticos son distintos porque tienen diferente número de bastidor.</p>
+                        </div>
+
+                        <div class="concept-card">
+                            <h4>📊 Estado</h4>
+                            <p>Determinado por propiedades o atributos que describen el objeto y sus valores.</p>
+                            <p><b>Ejemplo:</b> Para un <code>Vehículo</code>: marca, modelo, color, cilindrada.</p>
+                        </div>
+
+                        <div class="concept-card">
+                            <h4>⚡ Comportamiento</h4>
+                            <p>Acciones que se pueden realizar sobre el objeto (métodos o procedimientos).</p>
+                            <p><b>Ejemplo:</b> Para un <code>Vehículo</code>: arrancar, parar, acelerar, frenar.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3.1 PROPIEDADES Y MÉTODOS -->
+                <div class="lesson-section">
+                    <h2 class="section-title">3.1. Propiedades y Métodos de los Objetos</h2>
+                    <div class="text-content">
+                        <p>Las partes de un objeto son:</p>
+
+                        <div class="structure-examples">
+                            <div class="concept-card">
+                                <h4>📋 Atributos, campos o propiedades</h4>
+                                <p>Parte del objeto que almacena los datos. También llamadas <b>variables miembro</b>.</p>
+                                <p>Pueden ser de cualquier tipo primitivo (<code>boolean</code>, <code>char</code>, <code>int</code>, <code>double</code>) o referencias a otros objetos.</p>
+                                <p><b>Ejemplo:</b> Un objeto <code>Vehículo</code> puede contener varios objetos <code>Rueda</code>.</p>
+                            </div>
+
+                            <div class="concept-card">
+                                <h4>⚙️ Métodos o funciones miembro</h4>
+                                <p>Parte del objeto que lleva a cabo operaciones sobre los atributos.</p>
+                                <p>Los métodos son la <b>única forma</b> de manipular la información del objeto.</p>
+                                <p><b>Ejemplo:</b> Para conocer el valor de un atributo, usas el método que muestra ese valor.</p>
+                            </div>
+                        </div>
+
+                        <div class="info-box">
+                            <strong>🔐 Encapsulación:</strong> Los atributos y métodos están <b>encapsulados</b> dentro del objeto. La única forma de manipular la información es a través de los métodos definidos, evitando alteraciones inadecuadas.
+                        </div>
+
+                        <div class="diagram-container">
+                            <img src="imagen03-01.jpg" alt="Estructura de un objeto con atributos y métodos">
+                            <p><i>Estructura de un objeto: atributos (datos) y métodos (acciones) encapsulados</i></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3.2 INTERACCIÓN ENTRE OBJETOS -->
+                <div class="lesson-section">
+                    <h2 class="section-title">3.2. Interacción entre Objetos</h2>
+                    <div class="text-content">
+                        <div class="highlight-box">
+                            <h3>💬 Comunicación entre objetos</h3>
+                            <p><b>Mensaje:</b> Solicitud a un objeto para que realice una determinada acción.</p>
+                            <p><b>Método:</b> Función o procedimiento que se llama para actuar sobre un objeto (enviarle un mensaje).</p>
+                        </div>
+
+                        <p>Los objetos se comunican llamando unos a los métodos de otros. Cuando un objeto (objeto1) quiere actuar sobre otro (objeto2), ejecuta uno de sus métodos. Entonces se dice que objeto2 recibe un mensaje de objeto1.</p>
+
+                        <p><b>Protocolo de un objeto:</b> Conjunto de mensajes a los que puede responder.</p>
+
+                        <div class="concept-card">
+                            <h4>🔄 Proceso de interacción</h4>
+                            <p>Cuando se ejecuta un programa:</p>
+                            <ol>
+                                <li><b>Creación</b> de objetos a medida que se necesitan</li>
+                                <li><b>Comunicación</b> entre objetos mediante envío de mensajes</li>
+                                <li><b>Eliminación</b> de objetos cuando ya no son necesarios (libera memoria)</li>
+                            </ol>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Ejemplo de interacción entre objetos</span>
+                                <span class="language-badge">Concepto</span>
+                            </div>
+                            <div class="code-content">
+                                <pre><code>// objeto1 envía un mensaje a objeto2
+objeto2.realizarAccion();
+
+// El proceso: objeto1 quiere que objeto2 ejecute el método realizarAccion()
+// objeto2 recibe el mensaje y ejecuta el código del método</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3.3 CLASES -->
+                <div class="lesson-section">
+                    <h2 class="section-title">3.3. Clases</h2>
+                    <div class="text-content">
+                        <div class="highlight-box">
+                            <h3>🍪 La metáfora de las galletas</h3>
+                            <p>Piensa en la producción industrial de galletas. No necesitas hacer una sola galleta, sino un montón de ellas.</p>
+                            <p>Para ello usas un <b>molde</b> que establece cómo será cada galleta.</p>
+                            <p>En programación: <b>CLASE = molde</b> / <b>OBJETOS = galletas</b></p>
+                        </div>
+
+                        <p>Un programa se compone de muchos objetos, algunos comparten estructura y comportamiento. En lugar de definir cada objeto por separado (código redundante), creamos una <b>clase</b> que describe el conjunto de objetos similares.</p>
+
+                        <div class="concept-card">
+                            <h4>📚 Definición de Clase</h4>
+                            <p>Una <b>clase</b> es una descripción de un conjunto de objetos que comparten una estructura y un comportamiento común.</p>
+                            <p>A partir de la clase, se crean tantas "copias" o "instancias" como necesitemos. Esas copias son los <b>objetos de la clase</b>.</p>
+                        </div>
+
+                        <div class="success-box">
+                            <strong>✅ Componentes de una clase:</strong>
+                            <ul>
+                                <li>Atributos comunes a todos los objetos de la clase</li>
+                                <li>Métodos que pueden utilizarse para manejar esos objetos</li>
+                            </ul>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Estructura de una clase en Java</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>// CABECERA: modificadores + class + nombre
+public class NombreClase {
+    // CUERPO: atributos y métodos entre llaves
+    
+    // Atributos (variables miembro)
+    tipo atributo1;
+    tipo atributo2;
+    
+    // Métodos (funciones miembro)
+    tipoRetorno nombreMetodo(parametros) {
+        // código del método
+    }
+}</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="info-box">
+                            <strong>💡 Por ahora:</strong> La única clase que implementaremos es la clase principal que contiene nuestro programa dentro del método <code>main</code>. Utilizaremos clases ya implementadas de la API de Java.
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Clase principal con método main</span>
+                                <span class="language-badge">Java</span>
+                            </div>
+                            <div class="code-content">
+                                <button class="copy-button">Copiar</button>
+                                <pre><code>public class MiPrograma {
+    // El método main indica que es la clase principal
+    // Aquí empieza la ejecución del programa
+    public static void main(String[] args) {
+        // Todo nuestro programa va aquí
+    }
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+    
+            </div>
+        </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+</html>

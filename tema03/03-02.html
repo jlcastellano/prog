@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utilización de objetos</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/vs2015.min.css">
+
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">Programación Orientada a Objetos</div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <main class="main-content">
+            <div class="content-header">
+                <h1 id="page-title" class="content-title">Utilización de Objetos</h1>
+                <p id="page-subtitle" class="content-subtitle">Fundamentos de la Programación Orientada a Objetos en Java</p>
+            </div>
+
+               <!-- 2. FUNDAMENTOS POO -->
+                <div class="lesson-section">
+                    <h2 class="section-title">2. Fundamentos de la Programación Orientada a Objetos</h2>
+                    <div class="text-content">
+                        <p>Existen dos paradigmas fundamentales de programación:</p>
+
+                        <div class="structure-examples">
+                            <div class="concept-card">
+                                <h4>Programación Estructurada</h4>
+                                <p>Se centra en <b>acciones o verbos</b>. El problema se descompone en funciones o procedimientos que definen las acciones a realizar.</p>
+                                <p><b>Ejemplo:</b> Resolver ecuación → pedir coeficientes, calcular resultado, mostrar resultado.</p>
+                                <p><b>Problema:</b> Datos y funciones están separados. Cualquier cambio en los datos puede requerir modificar todas las funciones.</p>
+                            </div>
+
+                            <div class="concept-card">
+                                <h4>Programación Orientada a Objetos</h4>
+                                <p>Se centra en <b>objetos (sustantivos)</b>. El problema se descompone en objetos que tienen datos y acciones juntos.</p>
+                                <p><b>Ejemplo:</b> Lavadora → tiene motor, tambor, cables (datos) y programas de lavado (acciones).</p>
+                                <p><b>Ventaja:</b> Datos y funciones están encapsulados. Los cambios en un objeto sólo afectan a ese objeto.</p>
+                            </div>
+                        </div>
+
+                        <div class="highlight-box">
+                            <h3>Diferencia clave</h3>
+                            <p><b>Programación Estructurada:</b> División de procesos y datos (separados).</p>
+                            <p><b>Programación Orientada a Objetos:</b> Relación entre datos y acciones (juntos dentro del objeto).</p>
+                        </div>
+
+                        <div class="success-box">
+                            <strong>La POO aborda los problemas de forma más natural:</strong> Está más en contacto con el mundo que nos rodea, es más cercana a nuestra forma de analizar, entender y resolver problemas.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2.2 BENEFICIOS -->
+                <div class="lesson-section">
+                    <h2 class="section-title">2.2. Beneficios de la POO</h2>
+                    <div class="text-content">
+                        <p>Un <b>objeto</b> es cualquier entidad que podemos ver o apreciar. Utilizar objetos aporta múltiples ventajas:</p>
+
+                        <div class="benefits-grid">
+                            <div class="benefit-item">
+                                <h4>📖 Comprensión</h4>
+                                <p>Los conceptos del problema real están reflejados en el código. La lectura del código describe la solución en términos del mundo real.</p>
+                            </div>
+
+                            <div class="benefit-item">
+                                <h4>🧩 Modularidad</h4>
+                                <p>Los objetos se definen en módulos o archivos independientes. Las aplicaciones están mejor organizadas y son más fáciles de entender.</p>
+                            </div>
+
+                            <div class="benefit-item">
+                                <h4>🔧 Fácil mantenimiento</h4>
+                                <p>Cualquier modificación en las acciones queda reflejada en los datos automáticamente. Más fácil localizar y corregir errores.</p>
+                            </div>
+
+                            <div class="benefit-item">
+                                <h4>🔒 Seguridad</h4>
+                                <p>No puedes modificar los datos directamente, sino mediante las acciones definidas. Menos probabilidad de errores.</p>
+                            </div>
+
+                            <div class="benefit-item">
+                                <h4>♻️ Reusabilidad</h4>
+                                <p>Los objetos son entidades reutilizables. Puedes usar definiciones de objetos de otros programas sin crearlos de nuevo.</p>
+                            </div>
+                        </div>
+
+                 
+                    </div>
+                </div>
+
+                <!-- 2.3 CARACTERÍSTICAS -->
+                <div class="lesson-section">
+                    <h2 class="section-title">2.3. Características de la POO</h2>
+                    <div class="text-content">
+                        <p>Cualquier lenguaje orientado a objetos debe cumplir estas características fundamentales:</p>
+
+                        <div class="concept-card">
+                            <h4>🎨 Abstracción</h4>
+                            <p>Proceso de definir las características más importantes de un objeto sin preocuparnos de cómo se escribirán en el código.</p>
+                            <p><b>Herramienta:</b> La <b>clase</b>. Agrupa características comunes de un conjunto de objetos.</p>
+                            <p><b>Ejemplo:</b> La clase <code>Vehículo</code> es una abstracción de <code>Coche</code> y <code>Camión</code>.</p>
+                        </div>
+
+                        <div class="concept-card">
+                            <h4>📦 Modularidad</h4>
+                            <p>Cada clase se encuentra en un archivo diferente. Puedes modificar una clase sin afectar al resto de la aplicación.</p>
+                        </div>
+
+                        <div class="concept-card">
+                            <h4>🔐 Encapsulación (Ocultamiento de información)</h4>
+                            <p>Mecanismo para ocultar la información interna de un objeto. Un objeto puede ocultar o restringir el acceso a su información.</p>
+                            <p><b>Ejemplo:</b> Una <code>Persona</code> usa un <code>Coche</code> mediante la acción "conducir", sin saber cómo funciona internamente el motor.</p>
+                        </div>
+
+                        <div class="concept-card">
+                            <h4>📊 Jerarquía</h4>
+                            <p>Define relaciones entre clases y objetos. Dos jerarquías importantes:</p>
+                            <ul>
+                                <li><b>Generalización/Especialización (Herencia):</b> "es un". Ejemplo: <code>CocheDeCarreras</code> es un <code>Coche</code>.</li>
+                                <li><b>Agregación (Inclusión):</b> "es parte de". Ejemplo: <code>Motor</code>, <code>Ruedas</code>, <code>Frenos</code> son parte de <code>Coche</code>.</li>
+                            </ul>
+                        </div>
+
+                        <div class="concept-card">
+                            <h4>🎭 Polimorfismo</h4>
+                            <p>Capacidad de que varias clases realicen una misma acción de forma diferente.</p>
+                            <p><b>Ejemplo:</b> La clase <code>Animal</code> tiene la acción "expresarse". Los <code>Perros</code> ladran, los <code>Gatos</code> maúllan, las <code>Personas</code> hablamos.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2.4 LENGUAJES POO -->
+                <div class="lesson-section">
+                    <h2 class="section-title">2.4. Evolución de los Lenguajes POO</h2>
+                    <div class="text-content">
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <h4>1962 - Simula</h4>
+                                <p>Primer lenguaje que introdujo el concepto de <b>clase</b> como elemento que incorpora datos y operaciones sobre esos datos.</p>
+                            </div>
+
+                            <div class="timeline-item">
+                                <h4>1972 - SmallTalk</h4>
+                                <p>Primera versión totalmente orientada a objetos. Introdujo el patrón Modelo-Vista-Controlador (MVC). Influyó en C++ y Java.</p>
+                            </div>
+
+                            <div class="timeline-item">
+                                <h4>1985 - C++</h4>
+                                <p>Deriva de C, añade mecanismos de orientación a objetos. Introduce el concepto de clase tal como lo conocemos actualmente.</p>
+                            </div>
+
+                            <div class="timeline-item">
+                                <h4>1995 - Java</h4>
+                                <p>Lenguaje orientado a objetos diseñado desde cero. Recibe influencias de C++. Produce bytecode interpretado por la máquina virtual.</p>
+                            </div>
+
+                            <div class="timeline-item">
+                                <h4>2000 - C#</h4>
+                                <p>Creado por Microsoft como ampliación de C con orientación a objetos. Basado en C++ y Java, evita problemas de diseño de C++.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+           
+            </div>
+        </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+</html>
